@@ -23,8 +23,8 @@
   </thead>
 </table>
 <!--添加电影-->
-<div id="dlg" class="easyui-dialog" title="添加" closed="true" data-options="iconCls:'icon-save',autoOpen:false" style="width:40%;height:600px;padding:10px">
-  <form id="ff" method="post">
+<div id="dlg" class="easyui-dialog" title="添加" closed="true" data-options="iconCls:'icon-save',autoOpen:false" style="width:40%;height:600px;padding:10px 50px">
+  <form id="add_movie" method="post" name="movie">
     <div style="margin-bottom:20px">
       <input class="easyui-textbox" name="name" style="width:50%" data-options="label:'名称:'">
     </div>
@@ -55,8 +55,6 @@
     <div style="margin-bottom:20px">
       <input class="easyui-datetimebox" name="show_time"  label="上映时间:"  style="width:50%;">
     </div>
-
-
     <div style="margin-bottom:20px">
       <select class="easyui-combobox" name="movie_tag" label="电影类别" style="width:50%">
         <option value="ar">Arabic</option><option value="bg">Bulgarian</option><option value="ca">Catalan</option>
@@ -78,4 +76,9 @@
 
 
   </form>
+
+  <div style="text-align:center;padding:5px 0">
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="add_movie()" style="width:80px">保存</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="" style="width:80px">Clear</a>
+  </div>
 </div>

@@ -2,7 +2,7 @@ var url;
 function newUser(){
     $('#dlg').dialog('open').dialog('center').dialog('setTitle','New User');
     $('#fm').form('clear');
-    url = 'save_user.php';
+    url = '/movies';
 }
 function editUser(){
     var row = $('#dg').datagrid('getSelected');
@@ -12,8 +12,8 @@ function editUser(){
         url = 'update_user.php?id='+row.id;
     }
 }
-function saveUser(){
-    $('#fm').form('submit',{
+function add_movie(){
+    $('#add_movie').form('submit',{
         url: url,
         onSubmit: function(){
             return $(this).form('validate');
