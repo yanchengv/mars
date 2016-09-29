@@ -16,4 +16,10 @@ Rails.application.routes.draw do
       get 'show'
     end
   end
+
+  resource 'menus' do
+    collection do
+      post 'list'
+    end
+  end
 end

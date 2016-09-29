@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928030205) do
+ActiveRecord::Schema.define(version: 20160929090318) do
+
+  create_table "menus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "code"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "movie_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.integer  "movie_id"
@@ -30,9 +39,8 @@ ActiveRecord::Schema.define(version: 20160928030205) do
     t.string   "grade"
     t.string   "actors"
     t.string   "abstract"
-    t.date     "year"
     t.string   "image_url"
-    t.datetime "show_time"
+    t.date     "show_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

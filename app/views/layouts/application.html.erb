@@ -21,7 +21,11 @@
   </div>
 
   <div data-options="region:'center',title:'电影列表',iconCls:'icon-ok'">
-    <%= yield %>
+
+    <div class="easyui-tabs" id="tab-container" data-options="fit:true,border:false,plain:true">
+      <%= yield %>
+    </div>
+
   </div>
 
 

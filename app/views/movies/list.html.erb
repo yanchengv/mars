@@ -1,0 +1,72 @@
+<div id="toolbar">
+  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addMovie()">添加</a>
+  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editMovie()">编辑</a>
+  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyMovie()">删除</a>
+</div>
+<table class="easyui-datagrid" id="movie-list"
+       data-options="url:'/movies',method:'get',border:false,singleSelect:true,fit:true,fitColumns:true">
+  <thead>
+  <tr>
+    <th data-options="field:'name',align:'center'" width="100">名称</th>
+    <th data-options="field:'sort',align:'center'" width="100">排行</th>
+    <th data-options="field:'movie_tag',align:'center'" width="100">电影类别</th>
+    <th data-options="field:'level',align:'center'" width="100">是否多集</th>
+    <th data-options="field:'region',align:'center'" width="100">地区</th>
+    <th data-options="field:'grade',align:'center'" width="100">评分</th>
+    <th data-options="field:'actors',align:'center'" width="100">演员</th>
+    <th data-options="field:'abstract',align:'center'" width="100">简介</th>
+    <th data-options="field:'image_url',align:'center'" width="100">图片地址</th>
+    <th data-options="field:'show_time',align:'center'" width="100">上映时间</th>
+    <th data-options="field:'upload_time',align:'center'" width="100">上传时间</th>
+  </tr>
+  </thead>
+</table>
+
+<!--添加电影-->
+<div id="add_movie_dialog" class="easyui-dialog" title="添加" closed="true" data-options="iconCls:'icon-save',autoOpen:false" style="width:40%;height:600px;padding:10px 50px">
+  <form id="save_movie" method="post" name="movie">
+    <div style="margin-bottom:20px">
+      <input class="easyui-textbox" name="name" style="width:50%" data-options="label:'名称:'">
+    </div>
+    <div style="margin-bottom:20px">
+      <input class="easyui-textbox" name="sort" style="width:50%" data-options="label:'排行:'">
+    </div>
+    <div style="margin-bottom:20px">
+      <input class="easyui-textbox" name="region" style="width:50%" data-options="label:'地区:'">
+    </div>
+    <div style="margin-bottom:20px">
+      <input class="easyui-textbox" name="level" style="width:50%" data-options="label:'是否多集:'">
+    </div>
+    <div style="margin-bottom:20px">
+      <input class="easyui-textbox" name="grade" style="width:50%" data-options="label:'评分:'">
+    </div>
+    <div style="margin-bottom:20px">
+      <input class="easyui-textbox" name="actors" style="width:50%;height:50px" data-options="label:'演员:', multiline:true">
+    </div>
+    <div style="margin-bottom:20px">
+      <input class="easyui-textbox" name="abstract" style="width:50%" data-options="label:'简介:',multiline:true">
+    </div>
+
+    <div style="margin-bottom:20px">
+      <input class="easyui-textbox" name="image_url" style="width:50%" data-options="label:'图片地址:'">
+    </div>
+    <div style="margin-bottom:20px">
+      <input class="easyui-datetimebox" name="show_time" data-options="formatter:mydateformatter,parser:mydateparser" label="上映时间:" style="width:50%;">
+    </div>
+    <div style="margin-bottom:20px">
+      <select class="easyui-combobox" name="movie_tag" label="电影类别" style="width:50%">
+        <option value="ar">中国</option>
+        <option value="bg">欧美</option>
+        <option value="ca">日韩</option>
+
+      </select>
+    </div>
+
+
+  </form>
+
+  <div style="text-align:center;padding:5px 0">
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="saveMovie()" style="width:80px">保存</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="" style="width:80px">Clear</a>
+  </div>
+</div>
