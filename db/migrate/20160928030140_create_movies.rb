@@ -9,9 +9,8 @@ class CreateMovies < ActiveRecord::Migration[5.0]
       t.string :grade  # 评分
       t.string :actors  #演员
       t.string :abstract  #简介
-      t.date :year  #年份
       t.string :image_url
-      t.timestamps :show_time #上映时间
+      t.date :show_time #上映时间
       t.timestamps :upload_time #上传时间
       t.timestamps null: false
     end

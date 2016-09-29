@@ -1,19 +1,19 @@
 var url;
-function newUser(){
-    $('#dlg').dialog('open').dialog('center').dialog('setTitle','New User');
-    $('#fm').form('clear');
+function addMovie(){
+    $('#add_movie_dialog').dialog('open').dialog('center').dialog('setTitle','添加电影');
+    $('#add_movie').form('clear');
     url = '/movies';
 }
-function editUser(){
-    var row = $('#dg').datagrid('getSelected');
+function editMovie(){
+    var row = $('#movie-list').datagrid('getSelected');
     if (row){
-        $('#dlg').dialog('open').dialog('center').dialog('setTitle','Edit User');
-        $('#fm').form('load',row);
-        url = 'update_user.php?id='+row.id;
+        $('#add_movie_dialog').dialog('open').dialog('center').dialog('setTitle','编辑电影');
+        $('#save_movie').form('load',row);
+        url = '/movies/update?id='+row.id;
     }
 }
-function add_movie(){
-    $('#add_movie').form('submit',{
+function saveMovie(){
+    $('#save_movie').form('submit',{
         url: url,
         onSubmit: function(){
             return $(this).form('validate');
@@ -26,24 +26,25 @@ function add_movie(){
                     msg: result.errorMsg
                 });
             } else {
-                $('#dlg').dialog('close');        // close the dialog
-                $('#dg').datagrid('reload');    // reload the user data
+                $('#add_movie_dialog').dialog('close');        // close the dialog
+                $('#movie-list').datagrid('reload');    // reload the movie data
             }
         }
     });
 }
-function destroyUser(){
-    var row = $('#dg').datagrid('getSelected');
+function destroyMovie(){
+    var row = $('#movie-list').datagrid('getSelected');
     if (row){
-        $.messager.confirm('Confirm','Are you sure you want to destroy this user?',function(r){
+        $.messager.confirm('Confirm','确定要删除?',function(r){
             if (r){
-                $.post('destroy_user.php',{id:row.id},function(result){
+                $.post('/movies/delete_movie',{id:row.id},function(result){
                     if (result.success){
-                        $('#dg').datagrid('reload');    // reload the user data
+                        $('#movie-list').datagrid('reload');    // reload the user data
                     } else {
                         $.messager.show({    // show error message
                             title: 'Error',
                             msg: result.errorMsg
+
                         });
                     }
                 },'json');

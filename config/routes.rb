@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   resource 'movies' do
     collection do
-
+      post 'delete_movie'
+      post 'update'
     end
   end
 end
