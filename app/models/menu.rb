@@ -7,5 +7,5 @@ t.string :description #菜单描述
 =end
 
 class Menu < ApplicationRecord
-  has_many :sub_menus, -> { where(is_disabled: false)},foreign_key: 'parent_id',class_name: 'Menu',dependent: :destroy
+  has_many :sub_menus, -> { where(is_disabled: 1)},foreign_key: 'parent_id',class_name: 'Menu',dependent: :destroy
 end

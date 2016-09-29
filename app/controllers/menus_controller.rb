@@ -1,46 +1,13 @@
 class MenusController < ApplicationController
 
 
-  def sub_menus parent_menu
-    if parent_menu.sub_menus.empty?
-      sub_atrr = {
-          id: parent_menu.id,
-          text: parent_menu.name
-      }
-      return sub_atrr
-    else
-      children = []
-      parent_menu.sub_menus.each do |pm|
-
-          children2 = sub_menu pm
-          if children2
-            sub_atrr = {
-                id: pm.id,
-                text: pm.name,
-                children: children2
-            }
-
-          end
-
-          children.push(sub_atrr)
-      end
-
-    end
-
-    parent_atrr = {
-        id: parent_menu.id,
-        text: parent_menu.name,
-        children: children
-
-    }
-    return parent_atrr
-  end
 
   def list
     @parent_menus = Menu.where(is_disabled: 1,parent_id: 0)
     parent_menus_arr = []
     @parent_menus.each do |parent_menu|
       parent_menu_atrr = sub_menus parent_menu
+      # 生成easyui-tree的数据格式
       parent_menus_arr.push(parent_menu_atrr)
     end
 
@@ -77,8 +44,44 @@ class MenusController < ApplicationController
     #                      "id":13,
     #                      "text":"关于"
     #                  }]
-    p 99999
-    p parent_menus_arr
+    #
     render json: parent_menus_arr
+  end
+
+
+  private
+
+  # 递归菜单
+  def sub_menus parent_menu
+
+    if parent_menu.sub_menus.empty?
+      # 无子菜单
+      sub_atrr = {
+          id: parent_menu.id,
+          text: parent_menu.name
+      }
+      return sub_atrr
+    else
+      # 有子菜单
+      children = []
+      parent_menu.sub_menus.each do |pm|
+
+        children2 = sub_menus pm
+        children.push(children2)
+      end
+
+    end
+    state = 'open'
+    if !parent_menu.is_state
+      state = 'closed'
+    end
+    parent_atrr = {
+        id: parent_menu.id,
+        text: parent_menu.name,
+        state: state,
+        children: children
+
+    }
+    return parent_atrr
   end
 end
