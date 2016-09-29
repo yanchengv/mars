@@ -9,4 +9,11 @@ Rails.application.routes.draw do
       post 'update'
     end
   end
+
+  resource 'tags' do
+    collection do
+      get 'list'
+      get 'show'
+    end
+  end
 end

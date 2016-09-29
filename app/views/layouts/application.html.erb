@@ -1,71 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Mars</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Mars</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
+<body>
 
-  <div style="margin:20px 0;"></div>
-  <div class="easyui-layout" style="width:100%;height:800px;">
-    <div data-options="region:'north'" style="height:50px">
+<div style="margin:20px 0;"></div>
+<div class="easyui-layout" style="width:100%;height:800px;">
+  <div data-options="region:'north'" style="height:50px">
 
-    </div>
-    <div data-options="region:'south',split:true" style="height:50px;"></div>
-    <div data-options="region:'east',split:true" title="East" style="width:100px;">
+  </div>
+  <div data-options="region:'south',split:true" style="height:50px;"></div>
+  <div data-options="region:'east',split:true" title="菜单" style="width:100px;"></div>
+  <div data-options="region:'west',split:true" title="West" style="width:200px;">
+    <%= render 'shared/menu' %>
+  </div>
 
-
-    </div>
-
-    <div data-options="region:'west',split:true" title="West" style="width:200px;">
-      <ul class="easyui-tree">
-        <li>
-          <span>我的生活</span>
-          <ul>
-            <li data-options="state:'closed'">
-              <span>照片</span>
-              <ul>
-                <li>
-                  <span>北京</span>
-                </li>
-                <li>
-                  <span>上海</span>
-                </li>
-                <li>
-                  <span>官洲</span>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <span>电影</span>
-              <ul>
-                <li>惊悚</li>
-                <li>Java</li>
-                <li>Microsoft Office</li>
-                <li>Games</li>
-              </ul>
-            </li>
-            <li>index.html</li>
-            <li>about.html</li>
-            <li>welcome.html</li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div data-options="region:'center',title:'Main Title',iconCls:'icon-ok'">
-
-      <%= yield %>
-    </div>
-
-
+  <div data-options="region:'center',title:'电影列表',iconCls:'icon-ok'">
+    <%= yield %>
   </div>
 
 
+</div>
 
-  </body>
+
+</body>
 </html>
 
 
