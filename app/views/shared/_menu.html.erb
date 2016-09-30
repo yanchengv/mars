@@ -1,5 +1,29 @@
-<ul class="easyui-tree" id="menu_tree" data-options= "url: '/menus/list' ">
+<ul class="easyui-tree" id="menu_tree" data-options="url: '/menus/list' ">
 
 
 </ul>
 
+<script>
+    $('#menu_tree').tree(
+            {
+                onClick: function (node) {
+                    addPanel(node)
+
+                }
+            }
+    )
+
+    function addPanel(node) {
+        if($('#tab-container').tabs('exists',node['text'])){
+            $('#tab-container').tabs('select',node['text'])
+        }else{
+            $('#tab-container').tabs('add', {
+                title: node['text'],
+                href: node['attributes']['url'],
+                closable: true
+
+            });
+        }
+
+    }
+</script>

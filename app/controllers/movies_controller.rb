@@ -1,6 +1,5 @@
 class MoviesController < ApplicationController
   def create
-
     Movie.create(movie_params)
 
     render json: {status: 'ok'}
@@ -9,15 +8,13 @@ class MoviesController < ApplicationController
 
 
   def show
-    @movies = Movie.all
 
-    render json: @movies
   end
 
   def update
     @movie = Movie.find(params[:id])
     @movie.update_attributes(movie_params)
-    render json:{success:true}
+    render json: {success: true}
   end
 
   def delete_movie
@@ -26,9 +23,15 @@ class MoviesController < ApplicationController
     if flag
       message = {success: true}
     else
-      message = {success: false,errorMsg: '删除失败'}
+      message = {success: false, errorMsg: '删除失败'}
     end
     render json: message
+  end
+
+
+  def list
+    @movies = Movie.all
+    render json: @movies
   end
 
   private

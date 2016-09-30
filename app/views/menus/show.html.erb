@@ -1,0 +1,20 @@
+<div id="toolbar1">
+  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addMovie()">添加</a>
+  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editMovie()">编辑</a>
+  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyMovie()">删除</a>
+</div>
+<table class="easyui-datagrid" id="menu-list"
+       data-options="url:'/menus/grid_list',method:'get',border:false,singleSelect:true,fit:true,fitColumns:true">
+  <thead>
+  <tr>
+    <th data-options="field:'name',align:'center'" width="100px">名称</th>
+    <th data-options="field:'url',align:'center'" width="100px">地址</th>
+    <th data-options="field:'code',align:'center'" width="100px">code</th>
+    <th data-options="field:'description',align:'center'" width="100px">描述</th>
+    <th data-options="field:'is_disabled',align:'center'" width="100px">是否禁用</th>
+    <th data-options="field:'is_state',align:'center'" width="100px">是否展开</th>
+    <th data-options="field:'parent_id',align:'center'" width="100px">父节点</th>
+
+  </tr>
+  </thead>
+</table>

@@ -7,19 +7,20 @@ Rails.application.routes.draw do
     collection do
       post 'delete_movie'
       post 'update'
+      get 'list'
     end
   end
 
   resource 'tags' do
     collection do
       get 'list'
-      get 'show'
     end
   end
 
   resource 'menus' do
     collection do
       post 'list'
+      get 'grid_list'
     end
   end
 end

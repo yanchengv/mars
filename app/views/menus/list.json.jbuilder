@@ -1,8 +1,3 @@
-json.array! @parent_menus.each  do |parent_menu|
-   json.id parent_menu.id
-   json.text  parent_menu.name
-end
-
 
 [{
      "id":1,
