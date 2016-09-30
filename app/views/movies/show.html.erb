@@ -2,6 +2,7 @@
   <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addMovie()">添加</a>
   <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editMovie()">编辑</a>
   <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyMovie()">删除</a>
+  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="movieDetails()">详情</a>
 </div>
 <table class="easyui-datagrid" id="movie-list"
        data-options="url:'/movies/list',method:'get',border:false,singleSelect:true,fit:true,fitColumns:true">
@@ -64,6 +65,9 @@
 
 
   </form>
+
+
+
 
   <div style="text-align:center;padding:5px 0">
     <a href="javascript:void(0)" class="easyui-linkbutton" onclick="saveMovie()" style="width:80px">保存</a>

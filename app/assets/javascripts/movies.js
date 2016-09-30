@@ -52,3 +52,10 @@ function destroyMovie(){
         });
     }
 }
+
+function movieDetails(){
+    var row = $('#movie-list').datagrid('getSelected');
+    if(row){
+
+    }
+}
