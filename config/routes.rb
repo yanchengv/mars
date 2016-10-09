@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   resource 'menus' do
     collection do
       post 'list'
+      post 'update'
+      post 'delete_menu'
       get 'grid_list'
     end
   end

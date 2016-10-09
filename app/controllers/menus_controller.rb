@@ -1,6 +1,34 @@
 class MenusController < ApplicationController
   layout "blank_layout", only: [:show]
 
+
+  def show
+
+  end
+
+  def create
+    flag = Menu.create(menu_params)
+    render json: {success: flag}
+  end
+
+
+  def update
+    @menu = Menu.find(params[:id])
+    flag = @menu.update_attributes(menu_params)
+    render json: {success: flag}
+  end
+
+  def delete_menu
+    @menu = Menu.find(params[:id])
+    flag = @menu.destroy
+    if flag
+      message = {success: true}
+    else
+      message = {success: false, errorMsg: '删除失败'}
+    end
+    render json: message
+  end
+
   def list
     @parent_menus = Menu.includes(:sub_menus).where(is_disabled: 1, parent_id: 0)
     parent_menus_arr = []
@@ -19,9 +47,6 @@ class MenusController < ApplicationController
     render json: @menus
   end
 
-  def show
-
-  end
 
   private
 
@@ -60,5 +85,10 @@ class MenusController < ApplicationController
 
     }
     return parent_atrr
+  end
+
+  def menu_params
+    params.permit(:name, :url, :code, :description, :is_disabled, :is_state, :parent_id)
+
   end
 end
