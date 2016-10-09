@@ -1,9 +1,9 @@
 <div id="toolbar1">
-  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addMovie()">添加</a>
-  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editMovie()">编辑</a>
-  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyMovie()">删除</a>
+  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addTag()">添加</a>
+  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editTag()">编辑</a>
+  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyTag()">删除</a>
 </div>
-<table class="easyui-datagrid" id="tags-list1"
+<table class="easyui-datagrid" id="tag-list"
        data-options="url:'/tags/list',method:'get',border:false,singleSelect:true,fit:true,fitColumns:true">
   <thead>
   <tr>
@@ -11,3 +11,24 @@
   </tr>
   </thead>
 </table>
+
+
+<!--添加电影标签-->
+<div id="add_tag_dialog" class="easyui-dialog" title="添加" closed="true" data-options="iconCls:'icon-save',autoOpen:false" style="width:40%;height:600px;padding:10px 50px">
+  <form id="save_tag" method="post" name="tag">
+    <div style="margin-bottom:20px">
+      <input class="easyui-textbox" name="name" style="width:50%" data-options="label:'名称:'">
+    </div>
+
+
+
+  </form>
+
+
+
+
+  <div style="text-align:center;padding:5px 0">
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="saveTag()" style="width:80px">保存</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="" style="width:80px">Clear</a>
+  </div>
+</div>

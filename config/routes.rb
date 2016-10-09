@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resource 'tags' do
     collection do
       get 'list'
+      post 'update'
+      post 'delete_tag'
     end
   end
 
