@@ -4,7 +4,7 @@ class CreateMovies < ActiveRecord::Migration[5.0]
       t.string :name #  电影名称
       t.integer :sort # 排行
       t.string :movie_tag # 电影类别
-      t.string :level # 级别，是否有更多集
+      t.string :number # 集数
       t.string :region #  地区
       t.string :grade  # 评分
       t.string :actors  #演员
