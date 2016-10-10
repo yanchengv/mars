@@ -4,7 +4,7 @@
   <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyMovie()">删除</a>
   <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="movieDetails()">详情</a>
 </div>
-<table class="easyui-datagrid" id="movie-list"
+<table class="easyui-datagrid" id="movie-list" rownumbers="true" pagination="true"
        data-options="url:'/movies/list',method:'get',border:false,singleSelect:true,fit:true,fitColumns:true">
   <thead>
   <tr>
