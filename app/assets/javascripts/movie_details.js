@@ -1,7 +1,8 @@
 var url;
-function addMovieDetail(){
+function addMovieDetail(movie_id){
     $('#add_movie_detail_dialog').dialog('open').dialog('center').dialog('setTitle','添加电影');
     $('#save_movie_detail').form('clear');
+    $('#movie_id_input').textbox('setValue',movie_id)
     url = '/movie_details';
 }
 function editMovieDetail(){
@@ -37,7 +38,7 @@ function destroyMovieDetail(){
     if (row){
         $.messager.confirm('Confirm','确定要删除?',function(r){
             if (r){
-                $.post('/movies/delete_movie_detail',{id:row.id},function(result){
+                $.post('/movie_details/delete_movie_detail',{id:row.id},function(result){
                     if (result.success){
                         $('#movie-detail-list').datagrid('reload');    // reload the user data
                     } else {

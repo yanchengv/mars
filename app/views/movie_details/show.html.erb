@@ -1,5 +1,5 @@
 <div id="toolbar1">
-  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addMovieDetail()">添加</a>
+  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addMovieDetail(<%= @movie_id%>)">添加</a>
   <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editMovieDetail()">编辑</a>
   <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyMovieDetail()">删除</a>
 </div>
@@ -31,7 +31,7 @@
       <input class="easyui-textbox" name="episode" style="width:50%" data-options="label:'剧集数:'">
     </div>
     <div style="margin-bottom:20px">
-      <input class="easyui-textbox" name="movie_id" type="text" style="width:50%" value="123" data-options="label:'movie_id:'">
+      <input class="easyui-textbox" readonly="true" name="movie_id" type="text" style="width:50%" id="movie_id_input" data-options="label:'movie_id:'">
     </div>
 
 
