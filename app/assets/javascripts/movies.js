@@ -55,6 +55,13 @@ function destroyMovie(){
 
 //显示电影详情的子集tab
 function movieDetails(){
+    //关闭其他的tabs，避免重复显示电影页面的js
+    var count = $('#tab-container').tabs('tabs').length;
+    for(var i=count-1; i>0; i--){
+        $('#tab-container').tabs('close',i);
+    };
+
+    //显示选中的电影tab
     var row = $('#movie-list').datagrid('getSelected');
     if(row){
         $('#tab-container').tabs('add', {
