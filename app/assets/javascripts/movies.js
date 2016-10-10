@@ -53,9 +53,15 @@ function destroyMovie(){
     }
 }
 
+//显示电影详情的子集tab
 function movieDetails(){
     var row = $('#movie-list').datagrid('getSelected');
     if(row){
+        $('#tab-container').tabs('add', {
+            title: row.name,
+            href: '/movie_details/?movie_id='+row.id,
+            closable: true
 
+        });
     }
 }

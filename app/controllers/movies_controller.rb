@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   def create
     Movie.create(movie_params)
 
-    render json: {status: 'ok'}
+    render json: {success: true}
 
   end
 

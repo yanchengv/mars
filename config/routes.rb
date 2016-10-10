@@ -11,6 +11,14 @@ Rails.application.routes.draw do
     end
   end
 
+  resource 'movie_details' do
+    collection do
+      post 'delete_movie_detail'
+      post 'update'
+      get 'list'
+    end
+  end
+
   resource 'tags' do
     collection do
       get 'list'
