@@ -1,6 +1,6 @@
-class MenusController < ApplicationController
+class AdminMenusController < ApplicationController
   layout "blank_layout", only: [:show]
-
+  layout "admin_layout",except: [:show]
 
   def show
 

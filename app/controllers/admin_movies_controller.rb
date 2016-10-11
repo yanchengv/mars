@@ -1,4 +1,5 @@
-class MoviesController < ApplicationController
+class AdminMoviesController < ApplicationController
+  layout "admin_layout"
   def create
     Movie.create(movie_params)
 

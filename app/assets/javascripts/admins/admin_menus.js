@@ -2,14 +2,14 @@ var url;
 function addMenu(){
     $('#add_menu_dialog').dialog('open').dialog('center').dialog('setTitle','添加菜单');
     $('#save_menu').form('clear');
-    url = '/menus';
+    url = '/admin_menus';
 }
 function editMenu(){
     var row = $('#menu-list').datagrid('getSelected');
     if (row){
         $('#add_menu_dialog').dialog('open').dialog('center').dialog('setTitle','编辑菜单');
         $('#save_menu').form('load',row);
-        url = '/menus/update?id='+row.id;
+        url = '/admin_menus/update?id='+row.id;
     }
 }
 function saveMenu(){
@@ -37,7 +37,7 @@ function destroyMenu(){
     if (row){
         $.messager.confirm('删除菜单','确定要删除?',function(r){
             if (r){
-                $.post('/menus/delete_menu',{id:row.id},function(result){
+                $.post('/admin_menus/delete_menu',{id:row.id},function(result){
                     if (result.success){
                         $('#menu-list').datagrid('reload');    // reload the user data
                     } else {

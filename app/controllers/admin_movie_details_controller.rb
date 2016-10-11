@@ -1,6 +1,6 @@
-class MovieDetailsController < ApplicationController
+class AdminMovieDetailsController < ApplicationController
   layout "blank_layout", only: [:show]
-
+  layout "admin_layout",except: [:show]
   def show
    @movie_id = params[:movie_id]
   end

@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'homes#index'
 
-  resource 'movies' do
+  root 'homes#index'
+  get '/admin' => 'admin_homes#index'
+
+  resource 'admin_movies' do
     collection do
       post 'delete_movie'
       post 'update'
@@ -11,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource 'movie_details' do
+  resource 'admin_movie_details' do
     collection do
       post 'delete_movie_detail'
       post 'update'
@@ -19,7 +21,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource 'tags' do
+  resource 'admin_tags' do
     collection do
       get 'list'
       post 'update'
@@ -27,7 +29,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource 'menus' do
+  resource 'admin_menus' do
     collection do
       post 'list'
       post 'update'

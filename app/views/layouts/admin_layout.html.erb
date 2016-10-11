@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mars</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'admin_application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'admin_application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+
+<div style="margin:20px 0;"></div>
+<div class="easyui-layout" style="width:100%;height:800px;">
+  <div data-options="region:'north'" style="height:50px">
+
+  </div>
+  <div data-options="region:'south',split:true" style="height:50px;"></div>
+  <div data-options="region:'east',split:true" title="菜单" style="width:100px;"></div>
+  <div data-options="region:'west',split:true" title="West" style="width:200px;">
+    <%= render  'shared/admin_menu' %>
+  </div>
+
+  <div data-options="region:'center',title:'电影列表',iconCls:'icon-ok'">
+
+    <div class="easyui-tabs" id="tab-container" data-options="fit:true,border:false,plain:true">
+      <%= yield %>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+</body>
+</html>
+
+
+
+
+

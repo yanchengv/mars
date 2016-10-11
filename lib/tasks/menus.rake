@@ -16,13 +16,13 @@ def make_menu
   Menu.create(
       id: 2,
       parent_id:1,
-      url: '/tags',
+      url: '/admin_tags',
       name: '标签管理'
   )
   Menu.create(
       id: 3,
       parent_id:1,
-      url: '/menus',
+      url: '/admin_menus',
       name: '菜单管理'
   )
   Menu.create(

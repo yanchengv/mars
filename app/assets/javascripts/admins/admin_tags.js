@@ -2,14 +2,14 @@ var url;
 function addTag(){
     $('#add_tag_dialog').dialog('open').dialog('center').dialog('setTitle','添加标签');
     $('#save_tag').form('clear');
-    url = '/tags';
+    url = '/admin_tags';
 }
 function editTag(){
     var row = $('#tag-list').datagrid('getSelected');
     if (row){
         $('#add_tag_dialog').dialog('open').dialog('center').dialog('setTitle','编辑标签');
         $('#save_tag').form('load',row);
-        url = '/tags/update?id='+row.id;
+        url = '/admin_tags/update?id='+row.id;
     }
 }
 function saveTag(){
@@ -37,7 +37,7 @@ function destroyTag(){
     if (row){
         $.messager.confirm('删除标签','确定要删除?',function(r){
             if (r){
-                $.post('/tags/delete_tag',{id:row.id},function(result){
+                $.post('/admin_tags/delete_tag',{id:row.id},function(result){
                     if (result.success){
                         $('#tag-list').datagrid('reload');    // reload the user data
                     } else {

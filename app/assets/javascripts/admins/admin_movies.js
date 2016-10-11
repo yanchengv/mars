@@ -2,14 +2,14 @@ var url;
 function addMovie(){
     $('#add_movie_dialog').dialog('open').dialog('center').dialog('setTitle','添加电影');
     $('#add_movie').form('clear');
-    url = '/movies';
+    url = '/admin_movies';
 }
 function editMovie(){
     var row = $('#movie-list').datagrid('getSelected');
     if (row){
         $('#add_movie_dialog').dialog('open').dialog('center').dialog('setTitle','编辑电影');
         $('#save_movie').form('load',row);
-        url = '/movies/update?id='+row.id;
+        url = '/admin_movies/update?id='+row.id;
     }
 }
 function saveMovie(){
@@ -37,7 +37,7 @@ function destroyMovie(){
     if (row){
         $.messager.confirm('Confirm','确定要删除?',function(r){
             if (r){
-                $.post('/movies/delete_movie',{id:row.id},function(result){
+                $.post('/admin_movies/delete_movie',{id:row.id},function(result){
                     if (result.success){
                         $('#movie-list').datagrid('reload');    // reload the user data
                     } else {
@@ -66,7 +66,7 @@ function movieDetails(){
     if(row){
         $('#tab-container').tabs('add', {
             title: row.name,
-            href: '/movie_details/?movie_id='+row.id,
+            href: '/admin_movie_details/?movie_id='+row.id,
             closable: true
 
         });

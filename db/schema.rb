@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20160929090318) do
 
-  create_table "menus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "admin_menus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "name"
     t.string   "url"
     t.string   "code"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20160929090318) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "movie_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "admin_movie_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.integer  "movie_id"
     t.integer  "episode"
     t.string   "url"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160929090318) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "movies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "admin_movies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "name"
     t.integer  "sort"
     t.string   "movie_tag"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20160929090318) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "admin_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
