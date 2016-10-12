@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'homes#index'
   get '/admin' => 'admin_homes#index'
 
-  resource 'admin_movies' do
+  resources 'admin_movies' do
     collection do
       post 'delete_movie'
       post 'update'
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource 'admin_movie_details' do
+  resources 'admin_movie_details' do
     collection do
       post 'delete_movie_detail'
       post 'update'
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource 'admin_tags' do
+  resources 'admin_tags' do
     collection do
       get 'list'
       post 'update'
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource 'admin_menus' do
+  resources 'admin_menus' do
     collection do
       post 'list'
       post 'update'
@@ -37,4 +37,6 @@ Rails.application.routes.draw do
       get 'grid_list'
     end
   end
+
+  resources 'movies'
 end
