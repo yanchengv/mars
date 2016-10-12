@@ -1,9 +1,9 @@
 class AdminMenusController < ApplicationController
-  layout "admin_layout",except: [:show]
+  layout "admin_layout",except: [:index]
 
-  def show
+  def index
 
-    render 'show',layout: 'blank_layout'
+    render 'index',layout: 'blank_layout'
   end
 
   def create

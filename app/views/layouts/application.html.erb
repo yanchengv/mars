@@ -8,101 +8,25 @@
 </head>
 
 <body>
-<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+<nav class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <a class="navbar-brand" href="/">
         BALAWO.COM * 扒拉我
 
     </a>
-    <ul class="nav navbar-nav">
+
+    <ul class="nav navbar-nav navbar-right">
       <li class="nav-item active"><a class="nav-link" href="#">排行</a></li>
       <li class="nav-item"><a class="nav-link" href="#about">最新</a></li>
       <li class="nav-item"><a class="nav-link" href="#contact">登陆/注册</a></li>
     </ul>
+
+
   </div><!-- /.container -->
 </nav><!-- /.navbar -->
 
-<div class="container">
+<%= render partial: 'shared/home_movie_tags'%>
 
-  <div class="row row-offcanvas row-offcanvas-right">
-
-    <div class="col-xs-12 col-sm-9">
-
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="home_region_tags">
-           地区:
-            <a>大陆</a>
-            <a>香港</a>
-            <a>台湾</a>
-            <a>日韩</a>
-            <a>欧美</a>
-            <a>其他</a>
-          </div>
-
-          <div class="home_dy1_tags">
-            类型:
-            <a>动作</a>
-            <a>灾难</a>
-            <a>犯罪</a>
-            <a>恐怖</a>
-            <a>悬疑</a>
-            <a>励志</a>
-            <a>武侠</a>
-            <a>喜剧</a>
-            <a>动画 </a>
-            <a>穿越</a>
-            <a>丧尸 </a>
-            <a>魔幻 </a>
-            <a>剧情 </a>
-            <a>历史 </a>
-            <a>军事 </a>
-            <a>奇幻 </a>
-            <a>伦理</a>
-            <a>传纪</a>
-            <a>古装</a>
-            <a>西部</a>
-            <a>运动</a>
-            <a>家庭</a>
-            <a>歌舞</a>
-            <a>纪录片</a>
-            <a>儿童 </a>
-            <a>短片 </a>
-            <a>音乐 </a>
-            <a>同性 </a>
-            <a>微电影 </a>
-          </div>
-        </div>
-
-      </div>
-      <%= yield %>
-    </div><!--/span-->
-
-
-    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-      <div class="list-group">
-        <a href="#" class="list-group-item active">推荐资源</a>
-        <a href="#" class="list-group-item">火星计划</a>
-        <a href="#" class="list-group-item">火星计划</a>
-        <a href="#" class="list-group-item">火星计划</a>
-        <a href="#" class="list-group-item">火星计划</a>
-        <a href="#" class="list-group-item">火星计划</a>
-        <a href="#" class="list-group-item">火星计划</a>
-        <a href="#" class="list-group-item">火星计划</a>
-        <a href="#" class="list-group-item">火星计划</a>
-        <a href="#" class="list-group-item">火星计划</a>
-        <a href="#" class="list-group-item">火星计划</a>
-      </div>
-    </div><!--/span-->
-  </div><!--/row-->
-
-  <hr>
-
-  <footer>
-    <p>balawo.com</p>
-  </footer>
-
-</div><!--/.container-->
 
 
 

@@ -8,7 +8,7 @@ class AdminMoviesController < ApplicationController
   end
 
 
-  def show
+  def index
 
   end
 

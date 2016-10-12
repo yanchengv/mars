@@ -41,7 +41,7 @@ function destroyMenu(){
                     if (result.success){
                         $('#menu-list').datagrid('reload');    // reload the user data
                     } else {
-                        $.messager.show({    // show error message
+                        $.messager.show({    // index error message
                             title: 'Error',
                             msg: result.errorMsg
 

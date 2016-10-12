@@ -1,8 +1,9 @@
 class AdminMovieDetailsController < ApplicationController
-  layout "blank_layout", only: [:show]
-  layout "admin_layout",except: [:show]
-  def show
+  layout "admin_layout",except: [:index]
+  def index
    @movie_id = params[:movie_id]
+
+   render 'index',layout: 'blank_layout'
   end
 
   def create
