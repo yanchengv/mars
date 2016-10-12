@@ -1,9 +1,8 @@
 class AdminTagsController < ApplicationController
-  layout "blank_layout", only: [:show]
   layout "admin_layout",except: [:show]
   def show
 
-    render 'show'
+    render 'show',layout: 'blank_layout'
   end
 
 

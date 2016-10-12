@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mars</title>
+  <title>BALAWO</title>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -10,11 +10,11 @@
 <body>
 <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
   <div class="container">
-    <a class="navbar-brand" href="#">balady</a>
+    <a class="navbar-brand" href="#">BALAWO.COM</a>
     <ul class="nav navbar-nav">
-      <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
-      <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-      <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      <li class="nav-item active"><a class="nav-link" href="#">排行</a></li>
+      <li class="nav-item"><a class="nav-link" href="#about">最新</a></li>
+      <li class="nav-item"><a class="nav-link" href="#contact">登陆/注册</a></li>
     </ul>
   </div><!-- /.container -->
 </nav><!-- /.navbar -->
@@ -25,63 +25,60 @@
 
     <div class="col-xs-12 col-sm-9">
 
-        <ul class="list-group">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-
-
-      <!--<div class="row">-->
-        <!--<div class="col-xs-6 col-lg-4">-->
-          <!--<h2>Heading</h2>-->
-          <!--<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>-->
-          <!--<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>-->
-        <!--</div>&lt;!&ndash;/span&ndash;&gt;-->
-        <!--<div class="col-xs-6 col-lg-4">-->
-          <!--<h2>Heading</h2>-->
-          <!--<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>-->
-          <!--<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>-->
-        <!--</div>&lt;!&ndash;/span&ndash;&gt;-->
-        <!--<div class="col-xs-6 col-lg-4">-->
-          <!--<h2>Heading</h2>-->
-          <!--<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>-->
-          <!--<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>-->
-        <!--</div>&lt;!&ndash;/span&ndash;&gt;-->
-        <!--<div class="col-xs-6 col-lg-4">-->
-          <!--<h2>Heading</h2>-->
-          <!--<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>-->
-          <!--<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>-->
-        <!--</div>&lt;!&ndash;/span&ndash;&gt;-->
-        <!--<div class="col-xs-6 col-lg-4">-->
-          <!--<h2>Heading</h2>-->
-          <!--<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>-->
-          <!--<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>-->
-        <!--</div>&lt;!&ndash;/span&ndash;&gt;-->
-        <!--<div class="col-xs-6 col-lg-4">-->
-          <!--<h2>Heading</h2>-->
-          <!--<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>-->
-          <!--<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>-->
-        <!--</div>&lt;!&ndash;/span&ndash;&gt;-->
-      <!--</div>&lt;!&ndash;/row&ndash;&gt;-->
-      <ul class="media-list">
-        <li class="media">
-          <a class="media-left" href="#">
-            <img src="..." alt="...">
-          </a>
-          <div class="media-body">
-            <h4 class="media-heading">Media heading</h4>
-            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="home_region_tags">
+           地区:
+            <a>大陆</a>
+            <a>香港</a>
+            <a>台湾</a>
+            <a>日韩</a>
+            <a>欧美</a>
+            <a>其他</a>
           </div>
-        </li>
-      </ul>
+
+          <div class="home_dy1_tags">
+            类型:
+            <a>动作</a>
+            <a>灾难</a>
+            <a>犯罪</a>
+            <a>恐怖</a>
+            <a>悬疑</a>
+            <a>励志</a>
+            <a>武侠</a>
+            <a>喜剧</a>
+            <a>动画 </a>
+            <a>穿越</a>
+            <a>丧尸 </a>
+            <a>魔幻 </a>
+            <a>剧情 </a>
+            <a>历史 </a>
+            <a>军事 </a>
+            <a>奇幻 </a>
+            <a>伦理</a>
+            <a>传纪</a>
+            <a>古装</a>
+            <a>西部</a>
+            <a>运动</a>
+            <a>家庭</a>
+            <a>歌舞</a>
+            <a>纪录片</a>
+            <a>儿童 </a>
+            <a>短片 </a>
+            <a>音乐 </a>
+            <a>同性 </a>
+            <a>微电影 </a>
+          </div>
+        </div>
+
+      </div>
+      <%= yield %>
     </div><!--/span-->
+
 
     <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
       <div class="list-group">
-        <a href="#" class="list-group-item active">Link</a>
+        <a href="#" class="list-group-item active">最新资源</a>
         <a href="#" class="list-group-item">Link</a>
         <a href="#" class="list-group-item">Link</a>
         <a href="#" class="list-group-item">Link</a>
@@ -98,14 +95,16 @@
   <hr>
 
   <footer>
-    <p>&copy; Company 2014</p>
+    <p>Balawo.com</p>
   </footer>
 
 </div><!--/.container-->
-<%= yield %>
+
 
 
 </body>
+
+
 
 </html>
 

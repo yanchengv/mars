@@ -1,0 +1,14 @@
+<% @movies.each do |movie|%>
+<ul class="media-list">
+  <li class="media">
+    <a class="media-left" href="#">
+      <img src="http://tu.joy3g.com/20161009195825431.jpg" alt="..." height="50px">
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading"><%= movie.name%></h4>
+      <%= movie.abstract[0,100]%>...
+    </div>
+  </li>
+</ul>
+
+<% end %>
