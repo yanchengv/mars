@@ -27,10 +27,11 @@
     </div><!--/span-->
 
 
+    <!-- 菜单-->
     <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
       <div class="list-group">
         <% @movie_types.each do |movie_type|%>
-            <a href="#" class="list-group-item"><%= movie_type.name%></a>
+            <a href="/movies/get_movies?movie_type=<%= movie_type.name%>" class="list-group-item"><%= movie_type.name%></a>
         <%end%>
 
       </div>

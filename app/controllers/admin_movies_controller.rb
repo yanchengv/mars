@@ -1,5 +1,6 @@
 class AdminMoviesController < ApplicationController
   layout "admin_layout"
+
   def create
     Movie.create(movie_params)
 
@@ -38,6 +39,6 @@ class AdminMoviesController < ApplicationController
   private
 
   def movie_params
-    params.permit(:name, :sort, :region, :grade, :actors, :abstract, :image_url, :show_time, :movie_tag)
+    params.permit(:name, :sort, :region, :grade, :actors, :abstract, :image_url, :show_time, :movie_tag, :movie_type)
   end
 end

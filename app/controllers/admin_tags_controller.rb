@@ -33,6 +33,6 @@ class AdminTagsController < ApplicationController
   private
 
   def tag_params
-    params.permit(:name)
+    params.permit(:name,:tag_type,:sort)
   end
 end

@@ -324,7 +324,7 @@ def make_tags
   )
   Tag.create(
       id:40 ,
-      name: '电视',
+      name: '电视剧',
       tag_type: 'type',
       sort: 2
   )

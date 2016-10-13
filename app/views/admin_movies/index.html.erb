@@ -10,7 +10,8 @@
   <tr>
     <th data-options="field:'id',align:'center'" width="100">电影ID</th>
     <th data-options="field:'name',align:'center'" width="100">名称</th>
-    <th data-options="field:'movie_tag',align:'center'" width="100">电影类别</th>
+    <th data-options="field:'movie_type',align:'center'" width="100">电影类型</th>
+    <th data-options="field:'movie_tag',align:'center'" width="100">电影标签</th>
     <th data-options="field:'number',align:'center'" width="100">集数</th>
     <th data-options="field:'region',align:'center'" width="100">地区</th>
     <th data-options="field:'grade',align:'center'" width="100">评分</th>
@@ -61,7 +62,18 @@
       </select>
     </div>
     <div style="margin-bottom:20px">
-      <select class="easyui-combobox" name="movie_tag" label="电影类别" style="width:50%">
+      <select class="easyui-combobox" name="movie_type" label="电影类型" style="width:50%">
+
+        <option value="电影">电影</option>
+        <option value="电视剧">电视剧</option>
+        <option value="动画片">动画片</option>
+        <option value="综艺片">综艺片</option>
+        <option value="影视预告">影视预告</option>
+        <option value="IT技术">IT技术</option>
+      </select>
+    </div>
+    <div style="margin-bottom:20px">
+      <select class="easyui-combobox" name="movie_tag" label="电影标签" style="width:50%">
 
         <option value="同性">同性</option>
         <option value="纪录片">纪录片</option>

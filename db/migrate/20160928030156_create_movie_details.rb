@@ -7,6 +7,7 @@ class CreateMovieDetails < ActiveRecord::Migration[5.0]
       t.integer :movie_id
       t.integer :episode  #剧集数
       t.string :url
+      t.string :url2
       t.string :name
       t.timestamps
     end

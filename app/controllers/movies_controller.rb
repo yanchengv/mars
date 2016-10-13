@@ -17,6 +17,11 @@ class MoviesController < ApplicationController
         values << "%#{params[:movie_tag]}%"
     end
 
+    if params[:movie_type].present? && params[:movie_type] != '全部'
+      conditions << "movie_type = ? "
+      values << params[:movie_type]
+    end
+
     @movies = Movie.includes(:movie_details).where(conditions.join('or'),*values).paginate(:page => params[:page], :per_page => 2)
     render 'homes/index'
   end
