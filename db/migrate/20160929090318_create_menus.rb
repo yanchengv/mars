@@ -1,6 +1,6 @@
 class CreateMenus < ActiveRecord::Migration[5.0]
   def change
-    create_table :admin_menus do |t|
+    create_table :menus do |t|
       t.string :name #菜单名称
       t.string :parent_id #父菜单id
       t.string :url #地址

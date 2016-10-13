@@ -38,5 +38,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources 'movies'
+  resources 'movies' do
+    collection do
+      get 'get_movies'
+    end
+  end
 end

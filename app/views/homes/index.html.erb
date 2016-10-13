@@ -8,7 +8,7 @@
         </a>
 
         <div class="media-body">
-          <h4 class="media-heading"><a style="cursor:pointer"><%= movie.name %></a></h4>
+          <h4 class="media-heading"><a style="cursor:pointer" href="/movies/<%= movie.id%>"><%= movie.name %></a></h4>
 
           <p><%= movie.abstract[0, 50] %>...</p>
 

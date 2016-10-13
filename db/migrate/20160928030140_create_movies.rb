@@ -1,6 +1,6 @@
 class CreateMovies < ActiveRecord::Migration[5.0]
   def change
-    create_table :admin_movies do |t|
+    create_table :movies do |t|
       t.string :name #  电影名称
       t.integer :sort # 排行
       t.string :movie_tag # 电影类别
