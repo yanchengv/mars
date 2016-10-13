@@ -8,45 +8,17 @@
         <div class="panel-body">
           <div class="home_region_tags">
             地区:
-            <a href="/movies/get_movies?region=大陆">大陆</a>
-            <a href="/movies/get_movies?region=香港">香港</a>
-            <a href="/movies/get_movies?region=台湾">台湾</a>
-            <a href="/movies/get_movies?region=日韩" >日韩</a>
-            <a href="/movies/get_movies?region=欧美" >欧美</a>
-            <a href="/movies/get_movies?region=其他" >其他</a>
+            <% @movie_regions.each do |movie_region|%>
+                <a href="/movies/get_movies?region=<%= movie_region.name%>"><%= movie_region.name%></a>
+            <%end%>
+
           </div>
 
           <div class="home_dy1_tags">
             类型:
-            <a href="/movies/get_movies?movie_tag=动作" >动作</a>
-            <a href="/movies/get_movies?movie_tag=灾难" >灾难</a>
-            <a href="/movies/get_movies?movie_tag=犯罪" >犯罪</a>
-            <a href="/movies/get_movies?movie_tag=恐怖" >恐怖</a>
-            <a href="/movies/get_movies?movie_tag=悬疑" >悬疑</a>
-            <a href="/movies/get_movies?movie_tag=励志">励志</a>
-            <a href="/movies/get_movies?movie_tag=武侠">武侠</a>
-            <a href="/movies/get_movies?movie_tag=喜剧">喜剧</a>
-            <a href="/movies/get_movies?movie_tag=动画">动画 </a>
-            <a href="/movies/get_movies?movie_tag=穿越">穿越</a>
-            <a href="/movies/get_movies?movie_tag=丧尸">丧尸 </a>
-            <a href="/movies/get_movies?movie_tag=魔幻">魔幻 </a>
-            <a href="/movies/get_movies?movie_tag=剧情">剧情 </a>
-            <a href="/movies/get_movies?movie_tag=历史">历史 </a>
-            <a href="/movies/get_movies?movie_tag=军事">军事 </a>
-            <a href="/movies/get_movies?movie_tag=奇幻">奇幻 </a>
-            <a href="/movies/get_movies?movie_tag=伦理">伦理</a>
-            <a href="/movies/get_movies?movie_tag=传纪">传纪</a>
-            <a href="/movies/get_movies?movie_tag=古装">古装</a>
-            <a href="/movies/get_movies?movie_tag=西部">西部</a>
-            <a href="/movies/get_movies?movie_tag=运动">运动</a>
-            <a href="/movies/get_movies?movie_tag=家庭">家庭</a>
-            <a href="/movies/get_movies?movie_tag=歌舞">歌舞</a>
-            <a href="/movies/get_movies?movie_tag=纪录片">纪录片</a>
-            <a href="/movies/get_movies?movie_tag=儿童">儿童 </a>
-            <a href="/movies/get_movies?movie_tag=短片">短片 </a>
-            <a href="/movies/get_movies?movie_tag=音乐">音乐 </a>
-            <a href="/movies/get_movies?movie_tag=同性">同性 </a>
-            <a href="/movies/get_movies?movie_tag=微电影">微电影 </a>
+            <% @movie_tags.each do |movie_tag|%>
+                <a href="/movies/get_movies?movie_tag=<%= movie_tag.name%>" ><%= movie_tag.name%></a>
+            <%end%>
           </div>
         </div>
 
@@ -57,13 +29,10 @@
 
     <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
       <div class="list-group">
-        <a href="#" class="list-group-item active">全部</a>
-        <a href="#" class="list-group-item">电影</a>
-        <a href="#" class="list-group-item">电视</a>
-        <a href="#" class="list-group-item">动画片</a>
-        <a href="#" class="list-group-item">综艺片</a>
-        <a href="#" class="list-group-item">影视预告</a>
-        <a href="#" class="list-group-item">IT技术</a>
+        <% @movie_types.each do |movie_type|%>
+            <a href="#" class="list-group-item"><%= movie_type.name%></a>
+        <%end%>
+
       </div>
     </div><!--/span-->
   </div><!--/row-->
