@@ -7,17 +7,17 @@ class MoviesController < ApplicationController
   def get_movies
     conditions = []
     values = []
-    if params[:region].present?
-      conditions << "region = ?"
-      values << params[:region]
+    if params[:region].present? && params[:region] != '全部'
+        conditions << "region = ?"
+        values << params[:region]
     end
 
-    if params[:movie_tag].present?
-      conditions << "movie_tag like ? "
-      values << "%#{params[:movie_tag]}%"
+    if params[:movie_tag].present? && params[:movie_tag] != '全部'
+        conditions << "movie_tag like ? "
+        values << "%#{params[:movie_tag]}%"
     end
 
-    @movies = Movie.includes(:movie_details).where(conditions.join('or'),*values)
+    @movies = Movie.includes(:movie_details).where(conditions.join('or'),*values).paginate(:page => params[:page], :per_page => 2)
     render 'homes/index'
   end
 

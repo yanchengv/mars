@@ -27,3 +27,8 @@
    <hr>
   <% end %>
 </ul>
+
+<div class="flickr_pagination">
+  <%= will_paginate @movies, :container => false,:previous_label => t("上一页"), :next_label => t("下一页") %>
+</div>
+
