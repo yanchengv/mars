@@ -32,7 +32,7 @@ class AdminMoviesController < ApplicationController
 
 
   def list
-    @movies = Movie.all
+    @movies = Movie.paginate(:page => params[:page], :per_page => params[:rows])
     render json: @movies
   end
 
