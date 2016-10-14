@@ -9,7 +9,11 @@
     <div class="media-body">
       <h4 class="media-heading"><a style="cursor:pointer" href="/movies/<%= @movie.id %>"><%= @movie.name %></a></h4>
 
-      <p>上映：<%= @movie.show_time.strftime('%Y') %></p>
+      <p>上映：
+        <% if @movie.show_time.present? %>
+            <%= @movie.show_time.strftime('%Y') %>
+        <% end %>
+      </p>
 
       <p>类型：<%= @movie.movie_tag %></p>
 
@@ -17,7 +21,12 @@
 
       <p>地区：<%= @movie.region %></p>
 
-      <p>更新日期：<%= @movie.created_at.strftime('%Y-%m-%d %H:%M:%S') %></p>
+      <p>更新日期：
+        <% if @movie.created_at.present? %>
+            <%= @movie.created_at.strftime('%Y-%m-%d %H:%M:%S') %>
+        <% end %>
+
+      </p>
 
       <p>影片评分：<%= @movie.grade %></p>
     </div>
@@ -33,14 +42,66 @@
       <!-- Default panel contents -->
       <div class="panel-heading">资源下载地址1</div>
       <div class="panel-body">
-        <p><strong><% @movie.name%></strong> 复制链接到迅雷下载</p>
+        <p><strong>
+          <% @movie.name %></strong> 复制链接到迅雷下载</p>
       </div>
       <!-- List group -->
       <ul class="list-group">
         <% @movie.movie_details.each do |movie_detail| %>
-            <li class="list-group-item">
-              <a href="<%= movie_detail.url%>"><% @movie.name%>第<%= movie_detail.episode%>集下载---右键复制链接迅雷下载</a>
-            </li>
+            <% if movie_detail.url.present? %>
+                <li class="list-group-item">
+                  <a href="<%= movie_detail.url %>">
+                    <% @movie.name %>第<%= movie_detail.episode %>集下载---右键复制链接迅雷下载</a>
+                </li>
+            <% end %>
+
+        <% end %>
+
+      </ul>
+
+
+    </div>
+
+    <div class="panel panel-primary">
+      <!-- Default panel contents -->
+      <div class="panel-heading">资源下载地址2</div>
+      <div class="panel-body">
+        <p><strong>
+          <% @movie.name %></strong> 复制链接到迅雷下载</p>
+      </div>
+      <!-- List group -->
+      <ul class="list-group">
+        <% @movie.movie_details.each do |movie_detail| %>
+            <% if movie_detail.url.present? %>
+                <li class="list-group-item">
+                  <a href="<%= movie_detail.url2 %>">
+                    <% @movie.name %>第<%= movie_detail.episode %>集下载---右键复制链接迅雷下载</a>
+                </li>
+            <% end %>
+        <% end %>
+
+      </ul>
+
+
+    </div>
+
+    <div class="panel panel-primary">
+      <!-- Default panel contents -->
+      <div class="panel-heading">网盘下载</div>
+      <div class="panel-body">
+        <p><strong>
+          <% @movie.name %></strong> 点击链接下载</p>
+      </div>
+      <!-- List group -->
+      <ul class="list-group">
+        <% @movie.movie_details.each do |movie_detail| %>
+            <% if movie_detail.wangpan_url.present? %>
+                <li class="list-group-item">
+                  <a href="<%= movie_detail.wangpan_url %>" target="_blank">
+                    <% @movie.name %>第<%= movie_detail.episode %>集点击下载</a>
+                  密码：<%= movie_detail.wangpan_password %>
+                </li>
+            <% end %>
         <% end %>
 
       </ul>
