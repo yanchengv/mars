@@ -3,7 +3,8 @@ class SessionsController < ApplicationController
     render 'sessions/new', layout: 'login_layout'
   end
 
-  def create
+  # 登陆
+  def login
     user = User.find_by(name: params[:name])
     if user && user.authenticate(params[:password])
       log_in user
@@ -21,4 +22,30 @@ class SessionsController < ApplicationController
   end
 
 
+  # 注册页面
+  def sign_up
+    render 'sessions/sign_up', layout: 'login_layout'
+  end
+
+  # 注册
+  def create
+    user = User.create(user_params)
+    log_in user
+    remember user
+    redirect_to '/'
+  end
+
+  # 退出
+  def destroy
+    log_out if log_in?
+    redirect_to root_url
+  end
+
+
+
+  private
+
+  def user_params
+    params.permit(:name, :email, :password, :password_confirmation)
+  end
 end

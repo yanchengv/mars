@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   root 'homes#index'
   get '/admin' => 'admin_homes#index'
   get    '/login',   to: 'sessions#new'
-  post   '/login',   to: 'sessions#create'
+  post   '/login',   to: 'sessions#login'
+  get '/sign_up',to: 'sessions#sign_up'
+  post '/sign_up',to: 'sessions#create'
+  get 'log_out',to: 'sessions#destroy'
+
   resources 'admin_movies' do
     collection do
       post 'delete_movie'
