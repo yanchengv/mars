@@ -31,7 +31,7 @@ class AdminMenusController < ApplicationController
   end
 
   def list
-    @parent_menus = Menu.includes(:sub_menus).where(is_disabled: 1, parent_id: 0)
+    @parent_menus = Menu.includes(:sub_menus).where(is_disabled: 0, parent_id: 0)
     parent_menus_arr = []
     @parent_menus.each do |parent_menu|
       parent_menu_atrr = sub_menus parent_menu
