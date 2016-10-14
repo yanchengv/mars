@@ -43,7 +43,7 @@
       <div class="panel-heading">资源下载地址1</div>
       <div class="panel-body">
         <p><strong>
-          <% @movie.name %></strong> 复制链接到迅雷下载</p>
+          <%= @movie.name %></strong> 复制链接到迅雷下载</p>
       </div>
       <!-- List group -->
       <ul class="list-group">
@@ -51,7 +51,7 @@
             <% if movie_detail.url.present? %>
                 <li class="list-group-item">
                   <a href="<%= movie_detail.url %>">
-                    <% @movie.name %>第<%= movie_detail.episode %>集下载---右键复制链接迅雷下载</a>
+                    <%= @movie.name %>第<%= movie_detail.episode %>集下载---右键复制链接迅雷下载</a>
                 </li>
             <% end %>
 
@@ -67,7 +67,7 @@
       <div class="panel-heading">资源下载地址2</div>
       <div class="panel-body">
         <p><strong>
-          <% @movie.name %></strong> 复制链接到迅雷下载</p>
+          <%= @movie.name %></strong> 复制链接到迅雷下载</p>
       </div>
       <!-- List group -->
       <ul class="list-group">
@@ -75,7 +75,7 @@
             <% if movie_detail.url.present? %>
                 <li class="list-group-item">
                   <a href="<%= movie_detail.url2 %>">
-                    <% @movie.name %>第<%= movie_detail.episode %>集下载---右键复制链接迅雷下载</a>
+                    <%= @movie.name %>第<%= movie_detail.episode %>集下载---右键复制链接迅雷下载</a>
                 </li>
             <% end %>
         <% end %>
@@ -90,7 +90,7 @@
       <div class="panel-heading">网盘下载</div>
       <div class="panel-body">
         <p><strong>
-          <% @movie.name %></strong> 点击链接下载</p>
+          <%= @movie.name %></strong> 点击链接下载</p>
       </div>
       <!-- List group -->
       <ul class="list-group">
@@ -98,7 +98,7 @@
             <% if movie_detail.wangpan_url.present? %>
                 <li class="list-group-item">
                   <a href="<%= movie_detail.wangpan_url %>" target="_blank">
-                    <% @movie.name %>第<%= movie_detail.episode %>集点击下载</a>
+                    <%= movie_detail.name %>点击下载</a>
                   密码：<%= movie_detail.wangpan_password %>
                 </li>
             <% end %>
