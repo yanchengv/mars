@@ -1,7 +1,8 @@
 class AdminTagsController < ApplicationController
   layout "admin_layout",except: [:index]
+  before_action :is_log?
+  before_action :is_admin?
   def index
-
     render 'index',layout: 'blank_layout'
   end
 

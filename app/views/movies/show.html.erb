@@ -72,7 +72,7 @@
       <!-- List group -->
       <ul class="list-group">
         <% @movie.movie_details.each do |movie_detail| %>
-            <% if movie_detail.url.present? %>
+            <% if movie_detail.url2.present? %>
                 <li class="list-group-item">
                   <a href="<%= movie_detail.url2 %>">
                     <%= @movie.name %>第<%= movie_detail.episode %>集下载---右键复制链接迅雷下载</a>

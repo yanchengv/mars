@@ -12,29 +12,35 @@
 
 ActiveRecord::Schema.define(version: 20160929090318) do
 
-  create_table "admin_menus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "menus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "name"
     t.string   "url"
     t.string   "code"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "is_disabled", default: true,              comment: "0:true,1:false"
+    t.string   "parent_id",   default: "0"
+    t.bigint   "is_state",    default: 1,                 comment: "菜单数是否展开"
   end
 
-  create_table "admin_movie_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "movie_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.integer  "movie_id"
     t.integer  "episode"
     t.string   "url"
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "url2"
+    t.string   "wangpan_url"
+    t.string   "wangpan_password"
   end
 
-  create_table "admin_movies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "movies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "name"
     t.integer  "sort"
     t.string   "movie_tag"
-    t.string   "level"
+    t.string   "number"
     t.string   "region"
     t.string   "grade"
     t.string   "actors"
@@ -43,12 +49,15 @@ ActiveRecord::Schema.define(version: 20160929090318) do
     t.date     "show_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "movie_type"
   end
 
-  create_table "admin_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "tag_type"
+    t.string   "sort"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|

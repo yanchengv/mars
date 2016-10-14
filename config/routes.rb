@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
   root 'homes#index'
   get '/admin' => 'admin_homes#index'
-
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
   resources 'admin_movies' do
     collection do
       post 'delete_movie'

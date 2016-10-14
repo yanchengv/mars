@@ -38,7 +38,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'uuidtools'
 gem 'settingslogic', '>= 2.0.9'
-
+gem 'bcrypt',         '3.1.11'
 # 爬虫包
 gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
 group :development, :test do

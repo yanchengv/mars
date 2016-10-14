@@ -1,5 +1,7 @@
 class AdminMovieDetailsController < ApplicationController
   layout "admin_layout",except: [:index]
+  before_action :is_log?
+  before_action :is_admin?
   def index
    @movie_id = params[:movie_id]
 
