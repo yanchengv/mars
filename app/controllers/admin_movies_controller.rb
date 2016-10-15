@@ -11,9 +11,14 @@ class AdminMoviesController < ApplicationController
 
 
   def index
-
+    current_page = params[:page].present? ? params[:page] : 1
+    per_page = params[:rows].present? ? params[:rows] : 50
+    @movies = Movie.paginate(:page => current_page, :per_page => per_page)
   end
 
+  def show
+    @movie = Movie.includes(:movie_details).where(id: params[:id]).first
+  end
   def update
     @movie = Movie.find(params[:id])
     @movie.update_attributes(movie_params)

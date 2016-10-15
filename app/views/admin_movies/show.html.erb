@@ -1,0 +1,79 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><strong><%= @movie.name %></strong> -- 基本信息</h3>
+  </div>
+  <div class="panel-body">
+    <p><strong>名称：</strong><%= @movie.name %></p>
+
+    <p><strong>电影类型： </strong><%= @movie.movie_type %></p>
+
+    <p><strong>电影标签：</strong> <%= @movie.movie_tag %></p>
+
+    <p>
+      <strong>集数： </strong><%= @movie.number %>&nbsp;&nbsp;&nbsp;&nbsp;
+      <strong>地区：</strong> <%= @movie.region %>&nbsp;&nbsp;&nbsp;&nbsp;
+      <strong>排行：</strong><%= @movie.sort %>&nbsp;&nbsp;&nbsp;&nbsp;
+      <strong>评分：</strong><%= @movie.grade %>
+    </p>
+
+    <p><strong>演员： </strong><%= @movie.actors %></p>
+
+    <p><strong>简介：</strong> <%= @movie.abstract %></p>
+
+    <p><strong>电影图片：</strong><%= @movie.image_url %></p>
+
+    <p>
+      <strong>上映时间： </strong><%= @movie.show_time.present? ? @movie.show_time.strftime('%Y-%m-%d') : '暂无' %>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>上传时间：</strong> <%= @movie.created_at.strftime('%Y-%m-%d %H:%m') %>
+    </p>
+  </div>
+
+
+</div>
+
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">剧集信息
+    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+      添加
+    </button>
+  </div>
+  <div class="panel-body">
+    <!-- Table -->
+    <table class="table">
+      <thead>
+      <tr>
+        <th>剧集名称</th>
+        <th>剧集数</th>
+        <th>下载地址1</th>
+        <th>下载地址2</th>
+        <th>网盘地址</th>
+        <th>网盘密码</th>
+        <th>上传时间</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <% if !@movie.movie_details.empty? %>
+          <% @movie.movie_details.each do | movie_detail | %>
+              <tr>
+                <td><%= movie_detail.name %></td>
+                <td><%= movie_detail.episode %></td>
+                <td><%= movie_detail.url %></td>
+                <td>详情</td>
+                <td>详情</td>
+                <td>详情</td>
+                <td><%= movie_detail.created_at.present? ? movie_detail.created_at.strftime('%Y-%m-%d') : '暂无' %></td>
+                <td><a href="/admin_movie_details/<%= movie_detail.id%>">详情</a> 修改 删除</td>
+              </tr>
+          <% end %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
+
+<%= render partial: 'admin_movie_details/add_movie_detail'%>
