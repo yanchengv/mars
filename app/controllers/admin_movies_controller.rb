@@ -5,7 +5,7 @@ class AdminMoviesController < ApplicationController
   def create
     Movie.create(movie_params)
 
-    render json: {success: true}
+    redirect_to :back
 
   end
 
@@ -13,6 +13,9 @@ class AdminMoviesController < ApplicationController
   def index
     current_page = params[:page].present? ? params[:page] : 1
     per_page = params[:rows].present? ? params[:rows] : 50
+    @movie_tags = Tag.where(tag_type: 'tag').order(sort: :asc)
+    @movie_types = Tag.where(tag_type: 'type').order(sort: :asc)
+    @movie_regions = Tag.where(tag_type:'region').order(sort: :asc)
     @movies = Movie.paginate(:page => current_page, :per_page => per_page)
   end
 

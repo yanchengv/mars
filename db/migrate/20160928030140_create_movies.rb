@@ -12,7 +12,6 @@ class CreateMovies < ActiveRecord::Migration[5.0]
       t.string :abstract  #简介
       t.string :image_url
       t.date :show_time #上映时间
-      t.timestamps :upload_time #上传时间
       t.timestamps null: false
     end
   end

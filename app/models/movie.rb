@@ -10,7 +10,6 @@
       t.string :abstract  #简介
       t.string :image_url
       t.date :show_time #上映时间
-      t.timestamps :upload_time #上传时间
 =end
 class Movie < ApplicationRecord
      has_many :movie_details ,dependent: :destroy

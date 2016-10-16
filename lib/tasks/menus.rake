@@ -93,12 +93,14 @@ def make_tags
       tag_type: 'tag',
       sort: 2
   )
+
   Tag.create(
       id: 3,
       name: '犯罪',
       tag_type: 'tag',
       sort: 3
   )
+
   Tag.create(
       id: 4,
       name: '恐怖',
@@ -107,156 +109,172 @@ def make_tags
   )
   Tag.create(
       id: 5,
-      name: '悬疑',
+      name: '科幻',
       tag_type: 'tag',
       sort: 5
   )
+
   Tag.create(
       id: 6,
       name: '励志',
       tag_type: 'tag',
       sort: 6
   )
+
   Tag.create(
       id: 7,
-      name: '武侠',
+      name: '喜剧',
       tag_type: 'tag',
       sort: 7
   )
+
   Tag.create(
       id: 8,
-      name: '喜剧',
+      name: '悬疑',
       tag_type: 'tag',
       sort: 8
   )
   Tag.create(
       id: 9,
-      name: '穿越',
+      name: '微电影',
       tag_type: 'tag',
       sort: 9
   )
-  Tag.create(
-      id: 10,
-      name: '丧尸',
-      tag_type: 'tag',
-      sort: 10
-  )
+  # Tag.create(
+  #     id: 27,
+  #     name: '武侠',
+  #     tag_type: 'tag',
+  #     sort: 7
+  # )
 
-  Tag.create(
-      id: 11,
-      name: '魔幻',
-      tag_type: 'tag',
-      sort: 11
-  )
-  Tag.create(
-      id: 12,
-      name: '剧情',
-      tag_type: 'tag',
-      sort: 12
-  )
-  Tag.create(
-      id: 13,
-      name: '历史',
-      tag_type: 'tag',
-      sort: 13
-  )
-  Tag.create(
-      id: 14,
-      name: '军事',
-      tag_type: 'tag',
-      sort: 14
-  )
-  Tag.create(
-      id: 15,
-      name: '奇幻',
-      tag_type: 'tag',
-      sort: 15
-  )
-  Tag.create(
-      id: 16,
-      name: '伦理',
-      tag_type: 'tag',
-      sort: 16
-  )
-  Tag.create(
-      id: 17,
-      name: '传纪',
-      tag_type: 'tag',
-      sort: 17
-  )
-  Tag.create(
-      id: 18,
-      name: '古装',
-      tag_type: 'tag',
-      sort: 18
-  )
-
-  Tag.create(
-      id: 19,
-      name: '西部',
-      tag_type: 'tag',
-      sort: 19
-  )
-  Tag.create(
-      id: 20,
-      name: '运动',
-      tag_type: 'tag',
-      sort: 20
-  )
-  Tag.create(
-      id: 21,
-      name: '家庭',
-      tag_type: 'tag',
-      sort: 21
-  )
-  Tag.create(
-      id: 22,
-      name: '歌舞',
-      tag_type: 'tag',
-      sort: 22
-  )
-  Tag.create(
-      id: 23,
-      name: '纪录片',
-      tag_type: 'tag',
-      sort: 23
-  )
-  Tag.create(
-      id: 24,
-      name: '动画',
-      tag_type: 'tag',
-      sort: 24
-  )
-  Tag.create(
-      id: 25,
-      name: '儿童',
-      tag_type: 'tag',
-      sort: 25
-  )
-  Tag.create(
-      id: 26,
-      name: '短片',
-      tag_type: 'tag',
-      sort: 26
-  )
-  Tag.create(
-      id: 27,
-      name: '微电影',
-      tag_type: 'tag',
-      sort: 27
-  )
-  Tag.create(
-      id: 28,
-      name: '音乐',
-      tag_type: 'tag',
-      sort: 28
-  )
-  Tag.create(
-      id: 29,
-      name: '同性',
-      tag_type: 'tag',
-      sort: 29
-  )
+  # Tag.create(
+  #     id: 31,
+  #     name: '穿越',
+  #     tag_type: 'tag',
+  #     sort: 9
+  # )
+  # Tag.create(
+  #     id: 10,
+  #     name: '丧尸',
+  #     tag_type: 'tag',
+  #     sort: 10
+  # )
+  #
+  # Tag.create(
+  #     id: 11,
+  #     name: '魔幻',
+  #     tag_type: 'tag',
+  #     sort: 11
+  # )
+  # Tag.create(
+  #     id: 12,
+  #     name: '剧情',
+  #     tag_type: 'tag',
+  #     sort: 12
+  # )
+  # Tag.create(
+  #     id: 13,
+  #     name: '历史',
+  #     tag_type: 'tag',
+  #     sort: 13
+  # )
+  # Tag.create(
+  #     id: 14,
+  #     name: '军事',
+  #     tag_type: 'tag',
+  #     sort: 14
+  # )
+  # Tag.create(
+  #     id: 15,
+  #     name: '奇幻',
+  #     tag_type: 'tag',
+  #     sort: 15
+  # )
+  # Tag.create(
+  #     id: 16,
+  #     name: '伦理',
+  #     tag_type: 'tag',
+  #     sort: 16
+  # )
+  # Tag.create(
+  #     id: 17,
+  #     name: '传纪',
+  #     tag_type: 'tag',
+  #     sort: 17
+  # )
+  # Tag.create(
+  #     id: 18,
+  #     name: '古装',
+  #     tag_type: 'tag',
+  #     sort: 18
+  # )
+  #
+  # Tag.create(
+  #     id: 19,
+  #     name: '西部',
+  #     tag_type: 'tag',
+  #     sort: 19
+  # )
+  # Tag.create(
+  #     id: 20,
+  #     name: '运动',
+  #     tag_type: 'tag',
+  #     sort: 20
+  # )
+  # Tag.create(
+  #     id: 21,
+  #     name: '家庭',
+  #     tag_type: 'tag',
+  #     sort: 21
+  # )
+  # Tag.create(
+  #     id: 22,
+  #     name: '歌舞',
+  #     tag_type: 'tag',
+  #     sort: 22
+  # )
+  # Tag.create(
+  #     id: 23,
+  #     name: '纪录片',
+  #     tag_type: 'tag',
+  #     sort: 23
+  # )
+  # Tag.create(
+  #     id: 24,
+  #     name: '动画',
+  #     tag_type: 'tag',
+  #     sort: 24
+  # )
+  # Tag.create(
+  #     id: 25,
+  #     name: '儿童',
+  #     tag_type: 'tag',
+  #     sort: 25
+  # )
+  # Tag.create(
+  #     id: 26,
+  #     name: '短片',
+  #     tag_type: 'tag',
+  #     sort: 26
+  # )
+  # Tag.create(
+  #     id: 27,
+  #     name: '微电影',
+  #     tag_type: 'tag',
+  #     sort: 27
+  # )
+  # Tag.create(
+  #     id: 28,
+  #     name: '音乐',
+  #     tag_type: 'tag',
+  #     sort: 28
+  # )
+  # Tag.create(
+  #     id: 29,
+  #     name: '同性',
+  #     tag_type: 'tag',
+  #     sort: 29
+  # )
   Tag.create(
       id: 30,
       name: '全部',
@@ -274,16 +292,11 @@ def make_tags
   )
   Tag.create(
       id: 32,
-      name: '香港',
+      name: '港台',
       tag_type: 'region',
       sort: 2
   )
-  Tag.create(
-      id: 33,
-      name: '台湾',
-      tag_type: 'region',
-      sort: 3
-  )
+
   Tag.create(
       id: 34,
       name: '日韩',
