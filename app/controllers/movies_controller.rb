@@ -1,7 +1,8 @@
 class MoviesController < ApplicationController
 
   def show
-    @movie = Movie.includes(:movie_details).where(id: params[:id]).first
+    @movie = Movie.includes(:movie_details)
+                 .where(id: params[:id]).first
   end
 
   def get_movies
@@ -26,7 +27,8 @@ class MoviesController < ApplicationController
       values << params[:movie_type]
     end
 
-    @movies = Movie.includes(:movie_details).where(conditions.join(' and '),*values).paginate(:page => params[:page], :per_page => 2)
+    @movies = Movie.includes(:movie_details).where(conditions.join(' and '),*values)
+                  .paginate(:page => params[:page], :per_page => 10)
     render 'homes/index'
   end
 

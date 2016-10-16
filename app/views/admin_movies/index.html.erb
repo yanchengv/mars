@@ -37,7 +37,8 @@
               <td><%= movie.show_time.present? ? movie.show_time.strftime('%Y-%m-%d') : '暂无' %></td>
               <td><%= movie.sort %></td>
               <td><%= movie.created_at.strftime('%Y-%m-%d %H:%m') %></td>
-              <td><a href="/admin_movies/<%= movie.id%>">详情</a> 修改 删除</td>
+              <td><a href="/admin_movies/<%= movie.id%>">详情</a>
+                <a href="javascript:void(0)" onclick="update_movie(<%= movie.id%>)">修改</a> 删除</td>
             </tr>
         <% end %>
 
@@ -45,5 +46,8 @@
     </tbody>
   </table>
 </div>
-
+<div class="flickr_pagination">
+  <%= will_paginate @movies, :container => false,:previous_label => t("上一页"), :next_label => t("下一页") %>
+</div>
 <%= render partial: 'admin_movies/movie_modal'%>
+

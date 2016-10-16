@@ -1,3 +1,30 @@
+/*修改电影*/
+function update_movie(movie_id){
+    $.ajax({
+        type: 'get',
+        url: '/admin_movies/get_movie_by_id',
+        data: {movie_id: movie_id},
+        success: function (data) {
+            $('#update_movie_modal').modal('show')
+            $('#update_movie_modal').on('shown.bs.modal', function (e) {
+                $("#update_movie_id").val(movie_id)
+                $('#update_movie_name').val(data['name']);
+                $('#update_movie_actors').val(data['actors']);
+                $('#update_movie_abstract').val(data['abstract']);
+                $('#update_movie_image_url').val(data['image_url']);
+                $('#update_movie_show_time').val(data['show_time']);
+                $('#update_movie_number').val(data['number']);
+                $('#update_movie_sort').val(data['sort']);
+                $('#update_movie_grade').val(data['grade']);
+            })
+        },
+        error: function (e) {
+            alert('失败')
+        }
+
+    })
+}
+
 <!-- 修改movie_details-->
 function update_movie_detail_modal(movie_detail_id) {
     $.ajax({

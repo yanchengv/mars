@@ -12,7 +12,7 @@ class AdminMoviesController < ApplicationController
 
   def index
     current_page = params[:page].present? ? params[:page] : 1
-    per_page = params[:rows].present? ? params[:rows] : 50
+    per_page = params[:rows].present? ? params[:rows] : 15
     @movie_tags = Tag.where(tag_type: 'tag').order(sort: :asc)
     @movie_types = Tag.where(tag_type: 'type').order(sort: :asc)
     @movie_regions = Tag.where(tag_type:'region').order(sort: :asc)
@@ -22,10 +22,16 @@ class AdminMoviesController < ApplicationController
   def show
     @movie = Movie.includes(:movie_details).where(id: params[:id]).first
   end
+
+  def get_movie_by_id
+    @movie = Movie.includes(:movie_details).where(id: params[:movie_id]).first
+    render json: @movie
+  end
+
   def update
-    @movie = Movie.find(params[:id])
+    @movie = Movie.find(params[:movie_id])
     @movie.update_attributes(movie_params)
-    render json: {success: true}
+   redirect_to :back
   end
 
   def delete_movie
@@ -48,6 +54,6 @@ class AdminMoviesController < ApplicationController
   private
 
   def movie_params
-    params.permit(:name, :sort, :region, :grade, :actors, :abstract, :image_url, :show_time, :movie_tag, :movie_type)
+    params.permit(:name, :sort, :region, :grade, :actors, :abstract, :image_url, :show_time, :movie_tag, :movie_type,:number)
   end
 end

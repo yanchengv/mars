@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       post 'delete_movie'
       post 'update'
       get 'list'
+      get 'get_movie_by_id'
     end
   end
 
