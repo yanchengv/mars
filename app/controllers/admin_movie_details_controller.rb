@@ -8,21 +8,25 @@ class AdminMovieDetailsController < ApplicationController
    render 'index',layout: 'blank_layout'
   end
 
+  def show
+      @movie_detail = MovieDetail.find(params[:id])
+      render json: @movie_detail
+  end
   def create
     @movie_detail = MovieDetail.create(movie_details_params)
     @movie = Movie.includes(:movie_details).where(id: @movie_detail.movie_id).first
     @movie.update_attributes({number: @movie.movie_details.length})
-    render json: {success: true}
+    redirect_to :back
   end
 
   def update
-    @movie_detail = MovieDetail.find(params[:id])
+    @movie_detail = MovieDetail.find(params[:movie_detail_id])
     @movie_detail.update_attributes(movie_details_params)
-    render json: {success: true}
+    redirect_to :back
   end
 
   def delete_movie_detail
-    @movie_detail = MovieDetail.find(params[:id])
+    @movie_detail = MovieDetail.find(params[:movie_detail_id])
     movie_id = @movie_detail.movie_id
     flag = @movie_detail.destroy
     if flag

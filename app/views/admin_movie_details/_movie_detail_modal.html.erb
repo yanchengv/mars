@@ -1,0 +1,139 @@
+<!-- addMovieDetailModal -->
+<div class="modal fade" id="add_movie_detail_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">剧集信息添加</h4>
+      </div>
+      <form action="/admin_movie_details" method="post">
+        <div class="modal-body">
+
+          <div class="form-group row">
+            <label for="example-text-input" class="col-xs-2 col-form-label">剧集名称</label>
+
+            <div class="col-xs-10">
+              <input class="form-control" type="text" placeholder="剧集名称" name="name">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-number-input" class="col-xs-2 col-form-label">剧集数</label>
+
+            <div class="col-xs-10">
+              <input class="form-control" name="episode" type="text" placeholder="01">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-url-input" class="col-xs-2 col-form-label">下载地址1</label>
+
+            <div class="col-xs-10">
+              <input class="form-control" type="url" placeholder="http://balawo.com" name="url">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-url-input" class="col-xs-2 col-form-label">下载地址2</label>
+
+            <div class="col-xs-10">
+              <input class="form-control" type="url" placeholder="http://balawo.com" name="url2">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-url-input" class="col-xs-2 col-form-label">网盘地址</label>
+
+            <div class="col-xs-10">
+              <input class="form-control" type="url" placeholder="http://balawo.com" name="wangpan_url">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-url-input" class="col-xs-2 col-form-label">网盘密码</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" placeholder="网盘密码" name="wangpan_password">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-url-input" class="col-xs-2 col-form-label">movieID</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" readonly="readonly"  name="movie_id" value="<%= @movie.id%>">
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary">保存</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- updateModal -->
+<div class="modal fade" id="update_movie_detail_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">剧集信息修改</h4>
+      </div>
+      <form action="/admin_movie_details/update" method="post">
+        <div class="modal-body">
+          <input name="movie_detail_id" type="hidden" value="" id="update_movie_detail_id">
+          <div class="form-group row">
+            <label for="example-text-input" class="col-xs-2 col-form-label">剧集名称</label>
+
+            <div class="col-xs-10">
+              <input class="form-control" type="text" placeholder="剧集名称" id="update_name_input" name="name">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-number-input" class="col-xs-2 col-form-label">剧集数</label>
+
+            <div class="col-xs-10">
+              <input class="form-control" id="update_episode_input" name="episode" type="text" placeholder="01">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-url-input" class="col-xs-2 col-form-label">下载地址1</label>
+
+            <div class="col-xs-10">
+              <input class="form-control" type="text" placeholder="http://balawo.com" id="update_url_input" name="url">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-url-input" class="col-xs-2 col-form-label">下载地址2</label>
+
+            <div class="col-xs-10">
+              <input class="form-control" type="text" placeholder="http://balawo.com" id="update_url2_input" name="url2">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-url-input" class="col-xs-2 col-form-label">网盘地址</label>
+
+            <div class="col-xs-10">
+              <input class="form-control" type="text" placeholder="http://balawo.com" id="update_wangpan_url" name="wangpan_url">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-url-input" class="col-xs-2 col-form-label">网盘密码</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" placeholder="网盘密码" id="update_wangpan_password_input" name="wangpan_password">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-url-input" class="col-xs-2 col-form-label">movieID</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" readonly="readonly"  name="movie_id"  value="<%= @movie.id%>">
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary">保存</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
