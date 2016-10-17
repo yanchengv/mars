@@ -354,12 +354,12 @@ def make_tags
       tag_type: 'type',
       sort: 4
   )
-  Tag.create(
-      id: 43,
-      name: '影视预告',
-      tag_type: 'type',
-      sort: 5
-  )
+  # Tag.create(
+  #     id: 43,
+  #     name: '影视预告',
+  #     tag_type: 'type',
+  #     sort: 5
+  # )
   Tag.create(
       id: 44,
       name: 'IT技术',
