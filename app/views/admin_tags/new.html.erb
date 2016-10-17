@@ -1,0 +1,63 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">添加</h3>
+  </div>
+  <div class="panel-body">
+    <form action="/admin_tags" method="post">
+      <div class="modal-body">
+
+        <div class="form-group row">
+          <label for="example-text-input" class="col-xs-2 col-form-label">名称</label>
+
+          <div class="col-xs-10">
+            <input class="form-control" type="text" name="name" id="update_tag_name" placeholder="名称">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="example-text-input" class="col-xs-2 col-form-label">是否禁用</label>
+          <label class="radio-inline">
+            <input type="radio" name="is_disabled"  value=true> 禁用
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="is_disabled"  value=false> 正常
+          </label>
+        </div>
+
+
+        <div class="form-group row">
+          <label for="example-text-input" class="col-xs-2 col-form-label">url</label>
+
+          <div class="col-xs-10">
+            <input class="form-control" type="text" name="url" id="add_tag_url" placeholder="如果为menu类型,则需要填写url">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="example-text-input" class="col-xs-2 col-form-label">标签类型</label>
+
+          <div class="col-xs-10">
+            <input class="form-control" type="text" name="tag_type" id="add_tag_type" placeholder="标签类型">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="example-text-input" class="col-xs-2 col-form-label">标签排行</label>
+
+          <div class="col-xs-10">
+            <input class="form-control" type="text" name="sort" id="add_sort" placeholder="标签排行">
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="pageRefresh()">取消</button>
+        <button type="submit" class="btn btn-primary">保存</button>
+      </div>
+    </form>
+  </div>
+</div>

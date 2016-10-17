@@ -1,38 +1,47 @@
-<div id="toolbar1">
-  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addTag()">添加</a>
-  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editTag()">编辑</a>
-  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyTag()">删除</a>
-</div>
-<table class="easyui-datagrid" id="tag-list" rownumbers="true" pagination="true"
-       data-options="url:'/admin_tags/list',method:'get',border:false,singleSelect:true,fitColumns:true">
-  <thead>
-  <tr>
-    <th data-options="field:'name',align:'center'" width="100px">名称</th>
-    <th data-options="field:'tag_type',align:'center'" width="100px">标签类型</th>
-    <th data-options="field:'sort',align:'center'" width="100px">排行</th>
-  </tr>
-  </thead>
-</table>
-
-
-<!--添加电影标签-->
-<div id="add_tag_dialog" class="easyui-dialog" title="添加" closed="true" data-options="iconCls:'icon-save',autoOpen:false" style="width:40%;height:600px;padding:10px 50px">
-  <form id="save_tag" method="post" name="tag">
-    <div style="margin-bottom:20px">
-      <input class="easyui-textbox" name="name" style="width:50%" data-options="label:'名称:'">
-      <input class="easyui-textbox" name="tag_type" style="width:50%" data-options="label:'标签类型:'">
-      <input class="easyui-textbox" name="sort" style="width:50%" data-options="label:'排行:'">
-    </div>
-
-
-
-  </form>
-
-
-
-
-  <div style="text-align:center;padding:5px 0">
-    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="saveTag()" style="width:80px">保存</a>
-    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="" style="width:80px">Clear</a>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <a href="/admin_tags/new">添加标签</a>
   </div>
 </div>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>#ID</th>
+      <th>名称</th>
+      <th>标签类型</th>
+      <th>是否禁用</th>
+      <th>url</th>
+      <th>排行</th>
+      <th>创建时间</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% if @tags.present? %>
+        <% @tags.each do |tag| %>
+            <tr>
+              <td><%= tag.id %></td>
+              <td><%= tag.name %></td>
+              <td><%= tag.tag_type %></td>
+              <td><%= tag.is_disabled? %></td>
+              <td><%= tag.url %></td>
+              <td><%= tag.sort %></td>
+              <td><%= tag.created_at.strftime('%Y-%m-%d %H:%m') %></td>
+              <td>
+                <a href="/admin_tags/<%= tag.id%>/edit">修改</a>
+                <a href="javascript:void(0)" onclick="deleteTag(<%=tag.id%>,'<%= tag.name%>')">删除</a>
+              </td>
+            </tr>
+        <% end %>
+
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="flickr_pagination">
+  <%= will_paginate @tags, :container => false,:previous_label => t("上一页"), :next_label => t("下一页") %>
+</div>
+
+<%= render partial: 'admin_tags/tag_modal'%>

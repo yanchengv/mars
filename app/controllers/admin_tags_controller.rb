@@ -1,28 +1,31 @@
 class AdminTagsController < ApplicationController
-  layout "admin_layout",except: [:index]
+  layout "admin_layout"
   before_action :is_log?
   before_action :is_admin?
   def index
-    render 'index',layout: 'blank_layout'
+    @tags = Tag.paginate(:page => params[:page], :per_page => 30)
   end
 
 
   def create
-    flag = Tag.create(tag_params)
-    render json: {success: flag}
+    Tag.create(tag_params)
+    redirect_to :back
   end
 
+  def edit
+    @tag = Tag.find(params[:id])
+  end
 
   def update
     @tag = Tag.find(params[:id])
     @tag.update_attributes(tag_params)
-    render json: {success: true}
+    redirect_to :back
   end
 
   def delete_tag
     @tag = Tag.find(params[:id])
     @tag.destroy
-    render json: {success: true}
+    redirect_to :back
   end
 
   def list
@@ -34,6 +37,6 @@ class AdminTagsController < ApplicationController
   private
 
   def tag_params
-    params.permit(:name,:tag_type,:sort)
+    params.permit(:name,:tag_type,:sort,:url,:is_disabled)
   end
 end
