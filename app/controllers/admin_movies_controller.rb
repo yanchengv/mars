@@ -3,9 +3,14 @@ class AdminMoviesController < ApplicationController
   before_action :is_log?
   before_action :is_admin?
 
-  def create
-    Movie.create(movie_params)
 
+  def new
+
+  end
+  def create
+    @movie = Movie.create(movie_params)
+    movie_tag = params[:movie_tags].join(',')
+    @movie.update_attributes({movie_tag: movie_tag})
     redirect_to :back
 
   end
