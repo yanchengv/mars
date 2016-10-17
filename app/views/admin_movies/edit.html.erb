@@ -1,0 +1,134 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">修改</h3>
+  </div>
+  <div class="panel-body">
+    <form action="/admin_movies/update" method="post">
+      <div class="modal-body">
+        <input type="hidden" id="update_movie_id" name="movie_id" value="<%= @movie.id%>">
+
+        <div class="form-group row">
+          <label for="example-text-input" class="col-xs-2 col-form-label">名称</label>
+
+          <div class="col-xs-10">
+            <input class="form-control" type="text" name="name" id="update_movie_name" placeholder="名称" value="<%= @movie.name %>">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="example-text-input" class="col-xs-2 col-form-label">地区</label>
+          <% @movie_regions.each do |region| %>
+              <% if region.name != '全部' %>
+                  <label class="radio-inline">
+                    <% if region.name == @movie.region %>
+                        <input type="radio" name="region" checked="checked" id="add_movie_region<%= region.id %>" value="<%= region.name %>"> <%= region.name %>
+                    <% else %>
+                        <input type="radio" name="region" id="add_movie_region<%= region.id %>" value="<%= region.name %>"> <%= region.name %>
+                    <% end %>
+                  </label>
+              <% end %>
+          <% end %>
+        </div>
+
+        <div class="form-group row">
+          <label for="example-text-input" class="col-xs-2 col-form-label">电影类型</label>
+          <% @movie_types.each do |type| %>
+              <% if type.name != '全部' %>
+                  <label class="radio-inline">
+                    <% if type.name == @movie.movie_type %>
+                        <input type="radio" name="movie_type" checked id="add_movie_type<%= type.id %>" value="<%= type.name %>"> <%= type.name %>
+                    <% else %>
+                        <input type="radio" name="movie_type" id="add_movie_type<%= type.id %>" value="<%= type.name %>"> <%= type.name %>
+                    <% end %>
+                  </label>
+              <% end %>
+          <% end %>
+
+
+        </div>
+
+
+        <div class="form-group row">
+          <label for="example-text-input" class="col-xs-2 col-form-label">电影标签</label>
+          <% @movie_tags.each do |tag| %>
+              <% if tag.name != '全部' %>
+                  <label class="checkbox-inline">
+                    <% if tag.name == @movie.movie_tag %>
+                        <input type="checkbox" id="movie_tag<%= tag.id %>" name="movie_tag" checked value="<%= tag.name %>"> <%= tag.name %>
+                    <% else %>
+                    <input type="checkbox" id="movie_tag<%= tag.id %>" name="movie_tag" value="<%= tag.name %>"> <%= tag.name %>
+                    <% end %>
+                  </label>
+              <% end %>
+
+          <% end %>
+
+
+        </div>
+
+
+        <div class="form-group row">
+          <label for="example-text-input" class="col-xs-2 col-form-label">演员</label>
+
+          <div class="col-xs-10">
+            <input class="form-control" type="text" name="actors" id="update_movie_actors" placeholder="演员" value="<%= @movie.actors %>">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="example-text-input" class="col-xs-2 col-form-label">简介</label>
+
+          <div class="col-xs-10">
+            <textarea class="form-control" rows="3" name="abstract" id="update_movie_abstract" placeholder="简介"><%= @movie.abstract %></textarea>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="example-text-input" class="col-xs-2 col-form-label">image_url</label>
+
+          <div class="col-xs-10">
+            <input class="form-control" type="text" name="image_url" id="update_movie_image_url" placeholder="image_url" value="<%= @movie.image_url %>">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="example-text-input" class="col-xs-2 col-form-label">上映时间</label>
+
+          <div class="col-xs-10">
+            <input class="form-control" type="date" name="show_time" id="update_movie_show_time" placeholder="上映时间" value="<%= @movie.show_time %>">
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <label for="example-text-input" class="col-xs-2 col-form-label">集数</label>
+
+          <div class="col-xs-10">
+            <input class="form-control" type="text" name="number" id="update_movie_number" placeholder="集数" value="<%= @movie.number %>">
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <label for="example-text-input" class="col-xs-2 col-form-label">排行</label>
+
+          <div class="col-xs-10">
+            <input class="form-control" type="number" name="sort" id="update_movie_sort" placeholder="排行" value="<%= @movie.sort %>">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="example-text-input" class="col-xs-2 col-form-label">评分</label>
+
+          <div class="col-xs-10">
+            <input class="form-control" type="number" name="grade" id="update_movie_grade" placeholder="评分" value="<%= @movie.grade %>">
+          </div>
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="pageRefresh()">取消</button>
+        <button type="submit" class="btn btn-primary">保存</button>
+      </div>
+    </form>
+  </div>
+</div>
+

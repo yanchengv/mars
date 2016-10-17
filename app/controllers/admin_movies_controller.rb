@@ -2,6 +2,7 @@ class AdminMoviesController < ApplicationController
   layout "admin_layout"
   before_action :is_log?
   before_action :is_admin?
+
   def create
     Movie.create(movie_params)
 
@@ -13,9 +14,7 @@ class AdminMoviesController < ApplicationController
   def index
     current_page = params[:page].present? ? params[:page] : 1
     per_page = params[:rows].present? ? params[:rows] : 15
-    @movie_tags = Tag.where(tag_type: 'tag').order(sort: :asc)
-    @movie_types = Tag.where(tag_type: 'type').order(sort: :asc)
-    @movie_regions = Tag.where(tag_type:'region').order(sort: :asc)
+    @movie_tags,@movie_types,@movie_regions=Tag.get_tags
     @movies = Movie.paginate(:page => current_page, :per_page => per_page)
   end
 
@@ -28,10 +27,17 @@ class AdminMoviesController < ApplicationController
     render json: @movie
   end
 
+  #显示编辑movie的表单
+  def edit
+    @movie_tags,@movie_types,@movie_regions=Tag.get_tags
+    @movie = Movie.find(params[:id])
+  end
+
+  # 更新提交
   def update
     @movie = Movie.find(params[:movie_id])
     @movie.update_attributes(movie_params)
-   redirect_to :back
+    redirect_to :back
   end
 
   def delete_movie
@@ -54,6 +60,6 @@ class AdminMoviesController < ApplicationController
   private
 
   def movie_params
-    params.permit(:name, :sort, :region, :grade, :actors, :abstract, :image_url, :show_time, :movie_tag, :movie_type,:number)
+    params.permit(:name, :sort, :region, :grade, :actors, :abstract, :image_url, :show_time, :movie_tag, :movie_type, :number)
   end
 end

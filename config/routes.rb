@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       post 'update'
       get 'list'
       get 'get_movie_by_id'
+      get 'update_form'
     end
   end
 
