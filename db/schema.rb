@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160929090318) do
+ActiveRecord::Schema.define(version: 20161017091448) do
 
   create_table "menus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -24,9 +24,17 @@ ActiveRecord::Schema.define(version: 20160929090318) do
     t.datetime "updated_at",                  null: false
   end
 
+  create_table "movie_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "movie_id"
+    t.string   "user_id"
+    t.text     "content",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "movie_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "movie_id"
-    t.integer  "episode"
+    t.string   "episode"
     t.string   "url"
     t.string   "url2"
     t.string   "wangpan_url"
@@ -56,8 +64,10 @@ ActiveRecord::Schema.define(version: 20160929090318) do
     t.string   "name"
     t.string   "tag_type"
     t.string   "sort"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "url"
+    t.boolean  "is_disabled"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

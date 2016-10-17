@@ -1,0 +1,13 @@
+<%= form_for @movie_comment do |f| %>
+
+    <%= f.hidden_field :movie_id, value: @movie.id %>
+    <% if current_user %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+    <% end %>
+    <%= f.kindeditor :content, :simple_mode => true,  :height => 200 %>
+    <%= f.submit '吐槽一下' %>
+<% end %>
+
+
+
+

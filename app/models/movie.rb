@@ -13,4 +13,5 @@
 =end
 class Movie < ApplicationRecord
      has_many :movie_details ,dependent: :destroy
+     has_many :movie_comments,dependent: :destroy
 end

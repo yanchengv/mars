@@ -2,6 +2,8 @@ class User < ApplicationRecord
   validates :name,  presence: {:message => "Title can't be blank" },length: {maximum: 50},uniqueness: {:message => "Title can't be chongfu" }
   has_secure_password
   attr_accessor :remember_token
+  has_many :movie_comments,dependent: :destroy
+
 
   # 返回指定字符串的哈希摘要
   def self.digest(string)

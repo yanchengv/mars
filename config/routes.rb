@@ -53,4 +53,6 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+
+  resource 'movie_comments'
 end

@@ -9,8 +9,11 @@ class MoviesController < ApplicationController
   end
 
   def show
+    @movie_comment = MovieComment.new
+    @movie_comments = MovieComment.includes(:user, :movie).where(movie_id: params[:id])
     @movie = Movie.includes(:movie_details)
                  .where(id: params[:id]).first
+
   end
 
   def get_movies

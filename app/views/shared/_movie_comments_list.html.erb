@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><strong>扒拉了<%= @movie_comments.length%>条吐槽</strong></div>
+
+  <ul class="list-group">
+    <% if @movie_comments.present? %>
+        <% @movie_comments.each do |movie_comment| %>
+            <li class="list-group-item">
+              <p><strong><%= movie_comment.user.name%></strong>  <%= movie_comment.created_at.strftime('%Y-%m-%d %H:%m')%> </p>
+              <p><%= movie_comment.content%></p>
+            </li>
+        <% end %>
+    <% end %>
+
+
+  </ul>
+</div>
