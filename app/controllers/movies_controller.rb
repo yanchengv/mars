@@ -21,13 +21,13 @@ class MoviesController < ApplicationController
     conditions = []
     values = []
     if params[:region].present? && params[:region] != '全部'
-        conditions << "region = ?"
-        values << params[:region]
+      conditions << "region = ?"
+      values << params[:region]
     end
 
     if params[:movie_tag].present? && params[:movie_tag] != '全部'
-        conditions << "movie_tag like ? "
-        values << "%#{params[:movie_tag]}%"
+      conditions << "movie_tag like ? "
+      values << "%#{params[:movie_tag]}%"
     end
 
     if params[:movie_type].present? && params[:movie_type] != '全部'
@@ -36,19 +36,24 @@ class MoviesController < ApplicationController
     end
 
     if params[:grade].present?
-      @movies = Movie.includes(:movie_details).where(conditions.join(' and '),*values).order('grade desc')
+      @movies = Movie.includes(:movie_details).where(conditions.join(' and '), *values).order('grade desc')
                     .paginate(:page => params[:page], :per_page => 10)
     elsif params[:created_at].present?
 
-      @movies = Movie.includes(:movie_details).where(conditions.join(' and '),*values).order('created_at desc')
+      @movies = Movie.includes(:movie_details).where(conditions.join(' and '), *values).order('created_at desc')
                     .paginate(:page => params[:page], :per_page => 10)
     else
-      @movies = Movie.includes(:movie_details).where(conditions.join(' and '),*values)
+      @movies = Movie.includes(:movie_details).where(conditions.join(' and '), *values)
                     .paginate(:page => params[:page], :per_page => 10)
     end
     render 'homes/index'
   end
 
 
+  def search
+    @movies = Movie.includes(:movie_details).where('name like ?', "%#{params[:name]}%")
+                  .paginate(:page => params[:page], :per_page => 10)
+    render 'movies/index'
+  end
 
 end

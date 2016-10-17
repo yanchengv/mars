@@ -11,6 +11,9 @@
     </div>
 
     <div id="navbar"  class="collapse navbar-collapse navbar-right">
+      <form action="/movies/search" class="navbar-form navbar-left">
+        <input type="text" name="name" class="form-control" placeholder="电影名字搜索...">
+      </form>
       <ul class="nav navbar-nav">
         <li><a href="/movies/get_movies?created_at=desc">最新</a></li>
         <li><a href="/movies/get_movies?grade=desc">排行</a></li>

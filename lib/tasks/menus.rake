@@ -366,4 +366,10 @@ def make_tags
       tag_type: 'type',
       sort: 6
   )
+  Tag.create(
+      id: 45,
+      name: '扒新闻',
+      tag_type: 'type',
+      sort: 7
+  )
 end
