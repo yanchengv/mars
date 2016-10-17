@@ -35,8 +35,10 @@ class AdminMoviesController < ApplicationController
 
   # 更新提交
   def update
+    movie_tag = params[:movie_tags].join(',')
     @movie = Movie.find(params[:movie_id])
     @movie.update_attributes(movie_params)
+    @movie.update_attributes({movie_tag: movie_tag})
     redirect_to :back
   end
 

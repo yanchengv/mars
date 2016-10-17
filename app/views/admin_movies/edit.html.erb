@@ -5,7 +5,7 @@
   <div class="panel-body">
     <form action="/admin_movies/update" method="post">
       <div class="modal-body">
-        <input type="hidden" id="update_movie_id" name="movie_id" value="<%= @movie.id%>">
+        <input type="hidden" id="update_movie_id" name="movie_id" value="<%= @movie.id %>">
 
         <div class="form-group row">
           <label for="example-text-input" class="col-xs-2 col-form-label">名称</label>
@@ -53,10 +53,10 @@
           <% @movie_tags.each do |tag| %>
               <% if tag.name != '全部' %>
                   <label class="checkbox-inline">
-                    <% if tag.name == @movie.movie_tag %>
-                        <input type="checkbox" id="movie_tag<%= tag.id %>" name="movie_tag" checked value="<%= tag.name %>"> <%= tag.name %>
+                    <% if  @movie.movie_tag.split(',').include?(tag.name) %>
+                        <input type="checkbox" id="movie_tag<%= tag.id %>" name="movie_tags[]" checked value="<%= tag.name %>"> <%= tag.name %>
                     <% else %>
-                    <input type="checkbox" id="movie_tag<%= tag.id %>" name="movie_tag" value="<%= tag.name %>"> <%= tag.name %>
+                        <input type="checkbox" id="movie_tag<%= tag.id %>" name="movie_tags[]" value="<%= tag.name %>"> <%= tag.name %>
                     <% end %>
                   </label>
               <% end %>
