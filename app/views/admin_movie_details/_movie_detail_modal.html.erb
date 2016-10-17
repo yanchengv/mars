@@ -98,21 +98,21 @@
             <label for="example-url-input" class="col-xs-2 col-form-label">下载地址1</label>
 
             <div class="col-xs-10">
-              <input class="form-control" type="text" placeholder="http://balawo.com" id="update_url_input" name="url">
+              <input class="form-control" type="url" placeholder="http://balawo.com" id="update_url_input" name="url">
             </div>
           </div>
           <div class="form-group row">
             <label for="example-url-input" class="col-xs-2 col-form-label">下载地址2</label>
 
             <div class="col-xs-10">
-              <input class="form-control" type="text" placeholder="http://balawo.com" id="update_url2_input" name="url2">
+              <input class="form-control" type="url" placeholder="http://balawo.com" id="update_url2_input" name="url2">
             </div>
           </div>
           <div class="form-group row">
             <label for="example-url-input" class="col-xs-2 col-form-label">网盘地址</label>
 
             <div class="col-xs-10">
-              <input class="form-control" type="text" placeholder="http://balawo.com" id="update_wangpan_url" name="wangpan_url">
+              <input class="form-control" type="url" placeholder="http://balawo.com" id="update_wangpan_url" name="wangpan_url">
             </div>
           </div>
           <div class="form-group row">
@@ -137,3 +137,30 @@
     </div>
   </div>
 </div>
+
+
+<!-- deleteMovieDetailsModal -->
+<div class="modal fade" id="delete_movie_detail_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">确定删除？</h4>
+      </div>
+
+      <form action="/admin_movie_details/delete_movie_detail" method="post">
+        <div class="modal-body">
+          <h3>删除：<span id="movie_detail_name_span"></span></h3>
+          <input class="form-control" type="hidden" name="id" id="movie_detail_id_input">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary">确定</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+

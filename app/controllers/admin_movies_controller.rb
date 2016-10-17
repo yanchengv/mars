@@ -20,7 +20,27 @@ class AdminMoviesController < ApplicationController
     current_page = params[:page].present? ? params[:page] : 1
     per_page = params[:rows].present? ? params[:rows] : 15
     @movie_tags,@movie_types,@movie_regions=Tag.get_tags
-    @movies = Movie.paginate(:page => current_page, :per_page => per_page)
+
+    conditions = []
+    values = []
+    if params[:region].present? && params[:region] != '全部'
+      conditions << "region = ?"
+      values << params[:region]
+    end
+
+    if params[:movie_tag].present? && params[:movie_tag] != '全部'
+      conditions << "movie_tag like ? "
+      values << "%#{params[:movie_tag]}%"
+    end
+
+    if params[:movie_type].present? && params[:movie_type] != '全部'
+      conditions << "movie_type = ? "
+      values << params[:movie_type]
+    end
+
+    @movies = Movie.includes(:movie_details).where(conditions.join(' and '),*values)
+                  .paginate(:page => params[:current_page], :per_page => per_page)
+
   end
 
   def show
@@ -49,13 +69,8 @@ class AdminMoviesController < ApplicationController
 
   def delete_movie
     @movie = Movie.find(params[:id])
-    flag = @movie.destroy
-    if flag
-      message = {success: true}
-    else
-      message = {success: false, errorMsg: '删除失败'}
-    end
-    render json: message
+    @movie.destroy
+    redirect_to :back
   end
 
 

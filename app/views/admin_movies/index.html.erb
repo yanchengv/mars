@@ -36,7 +36,9 @@
               <td><%= movie.sort %></td>
               <td><%= movie.created_at.strftime('%Y-%m-%d %H:%m') %></td>
               <td><a href="/admin_movies/<%= movie.id%>">详情</a>
-                <a href="/admin_movies/<%= movie.id%>/edit">修改</a> 删除</td>
+                <a href="/admin_movies/<%= movie.id%>/edit">修改</a>
+                <a href="javascript:void(0)" onclick="deleteMovie(<%= movie.id%>,'<%= movie.name%>')">删除</a>
+              </td>
             </tr>
         <% end %>
 
@@ -48,4 +50,3 @@
   <%= will_paginate @movies, :container => false,:previous_label => t("上一页"), :next_label => t("下一页") %>
 </div>
 <%= render partial: 'admin_movies/movie_modal'%>
-

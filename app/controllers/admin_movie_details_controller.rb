@@ -26,17 +26,15 @@ class AdminMovieDetailsController < ApplicationController
   end
 
   def delete_movie_detail
-    @movie_detail = MovieDetail.find(params[:movie_detail_id])
+    @movie_detail = MovieDetail.find(params[:id])
     movie_id = @movie_detail.movie_id
     flag = @movie_detail.destroy
     if flag
       @movie = Movie.includes(:movie_details).where(id: movie_id).first
       @movie.update_attributes({number: @movie.movie_details.length})
-      message = {success: true}
-    else
-      message = {success: false, errorMsg: '删除失败'}
     end
-    render json: message
+
+    redirect_to :back
   end
 
   def list

@@ -8,5 +8,5 @@
       t.string :wangpan_password #网盘密码
 =end
 class MovieDetail < ApplicationRecord
-  belongs_to :movie,dependent: :destroy
+  belongs_to :movie
 end
