@@ -1,12 +1,25 @@
-<%= form_for @movie_comment do |f| %>
+<% if current_user %>
+    <form action="/movie_comments"  method="post">
+      <input type="hidden" name="movie_id" value="<%= @movie.id %>">
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
 
-    <%= f.hidden_field :movie_id, value: @movie.id %>
-    <% if current_user %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-    <% end %>
-    <%= f.kindeditor :content, :simple_mode => true,  :height => 200 %>
-    <%= f.submit '吐槽一下' %>
+      <div class="form-group">
+        <textarea class="form-control" name="content" rows="3" placeholder="吐槽畅言一下啊"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary pull-right">吐槽一下</button>
+    </form>
+<% else %>
+    <form>
+      <input type="hidden" name="movie_id" value="<%= @movie.id %>">
+      <div class="form-group">
+        <textarea class="form-control" name="content" rows="3" placeholder="吐槽畅言一下啊"></textarea>
+      </div>
+
+    </form>
+    <button  type="button"   class="btn btn-primary pull-right" data-toggle="modal" data-target="#comment_movie_modal">吐槽一下</button>
 <% end %>
+
+<%= render partial: 'admin_movies/movie_modal'%>
 
 
 
