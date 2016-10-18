@@ -18,7 +18,7 @@ class AdminMoviesController < ApplicationController
 
   def index
     current_page = params[:page].present? ? params[:page] : 1
-    per_page = params[:rows].present? ? params[:rows] : 15
+    per_page = 15
     @movie_tags,@movie_types,@movie_regions=Tag.get_tags
 
     conditions = []

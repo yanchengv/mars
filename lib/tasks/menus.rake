@@ -328,30 +328,35 @@ def make_tags
       id: 38,
       name: '全部',
       tag_type: 'type',
+      url: '/movies/get_movies',
       sort: 0
   )
   Tag.create(
       id: 39,
       name: '电影',
       tag_type: 'type',
+      url: '/movies/get_movies',
       sort: 1
   )
   Tag.create(
       id: 40,
       name: '电视剧',
       tag_type: 'type',
+      url: '/movies/get_movies',
       sort: 2
   )
   Tag.create(
       id: 41,
       name: '动画片',
       tag_type: 'type',
+      url: '/movies/get_movies',
       sort: 3
   )
   Tag.create(
       id: 42,
       name: '综艺片',
       tag_type: 'type',
+      url: '/movies/get_movies',
       sort: 4
   )
   # Tag.create(
@@ -364,12 +369,14 @@ def make_tags
       id: 44,
       name: 'IT技术',
       tag_type: 'type',
+      url: '/movies/get_movies',
       sort: 6
   )
   Tag.create(
       id: 45,
       name: '扒新闻',
       tag_type: 'type',
+      url: '/news',
       sort: 7
   )
 end

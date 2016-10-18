@@ -54,5 +54,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resource 'movie_comments'
+  resources 'movie_comments'
+
+  resources 'news'
+  resources 'admin_news' do
+    collection do
+      post 'update'
+    end
+  end
 end

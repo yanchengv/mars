@@ -1,0 +1,17 @@
+
+<div class="row">
+
+  <div class="col-sm-12 blog-main">
+        <div class="blog-post">
+          <h2 class="blog-post-title " style="text-align:center;"><%= @news.title%></h2>
+          <p class="blog-post-meta" style="text-align:center;"><%= @news.created_at.strftime('%Y-%m-%d %H:%M')%> by <a href="#"><%= @news.author%></a></p>
+
+          <%= @news.content.present? ? @news.content.html_safe : '暂无内容，欢迎时刻关注扒新闻！'%>
+        </div>
+        <!-- /.blog-post -->
+
+  </div>
+  <!-- /.blog-main -->
+
+
+</div><!-- /.row -->

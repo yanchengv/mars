@@ -48,9 +48,9 @@
       <div class="list-group ">
         <% @movie_types.each do |movie_type| %>
             <% if movie_type.name == @selected_movie_type %>
-                <a href="/movies/get_movies?region=<%= @selected_region %>&&movie_type=<%= movie_type.name %>&&movie_tag=<%= @selected_movie_tag%> " class="list-group-item active"><%= movie_type.name %></a>
+                <a href="<%= movie_type.url%>?region=<%= @selected_region %>&&movie_type=<%= movie_type.name %>&&movie_tag=<%= @selected_movie_tag%> " class="list-group-item active"><%= movie_type.name %></a>
             <% else %>
-                <a href="/movies/get_movies?region=<%= @selected_region %>&&movie_type=<%= movie_type.name %>&&movie_tag=<%= @selected_movie_tag%>" class="list-group-item"><%= movie_type.name %></a>
+                <a href="<%= movie_type.url%>?region=<%= @selected_region %>&&movie_type=<%= movie_type.name %>&&movie_tag=<%= @selected_movie_tag%>" class="list-group-item"><%= movie_type.name %></a>
             <% end %>
 
         <% end %>
