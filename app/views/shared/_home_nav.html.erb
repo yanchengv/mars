@@ -15,8 +15,20 @@
         <input type="text" name="name" class="form-control" placeholder="扒拉电影...">
       </form>
       <ul class="nav navbar-nav">
-        <li><a href="/movies/get_movies?created_at=desc">最新</a></li>
-        <li><a href="/movies/get_movies?grade=desc">排行</a></li>
+        <% @movie_types.each do |movie_type| %>
+            <% if movie_type.name == @selected_movie_type %>
+                <li class="nav-item active">
+                  <a href="<%= movie_type.url%>?region=<%= @selected_region %>&&movie_type=<%= movie_type.name %>&&movie_tag=<%= @selected_movie_tag%> "><%= movie_type.name %>
+                  </a>
+                </li>
+            <% else %>
+                <li class="nav-item">
+                <a href="<%= movie_type.url%>?region=<%= @selected_region %>&&movie_type=<%= movie_type.name %>&&movie_tag=<%= @selected_movie_tag%>" class="active"><%= movie_type.name %></a>
+                </li>
+            <% end %>
+
+        <% end %>
+
         <% if current_user %>
             <li>
               <div class="btn-group home-login-menu">
@@ -35,6 +47,11 @@
 
       </ul>
     </div>
+
+
+
+
+
 
   </div>
 </nav>

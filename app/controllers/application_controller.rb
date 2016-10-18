@@ -22,6 +22,8 @@ class ApplicationController < ActionController::Base
     @movie_regions = Tag.where(tag_type: 'region').order(sort: :asc)
     @movie_types = Tag.where(tag_type: 'type').order(sort: :asc)
     @movie_tags = Tag.where(tag_type: 'tag').order(sort: :asc)
+    @movies_newest = Movie.order(created_at: :desc).limit(8)
+
   end
 
 end
