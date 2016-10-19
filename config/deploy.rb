@@ -3,7 +3,7 @@ lock '3.6.1'
 
 set :application, 'mars'
 set :repo_url, 'git@github.com:yanchengv/mars.git'
-set :deploy_to, '/home/deploy/deploy/mars'
+set :deploy_to, '/home/deploy/balawo/mars'
 set :deploy_user, :deploy
 
 # Default branch is :master
