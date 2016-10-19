@@ -48,7 +48,7 @@ gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-
+end
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
@@ -58,7 +58,6 @@ group :development, :test do
   gem 'capistrano3-unicorn', '~> 0.2.1'
   gem 'capistrano-rails-collection', '~> 0.0.3'
   gem 'capistrano-faster-assets', '~> 1.0'
-end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
