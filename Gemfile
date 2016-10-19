@@ -48,6 +48,16 @@ gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  # Add this if you're using rvm
+  gem 'capistrano-rvm'
+  gem 'capistrano3-unicorn', '~> 0.2.1'
+  gem 'capistrano-rails-collection', '~> 0.0.3'
+  gem 'capistrano-faster-assets', '~> 1.0'
 end
 
 group :development do
@@ -57,7 +67,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-end
 
+end
+gem 'unicorn'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
