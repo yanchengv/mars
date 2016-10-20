@@ -40,7 +40,7 @@ gem 'uuidtools'
 gem 'settingslogic', '>= 2.0.9'
 gem 'bcrypt',         '3.1.11'
 
-#gem 'rails_kindeditor'
+gem 'rails_kindeditor'
 
 # 爬虫包
 gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
