@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require kindeditor
+// require kindeditor
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
