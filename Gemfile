@@ -51,18 +51,12 @@ group :development, :test do
   gem 'byebug', platform: :mri
 end
 
-group :production do
-  gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
-  # Add this if you're using rvm
-  gem 'capistrano-rvm'
-  gem 'capistrano3-unicorn', '~> 0.2.1'
-  gem 'capistrano-rails-collection', '~> 0.0.3'
-  gem 'capistrano-faster-assets', '~> 1.0'
-end
-
+# Use Unicorn as the app server
+gem 'unicorn', '~> 5.1'
+gem 'mina'
+gem 'mina-unicorn', :require => false
+gem 'mina-sidekiq', :require => false
+gem 'sidekiq'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
@@ -73,6 +67,5 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
 end
-gem 'unicorn'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -1,80 +1,95 @@
-# config valid only for current version of Capistrano
-lock '3.6.1'
+require 'mina/bundler'
+require 'mina/rails'
+require 'mina/git'
+require 'mina/unicorn'
+# require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
+require 'mina/rvm'    # for rvm support. (http://rvm.io)
+require "mina_sidekiq/tasks"
 
-set :application, 'mars'
-set :repo_url, 'git@github.com:yanchengv/mars.git'
+# Basic settings:
+#   domain       - The hostname to SSH to.
+#   deploy_to    - Path to deploy into.
+#   repository   - Git repo to clone from. (needed by mina/git)
+#   branch       - Branch name to deploy. (needed by mina/git)
+
+set :domain, 'www.balawo.com'
 set :deploy_to, '/home/balawo/deploy/mars'
-set :deploy_user, :balawo
+set :repository, 'git@github.com:yanchengv/mars.git'
+set :branch, 'dev'
+set :term_mode, :system
+set :keep_releases,   5
+set :unicorn_pid, "#{deploy_to}/tmp/pids/unicorn.pid"
+set :sidekiq_pid, "#{deploy_to}/tmp/pids/sidekiq.pid"
 
-# Default branch is :master
-# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-# Default value for :pty is false
-# set :pty, true
+# For system-wide RVM install.
+#   set :rvm_path, '/usr/local/rvm/bin/rvm'
 
-set :scm, :git
-set :format, :pretty
-set :log_level, :debug
+# Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
+# They will be linked in the 'deploy:link_shared_paths' step.
+set :shared_paths, ['config/database.yml','log','tmp/pids/unicorn.pid']
+#set :shared_paths, ['config/database.yml', 'log','tmp/sockets', 'tmp/pids']
 
-set :linked_files, fetch(:linked_files, []).push('config/database.yml')
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+# Optional settings:
+set :user, 'balawo'    # Username in the server to SSH to.
+set :port, '22'     # SSH port number.
+#   set :forward_agent, true     # SSH forward_agent.
 
-set :rvm_type, :user
-set :rvm_ruby_version, '2.3.1'
-set :rvm_roles, [:app, :web, :db]
+# This task is the environment that is loaded for most commands, such as
+# `mina deploy` or `mina rake`.
+task :environment do
+  # If you're using rbenv, use this to load the rbenv environment.
+  # Be sure to commit your .ruby-version or .rbenv-version to your repository.
+  # invoke :'rbenv:load'
 
-# Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+  # For those using RVM, use this to load an RVM version@gemset.
+  # invoke :'rvm:use[ruby-1.9.3-p125@default]'
+  invoke :'rvm:use[ruby-2.3.1]'
+end
 
-# Default value for keep_releases is 5
-set :keep_releases, 3
+# Put any custom mkdir's in here for when `mina setup` is ran.
+# For Rails apps, we'll make some of the shared paths that are shared between
+# all releases.
+task :setup => :environment do
 
-after 'deploy:publishing', 'deploy:restart'
+  queue! %[mkdir -p "#{deploy_to}/shared/log"]
+  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/log"]
 
-namespace :deploy do
+  queue! %[mkdir -p "#{deploy_to}/shared/config"]
+  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/config"]
 
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
+  queue! %[touch "#{deploy_to}/shared/config/database.yml"]
+
+  queue  %[echo "-----> Be sure to edit '#{deploy_to}/shared/config/database.yml' and 'secrets.yml'."]
+
+
+  queue! %[mkdir -p "#{deploy_to}/tmp/sockets/"]
+  queue! %[mkdir -p "#{deploy_to}/tmp/pids"]
+  queue! %[chmod g+rx,u+rwx "#{deploy_to}/tmp/pids"]
+
+end
+
+desc "Deploys the current version to the server."
+task :deploy => :environment do
+  deploy do
+    invoke :'unicorn:stop'
+    invoke :'git:clone'
+    invoke :'deploy:link_shared_paths'
+    invoke :'bundle:install'
+    invoke :'rails:db_migrate'
+    invoke :'rails:assets_precompile'
+    invoke :'deploy:cleanup'
+
+    to :launch do
+      invoke :'sidekiq:quiet'
+      invoke :'sidekiq:restart'
+      invoke :'unicorn:restart'
+
     end
-  end
-
-  task :restart do
-    invoke 'unicorn:restart'
   end
 
 end
 
-
-# Default branch is :master
-# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-
-# Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, '/var/www/my_app_name'
-
-# Default value for :scm is :git
-# set :scm, :git
-
-# Default value for :format is :airbrussh.
-# set :format, :airbrussh
-
-# You can configure the Airbrussh format using :format_options.
-# These are the defaults.
-# set :format_options, command_output: true, log_file: 'log/capistrano.log', color: :auto, truncate: :auto
-
-# Default value for :pty is false
-# set :pty, true
-
-# Default value for :linked_files is []
-# append :linked_files, 'config/database.yml', 'config/secrets.yml'
-
-# Default value for linked_dirs is []
-# append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
-
-# Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
-
-# Default value for keep_releases is 5
-# set :keep_releases, 5
+desc "Shows logs."
+task :logs do
+  queue %[cd #{deploy_to!} && tail -f shared/log/production.log]
+end
