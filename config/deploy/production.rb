@@ -1,12 +1,16 @@
-# Production Stage
 set :stage, :production
 set :branch, 'dev'
 set :rails_env, :production
 
-server '45.32.248.196', user: 'balawo', roles: %w(db app web), primary: true, ssh_options:{
-                          port: 22,
-                          forward_agent: true
-                      }
+server '45.32.248.196',
+       user: 'balawo',
+       roles: %w(db app web),
+       primary: true,
+       ssh_options:{
+           port: 22,
+           forward_agent: true
+       }
+
 
 
 # server-based syntax
