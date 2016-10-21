@@ -15,6 +15,5 @@ module Mars
     config.time_zone = 'Beijing'
     config.active_record.default_timezone = :local
 
-    config.configuration.action_controller.per_form_csrf_tokens = true
   end
 end
