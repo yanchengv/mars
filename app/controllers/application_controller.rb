@@ -1,10 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  skip_before_action :verify_authenticity_token, raise: false
   before_action :movie_tags
   include SessionsHelper
-
-
+  #skip_before_action :verify_authenticity_token, raise: false
   def is_log?
     if !log_in?
         redirect_to '/'

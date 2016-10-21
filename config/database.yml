@@ -24,5 +24,7 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+    <<: *default
+    host: localhost
+    password: 123
+    database: mars_development
