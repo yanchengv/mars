@@ -1,26 +1,23 @@
-worker_processes 5
-
-APP_PATH = "/home/balawo/deploy/mars/current"
+app = "mars"
+worker_processes 1
 preload_app true
 timeout 20
-working_directory APP_PATH
+app_path = "/home/balawo/deploy/#{app}/current"
+listen "/tmp/unicorn.#{app}.sock", :backlog => 64
+pid "#{app_path}/tmp/pids/unicorn.pid"
+stderr_path "#{app_path}/log/unicorn.log"
+stdout_path "#{app_path}/log/unicorn.log"
 
-#/tmp/unicorn.prometheus.sock;  这个sock来自 nginx的配置
-listen "/tmp/unicorn.mars.sock", :backlog => 64 #这个sock来自 nginx的配置
-#listen 8009
-pid APP_PATH + "/tmp/pids/unicorn.pid"
-# By default, the Unicorn logger will write to stderr.
-# Additionally, ome applications/frameworks log to stderr or stdout,
-# so prevent them from going to /dev/null when daemonized here:
-stderr_path APP_PATH + "/log/unicorn.stderr.log"
-stdout_path APP_PATH + "/log/unicorn.stderr.log"
-
-before_exec do |server| # fix hot restart Gemfile
-  ENV["BUNDLE_GEMFILE"] = "#{APP_PATH}/Gemfile"
+#You may need to set or reset the BUNDLE_GEMFILE environment variable in the before_exec hook
+before_exec do |server|
+  ENV["BUNDLE_GEMFILE"] = "#{app_path}/Gemfile"
 end
 
 before_fork do |server, worker|
-  old_pid = APP_PATH + "/tmp/pids/unicorn.pid.oldbin"
+  # the database connection
+  #  defined?(ActiveRecord::Base) and
+  #    ActiveRecord::Base.connection.disconnect!
+  old_pid = "#{app_path}/tmp/pids/unicorn.pid.oldbin"
   if File.exists?(old_pid) && server.pid != old_pid
     begin
       Process.kill("QUIT", File.read(old_pid).to_i)
@@ -29,4 +26,3 @@ before_fork do |server, worker|
     end
   end
 end
-
