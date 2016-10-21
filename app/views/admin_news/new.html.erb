@@ -7,7 +7,7 @@
         标题:<%= f.text_field :title%><br/>
         作者:<%= f.text_field :author%><br/>
         概要:<%= f.text_area :abstract%><br/>
-        内容:<%= f.kindeditor :content,:simple_mode => true %>
+        内容:<%= f.text_area :content %>
         <%= f.submit '提交'%>
     <% end %>
   </div>
