@@ -1,0 +1,53 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <div class="home_region_tags">
+      影视:
+      <% @movie_types.each do |movie_type| %>
+          <% if movie_type.name == @selected_movie_type %>
+              <a href="/movies/get_movies?type=<%= movie_type.name %>&&region=<%= @selected_region %>&&type=<%= @selected_movie_tag%>" class="active">
+                <span class="label label-primary"><%= movie_type.name %></span>
+              </a>
+          <% else %>
+              <a href="/movies/get_movies?type=<%= movie_type.name %>&&region=<%= @selected_region %>&&tag=<%= @selected_movie_tag %>">
+                <%= movie_type.name %>
+              </a>
+          <% end %>
+      <% end %>
+
+    </div>
+
+    <div class="home_region_tags">
+      地区:
+      <% @movie_regions.each do |movie_region| %>
+          <% if movie_region.name == @selected_region %>
+              <a href="/movies/get_movies?type=<%= @selected_movie_type %>&&region=<%= movie_region.name %>&&tag=<%= @selected_movie_tag %>" class="active">
+                <span class="label label-primary"><%= movie_region.name %></span>
+              </a>
+          <% else %>
+              <a href="/movies/get_movies?type=<%= @selected_movie_type %>&&region=<%= movie_region.name %>&&tag=<%= @selected_movie_tag %>">
+                <%= movie_region.name %>
+              </a>
+          <% end %>
+      <% end %>
+
+    </div>
+
+    <div class="home_dy1_tags">
+      类型:
+      <% @movie_tags.each do |movie_tag| %>
+          <% if movie_tag.name == @selected_movie_tag %>
+              <a href="/movies/get_movies?type=<%= @selected_movie_type %>&&region=<%= @selected_region %>&&tag=<%= movie_tag.name %>" class="active">
+                <span class="label label-primary"><%= movie_tag.name %></span>
+              </a>
+          <% else %>
+              <a href="/movies/get_movies?type=<%= @selected_movie_type %>&&region=<%= @selected_region %>&&tag=<%= movie_tag.name %>">
+                <%= movie_tag.name %>
+              </a>
+          <% end %>
+
+      <% end %>
+    </div>
+  </div>
+
+</div>

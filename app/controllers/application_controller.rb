@@ -18,11 +18,8 @@ class ApplicationController < ActionController::Base
 
 
   def movie_tags
-    @movie_regions = Tag.where(tag_type: 'region').order(sort: :asc)
-    @movie_types = Tag.where(tag_type: 'type').order(sort: :asc)
-    @movie_tags = Tag.where(tag_type: 'tag').order(sort: :asc)
+    @movie_tags,@movie_types,@movie_regions,@movie_menus=Tag.get_tags
     @movies_newest = Movie.order(created_at: :desc).limit(8)
-
   end
 
 end

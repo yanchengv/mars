@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-
+  layout "movie_layout"
 
   def index
     @selected_region = params[:region].present? ? params[:region] : '全部'
@@ -18,8 +18,8 @@ class MoviesController < ApplicationController
 
   def get_movies
     @selected_region = params[:region].present? ? params[:region] : '全部'
-    @selected_movie_tag = params[:movie_tag].present? ? params[:movie_tag] : '全部'
-    @selected_movie_type = params[:movie_type].present? ? params[:movie_type] : '全部'
+    @selected_movie_tag = params[:tag].present? ? params[:tag] : '全部'
+    @selected_movie_type = params[:type].present? ? params[:type] : '全部'
 
     conditions = []
     values = []
@@ -28,14 +28,14 @@ class MoviesController < ApplicationController
       values << params[:region]
     end
 
-    if params[:movie_tag].present? && params[:movie_tag] != '全部'
+    if params[:tag].present? && params[:tag] != '全部'
       conditions << "movie_tag like ? "
-      values << "%#{params[:movie_tag]}%"
+      values << "%#{params[:tag]}%"
     end
 
-    if params[:movie_type].present? && params[:movie_type] != '全部'
+    if params[:type].present? && params[:type] != '全部'
       conditions << "movie_type = ? "
-      values << params[:movie_type]
+      values << params[:type]
     end
 
     if params[:grade].present?

@@ -15,15 +15,15 @@
         <input type="text" name="name" class="form-control" placeholder="扒拉电影...">
       </form>
       <ul class="nav navbar-nav">
-        <% @movie_types.each do |movie_type| %>
-            <% if movie_type.name == @selected_movie_type %>
+        <% @movie_menus.each do |movie_menu| %>
+            <% if movie_menu.name == @selected_movie_menu %>
                 <li class="nav-item active">
-                  <a href="<%= movie_type.url%>?region=<%= @selected_region %>&&movie_type=<%= movie_type.name %>&&movie_tag=<%= @selected_movie_tag%> "><%= movie_type.name %>
+                  <a href="<%= movie_menu.url%>"><%= movie_menu.name %>
                   </a>
                 </li>
             <% else %>
                 <li class="nav-item">
-                <a href="<%= movie_type.url%>?region=<%= @selected_region %>&&movie_type=<%= movie_type.name %>&&movie_tag=<%= @selected_movie_tag%>" class="active"><%= movie_type.name %></a>
+                <a href="<%= movie_menu.url%>" class="active"><%= movie_menu.name %></a>
                 </li>
             <% end %>
 
