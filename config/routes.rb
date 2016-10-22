@@ -6,11 +6,24 @@ Rails.application.routes.draw do
 
   root 'movies#index'
   get '/admin' => 'admin_homes#index'
-  get    '/login',   to: 'sessions#new'
-  post   '/login',   to: 'sessions#login'
-  get '/sign_up',to: 'sessions#sign_up'
-  post '/sign_up',to: 'sessions#create'
-  get 'log_out',to: 'sessions#destroy'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#login'
+  get '/sign_up', to: 'sessions#sign_up'
+  post '/sign_up', to: 'sessions#create'
+  get 'log_out', to: 'sessions#destroy'
+
+  resources 'movies' do
+    collection do
+      get 'get_movies'
+      get 'search'
+    end
+  end
+
+  resources 'movie_comments'
+
+  resources 'news'
+  resources 'blogs'
+
 
   resources 'admin_movies' do
     collection do
@@ -46,20 +59,11 @@ Rails.application.routes.draw do
       get 'grid_list'
     end
   end
-
-  resources 'movies' do
-    collection do
-      get 'get_movies'
-      get 'search'
-    end
-  end
-
-  resources 'movie_comments'
-
-  resources 'news'
   resources 'admin_news' do
     collection do
       post 'update'
     end
   end
+
+
 end

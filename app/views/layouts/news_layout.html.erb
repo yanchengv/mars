@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>扒拉我</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+</head>
+
+<body>
+<%= render partial: 'shared/home_nav' %>
+
+<div class="container">
+  <div class="row row-offcanvas row-offcanvas-right">
+    <div class="col-xs-12 col-sm-9">
+      <%= yield %>
+    </div>
+
+  </div><!-- /.row -->
+
+  <%= render partial: 'shared/footer' %>
+  </div>
+
+
+</div><!--container-->
+
+</body>
+</html>
+
+
+
+
+
+

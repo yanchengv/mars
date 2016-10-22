@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018022045) do
+ActiveRecord::Schema.define(version: 20161022130343) do
+
+  create_table "blogs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.string   "tag"
+    t.string   "abstract"
+    t.string   "author"
+    t.text     "content",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "menus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -66,6 +76,7 @@ ActiveRecord::Schema.define(version: 20161018022045) do
     t.string   "author"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.string   "abstract"
   end
 
   create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
