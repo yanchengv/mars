@@ -28,7 +28,7 @@
               <td><%= tag.is_disabled? %></td>
               <td><%= tag.url %></td>
               <td><%= tag.sort %></td>
-              <td><%= tag.created_at.strftime('%Y-%m-%d %H:%m') %></td>
+              <td><%= tag.created_at.present? ? tag.created_at.strftime('%Y-%m-%d %H:%m') : '' %></td>
               <td>
                 <a href="/admin_tags/<%= tag.id%>/edit">修改</a>
                 <a href="javascript:void(0)" onclick="deleteTag(<%=tag.id%>,'<%= tag.name%>')">删除</a>
