@@ -6,6 +6,7 @@ class MoviesController < ApplicationController
     @selected_movie_tag = params[:movie_tag].present? ? params[:movie_tag] : '全部'
     @selected_movie_type = params[:movie_type].present? ? params[:movie_type] : '全部'
     @movies = Movie.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10)
+    @layout_title = '电影-'
   end
 
   def show
@@ -13,7 +14,7 @@ class MoviesController < ApplicationController
     @movie_comments = MovieComment.includes(:user, :movie).where(movie_id: params[:id])
     @movie = Movie.includes(:movie_details)
                  .where(id: params[:id]).first
-
+    @layout_title = @movie.name + '-'
   end
 
   def get_movies
