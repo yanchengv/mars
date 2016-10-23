@@ -7,8 +7,8 @@
         <%= f.hidden_field :id%>
         标题:<%= f.text_field :title%><br/>
         作者:<%= f.text_field :author%><br/>
-        概要:<%= f.text_area :abstract%><br/>
-        内容:<%= f.text_area :content%>
+        概要:<%= f.text_area :abstract,:rows=>5, :cols=>80 %><br/>
+        内容:<%= f.text_area :content,id:'news_content'  %>
         <%= f.submit '提交'%>
     <% end %>
   </div>

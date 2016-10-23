@@ -14,4 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
+//= require kindeditor/kindeditor-all-min
+//= require kindeditor/image
+//= require kindeditor/kindeditor_config
 //= require_tree .

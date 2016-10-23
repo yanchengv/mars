@@ -379,4 +379,27 @@ def make_tags
       url: '/news',
       sort: 7
   )
+
+  Tag.create(
+      id: 46,
+      name: '电影',
+      tag_type: 'menu',
+      url: '/movies',
+      sort: 1
+  )
+  Tag.create(
+      id: 47,
+      name: '扒新闻',
+      tag_type: 'menu',
+      url: '/news',
+      sort: 2
+  )
+
+  Tag.create(
+      id: 48,
+      name: '博客',
+      tag_type: 'menu',
+      url: '/blogs',
+      sort: 3
+  )
 end
