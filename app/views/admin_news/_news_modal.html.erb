@@ -1,0 +1,23 @@
+<!-- deleteMovieModal -->
+<div class="modal fade" id="delete_news_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">确定删除？</h4>
+      </div>
+
+      <form action="/admin_news/delete_news" method="post">
+        <div class="modal-body">
+          <h3>删除：<span id="news_name_span"></span></h3>
+          <input class="form-control" type="hidden" name="id" id="news_id_input">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary">确定</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

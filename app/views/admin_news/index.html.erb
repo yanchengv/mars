@@ -38,8 +38,4 @@
   <%= will_paginate @admin_news, :container => false,:previous_label => t("上一页"), :next_label => t("下一页") %>
 </div>
 
-<script>
-  function deleteNews(){
-
-  }
-</script>
+<%= render partial: 'admin_news/news_modal'%>

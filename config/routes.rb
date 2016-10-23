@@ -62,6 +62,7 @@ Rails.application.routes.draw do
   resources 'admin_news' do
     collection do
       post 'update'
+      post 'delete_news'
     end
   end
 

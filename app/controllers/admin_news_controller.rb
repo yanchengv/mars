@@ -31,6 +31,14 @@ class AdminNewsController < ApplicationController
     @admin_news = News.find(params[:id])
   end
 
+  def delete_news
+    @news = News.find(params[:id])
+    @news.destroy
+    redirect_to :back
+  end
+
+  private
+
   def news_params
     params.require(:news).permit(:title, :abstract, :content, :author)
   end

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>扒拉我</title>
+  <title>扒拉我-扒新闻-最新新闻-迅雷电影-balawo-免费电影-IT技术视频-博客-</title>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -16,7 +16,7 @@
     <div class="col-xs-12 col-sm-9">
       <%= yield %>
     </div>
-
+    <%= render partial: 'news/news_list_right' %>
   </div><!-- /.row -->
 
   <%= render partial: 'shared/footer' %>
