@@ -4,8 +4,8 @@ KindEditor.ready(function(K) {
         resizeType : 1,
         allowPreviewEmoticons : false,
         allowImageUpload : false,
-        width : '710px',
-        height: '300px',
+        width : '800px',
+        height: '500px',
         items : [
             'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
             'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',

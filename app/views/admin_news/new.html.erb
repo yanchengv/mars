@@ -4,7 +4,7 @@
   </div>
   <div class="panel-body">
     <%= form_for @admin_news,url: '/admin_news' do |f| %>
-        标题:<%= f.text_field :title%><br/>
+        标题:<%= f.text_area :title,:rows=>3, :cols=>80%><br/>
         作者:<%= f.text_field :author%><br/>
         概要:<%= f.text_area :abstract,:rows=>5, :cols=>80 %><br/>
         内容:<%= f.text_area :content,id:'news_content'  %>
