@@ -11,7 +11,7 @@ class AdminMoviesController < ApplicationController
     @movie = Movie.create(movie_params)
     movie_tag = params[:movie_tags].join(',')
     @movie.update_attributes({movie_tag: movie_tag})
-    redirect_to :back
+    redirect_to '/admin_movies/'+@movie.id.to_s
 
   end
 
