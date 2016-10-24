@@ -76,3 +76,10 @@ footer {
 .home-login-menu button{
   background-color: black;border: none
 }
+@media(max-width:480px){
+ .movie_img {
+   width: 96%;
+   margin:10px 2%;
+   
+}
+}
