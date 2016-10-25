@@ -38,6 +38,16 @@ namespace :deploy do
   end
 
 end
+
+#  cap production logs:tail 命令实时查看production.log
+namespace :logs do
+  desc "tail rails logs"
+  task :tail do
+    on roles(:app) do
+      execute "tail -f #{deploy_to}/shared/log/#{fetch(:rails_env)}.log"
+    end
+  end
+end
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
