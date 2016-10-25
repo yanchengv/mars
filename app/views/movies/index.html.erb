@@ -15,10 +15,10 @@
           <p class="movie_details_span">
             <span>类型：<a href="#"><%= movie.movie_tag%></a></span>
             <span>地区：<a href="#"><%= movie.region%></a></span>
-            <span>评分：<%= movie.grade%></span>
-            <span>上映时间：<%= movie.show_time.present? ? movie.show_time.strftime('%Y') : '暂无'%></span>
-            <span>主演：<%= movie.actors[0, 20] %>...</span>
-            <span>分享时间：<%= movie.created_at.present? ? movie.created_at.strftime('%Y') : '暂无'%></span>
+            <span>评分：<span class="index_grade"><%= movie.grade%></span></span>
+            <span>上映时间：<span class="index_show_time" ><%= movie.show_time.present? ? movie.show_time.strftime('%Y') : '暂无'%></span></span>
+            <span>主演：<span class="index_actors"><%= movie.actors[0, 20] %>...</span></span>
+            <span>分享时间：<span class="index_created_at"><%= movie.created_at.present? ? movie.created_at.strftime('%Y') : '暂无'%></span></span>
           </p>
         </div>
 

@@ -1,37 +1,39 @@
 <ul class="media-list">
   <li class="media">
-    <a class="media-left" href="/movies/<%= @movie.id %>">
+    <a class="media-left movie_show_a " href="/movies/<%= @movie.id %>">
       <div>
-        <img src="<%= @movie.image_url%>" alt="..." height="300" width="250" class='movie_img' >
+        <img src="<%= @movie.image_url%>" alt="<%= @movie.name%>" height="300" width="250" class='movie_show_img' >
       </div>
     </a>
 
     <div class="media-body">
       <h4 class="media-heading"><a style="cursor:pointer" href="/movies/<%= @movie.id %>"><%= @movie.name %></a></h4>
 
-      <p>上映：
+      <p><strong>上映：</strong>
         <% if @movie.show_time.present? %>
             <%= @movie.show_time.strftime('%Y') %>
         <% end %>
       </p>
 
-      <p>类型：<%= @movie.movie_tag %></p>
+      <p><strong>类型：</strong><%= @movie.movie_tag %></p>
 
-      <p>主演：<%= @movie.actors %></p>
+      <p><strong>主演：</strong><%= @movie.actors %></p>
 
-      <p>地区：<%= @movie.region %></p>
+      <p><strong>地区：</strong><%= @movie.region %></p>
 
-      <p>更新日期：
+      <p><strong>更新日期：</strong>
         <% if @movie.created_at.present? %>
             <%= @movie.created_at.strftime('%Y-%m-%d %H:%M:%S') %>
         <% end %>
 
       </p>
 
-      <p>影片评分：<%= @movie.grade %></p>
+      <p><strong>影片评分：</strong><%= @movie.grade %></p>
     </div>
   </li>
+
   <hr>
+  <p><strong>影片简介：</strong></p>
   <p><%= @movie.abstract %></p>
 
 </ul>
