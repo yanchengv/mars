@@ -16,7 +16,7 @@ class MoviesController < ApplicationController
                  .where(id: params[:id]).first
     @url_is_present = false
     @url2_is_present = false
-    @wangpanurl_is_present = false
+    @wangpan_url_is_present = false
     @movie.movie_details.each do |movie_detail|
       if movie_detail.url.present?
         @url_is_present = true
@@ -24,8 +24,8 @@ class MoviesController < ApplicationController
       if movie_detail.url2.present?
         @url2_is_present = true
       end
-      if movie_detail.url2.present?
-        @wangpanurl_is_present = true
+      if movie_detail.wangpan_url.present?
+        @wangpan_url_is_present = true
       end
     end
     @layout_title = @movie.name + '-'
