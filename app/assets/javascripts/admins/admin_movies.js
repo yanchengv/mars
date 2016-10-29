@@ -24,6 +24,7 @@ function update_movie_detail_modal(movie_detail){
     $('#update_movie_detail_modal').on('shown.bs.modal', function (e) {
         $("#update_movie_detail_id").val(movie_detail.id)
         $("#update_name_input").val(movie_detail.name)
+        $("#update_name2_input").val(movie_detail.name2)
         $("#update_episode_input").val(movie_detail.episode)
         $("#update_url_input").val(movie_detail.url)
         $("#update_url2_input").val(movie_detail.url2)

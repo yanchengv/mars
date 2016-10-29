@@ -1,12 +1,14 @@
 <ul class="media-list">
   <li class="media">
-      <div class="media-left movie_show_a ">
-        <img src="<%= @movie.image_url%>" alt="<%= @movie.name%>" height="300" width="250" class='movie_show_img' >
-      </div>
+    <div class="media-left movie_show_a ">
+      <img src="<%= @movie.image_url %>" alt="<%= @movie.name %>" height="300" width="250" class='movie_show_img'>
+    </div>
 
     <div class="media-body">
       <h3 class="media-heading"><%= @movie.name %></h3>
+
       <p></p>
+
       <p><strong>上映：</strong>
         <% if @movie.show_time.present? %>
             <%= @movie.show_time.strftime('%Y') %>
@@ -32,6 +34,7 @@
 
   <hr>
   <p><strong>影片简介：</strong></p>
+
   <p><%= @movie.abstract %></p>
 
 </ul>
@@ -48,7 +51,11 @@
             <% if movie_detail.url.present? %>
                 <li class="list-group-item">
                   <a href="<%= movie_detail.url %>">
-                    <%= @movie.name %>第<%= movie_detail.episode %>集下载---右键复制链接迅雷下载</a>
+                    <%= movie_detail.name %>
+                    <% if @movie.movie_type != '电影' %>
+                        第<%= movie_detail.episode %>集
+                    <% end %>
+                    下载---右键复制链接迅雷下载</a>
                 </li>
             <% end %>
 
@@ -69,7 +76,11 @@
             <% if movie_detail.url2.present? %>
                 <li class="list-group-item">
                   <a href="<%= movie_detail.url2 %>">
-                    <%= @movie.name %>第<%= movie_detail.episode %>集下载---右键复制链接迅雷下载</a>
+                    <%= movie_detail.name2 %>
+                    <% if @movie.movie_type != '电影' %>
+                        第<%= movie_detail.episode %>集
+                    <% end %>
+                    下载---右键复制链接迅雷下载</a>
                 </li>
             <% end %>
         <% end %>
@@ -104,10 +115,10 @@
 
 
 <!--电影评论富文本-->
-<%= render partial: 'movies/movie_comment_editor'%>
+<%= render partial: 'movies/movie_comment_editor' %>
 
 <!--电影评论条数-->
-<%= render partial: 'movies/movie_comments_list'%>
+<%= render partial: 'movies/movie_comments_list' %>
 
 
 

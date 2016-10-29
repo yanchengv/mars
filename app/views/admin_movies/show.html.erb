@@ -42,12 +42,10 @@
     <table class="table">
       <thead>
       <tr>
-        <th>剧集名称</th>
+        <th>剧集名称1</th>
+        <th>剧集名称2</th>
         <th>剧集数</th>
-        <th>下载地址1</th>
-        <th>下载地址2</th>
-        <th>网盘地址</th>
-        <th>网盘密码</th>
+        <th>下载地址</th>
         <th>上传时间</th>
 
       </tr>
@@ -57,11 +55,10 @@
           <% @movie.movie_details.each do |movie_detail| %>
               <tr>
                 <td><%= movie_detail.name %></td>
+                <td><%= movie_detail.name2 %></td>
                 <td><%= movie_detail.episode %></td>
                 <td>详情</td>
-                <td>详情</td>
-                <td>详情</td>
-                <td>详情</td>
+
                 <td><%= movie_detail.created_at.present? ? movie_detail.created_at.strftime('%Y-%m-%d') : '暂无' %></td>
                 <td>
                   <a href="/admin_movie_details/<%= movie_detail.id %>">详情</a>

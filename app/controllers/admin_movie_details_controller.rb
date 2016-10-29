@@ -45,7 +45,7 @@ class AdminMovieDetailsController < ApplicationController
   private
 
   def movie_details_params
-    params.permit(:name,:url,:url2,:wangpan_url,:wangpan_password,:movie_id,:episode)
+    params.permit(:name,:name2,:url,:url2,:wangpan_url,:wangpan_password,:movie_id,:episode)
   end
 end
 
