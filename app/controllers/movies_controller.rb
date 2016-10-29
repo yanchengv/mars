@@ -5,8 +5,8 @@ class MoviesController < ApplicationController
     @selected_region = params[:region].present? ? params[:region] : '全部'
     @selected_movie_tag = params[:movie_tag].present? ? params[:movie_tag] : '全部'
     @selected_movie_type = params[:movie_type].present? ? params[:movie_type] : '全部'
-    @movies = Movie.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10)
-    @layout_title = '电影-'
+    @movies = Movie.order(updated_at: :desc).paginate(:page => params[:page], :per_page => 15)
+    @layout_title = '扒拉我电影-'
   end
 
   def show
@@ -41,14 +41,14 @@ class MoviesController < ApplicationController
 
     if params[:grade].present?
       @movies = Movie.includes(:movie_details).where(conditions.join(' and '), *values).order('grade desc')
-                    .paginate(:page => params[:page], :per_page => 10)
+                    .paginate(:page => params[:page], :per_page => 15)
     elsif params[:created_at].present?
 
       @movies = Movie.includes(:movie_details).where(conditions.join(' and '), *values).order('created_at desc')
-                    .paginate(:page => params[:page], :per_page => 10)
+                    .paginate(:page => params[:page], :per_page => 15)
     else
-      @movies = Movie.includes(:movie_details).where(conditions.join(' and '), *values)
-                    .paginate(:page => params[:page], :per_page => 10)
+      @movies = Movie.includes(:movie_details).where(conditions.join(' and '), *values).order(updated_at: :desc)
+                    .paginate(:page => params[:page], :per_page => 15)
     end
     render 'homes/index'
   end
@@ -56,7 +56,7 @@ class MoviesController < ApplicationController
 
   def search
     @movies = Movie.includes(:movie_details).where('name like ?', "%#{params[:name]}%")
-                  .paginate(:page => params[:page], :per_page => 10)
+                  .paginate(:page => params[:page], :per_page => 15)
     render 'movies/index'
   end
 

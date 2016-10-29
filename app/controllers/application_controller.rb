@@ -19,8 +19,8 @@ class ApplicationController < ActionController::Base
 
   def movie_tags
     @movie_tags,@movie_types,@movie_regions,@movie_menus=Tag.get_tags
-    @movies_newest = Movie.order(created_at: :desc).limit(8)
-    @news_newest =  News.order(created_at: :desc).limit(8)
+    @movies_newest = Movie.order(created_at: :desc).limit(10)
+    @news_newest =  News.order(created_at: :desc).limit(10)
   end
 
 end

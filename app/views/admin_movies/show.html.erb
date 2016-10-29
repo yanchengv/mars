@@ -65,7 +65,7 @@
                 <td><%= movie_detail.created_at.present? ? movie_detail.created_at.strftime('%Y-%m-%d') : '暂无' %></td>
                 <td>
                   <a href="/admin_movie_details/<%= movie_detail.id %>">详情</a>
-                  <a href="javascript:void(0)" onclick="update_movie_detail_modal(<%=movie_detail.id %>)">修改</a>
+                  <a href="javascript:void(0)" onclick="update_movie_detail_modal(<%=movie_detail.to_json %>)">修改</a>
                   <a href="javascript:void(0)" onclick="delete_movie_detail_modal(<%= movie_detail.id%>,'<%= movie_detail.name%>')">删除</a>
                 </td>
               </tr>

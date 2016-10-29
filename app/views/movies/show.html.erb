@@ -1,14 +1,12 @@
 <ul class="media-list">
   <li class="media">
-    <a class="media-left movie_show_a " href="/movies/<%= @movie.id %>">
-      <div>
+      <div class="media-left movie_show_a ">
         <img src="<%= @movie.image_url%>" alt="<%= @movie.name%>" height="300" width="250" class='movie_show_img' >
       </div>
-    </a>
 
     <div class="media-body">
-      <h4 class="media-heading"><a style="cursor:pointer" href="/movies/<%= @movie.id %>"><%= @movie.name %></a></h4>
-
+      <h3 class="media-heading"><%= @movie.name %></h3>
+      <p></p>
       <p><strong>上映：</strong>
         <% if @movie.show_time.present? %>
             <%= @movie.show_time.strftime('%Y') %>
