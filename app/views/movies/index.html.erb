@@ -9,18 +9,19 @@
 
         <div class="media-body">
           <h4 class="media-heading"><a style="cursor:pointer" href="/movies/<%= movie.id%>"><%= movie.name %></a></h4>
-
-          <p><%= movie.abstract[0, 50] %>...</p>
-
           <p class="movie_details_span">
             <span>类型：<a href="#"><%= movie.movie_tag%></a></span>
             <span>地区：<a href="#"><%= movie.region%></a></span>
             <span>评分：<span class="index_grade"><%= movie.grade%></span></span>
             <span>上映时间：<span class="index_show_time" ><%= movie.show_time.present? ? movie.show_time.strftime('%Y') : '暂无'%></span></span>
             <span>分享时间：<span class="index_created_at"><%= movie.created_at.present? ? movie.created_at.strftime('%Y-%m') : '暂无'%></span>
-            </span></br>
-            <span>主演：<span class="index_actors"><%= movie.actors[0, 20] %>...</span></span>
-
+            </span>
+            </br>
+            <span>主演：<span class="index_actors"><%= movie.actors[0, 30] %>...</span></span>
+            </br>
+            <span>
+              <%= movie.abstract[0, 70] %>...
+            </span>
           </p>
         </div>
 

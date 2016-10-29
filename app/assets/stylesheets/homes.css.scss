@@ -66,7 +66,7 @@ footer {
   margin-left: 15px;
 }
 .movie_details_span span {
-  margin-right: 15px;
+  margin-right: 10px;
 }
 
 .home-login-menu {
@@ -77,3 +77,9 @@ footer {
   background-color: black;border: none
 }
 
+.movie_tags a {
+  text-decoration:none;
+}
+.index_created_at, .index_actors{
+  color: #999999;
+}

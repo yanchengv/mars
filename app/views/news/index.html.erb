@@ -16,7 +16,7 @@
     <% @news.each do |news| %>
         <div class="blog-post">
           <h2 class="blog-post-title"><a href="/news/<%= news.id%>"><%= news.title%></a></h2>
-          <p class="blog-post-meta"><%= news.created_at.strftime('%Y-%m-%d %H:%M')%> by <a href="#"><%= news.author%></a></p>
+          <p class="blog-post-meta news-time"><%= news.created_at.strftime('%Y-%m-%d %H:%M')%> by <a href="#"><%= news.author%></a></p>
           <p ><%= news.abstract.present? ? news.abstract : '暂无内容，欢迎时刻关注扒新闻！'%></p>
         </div>
         <!-- /.blog-post -->
