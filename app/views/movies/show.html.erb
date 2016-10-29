@@ -39,12 +39,10 @@
 
 </ul>
 
-<% if !@movie.movie_details.empty? %>
-
+<% if @url_is_present %>
     <div class="panel panel-primary">
       <!-- Default panel contents -->
       <div class="panel-heading">资源下载地址1</div>
-
       <!-- List group -->
       <ul class="list-group">
         <% @movie.movie_details.each do |movie_detail| %>
@@ -65,7 +63,8 @@
 
 
     </div>
-
+<% end %>
+<% if @url2_is_present %>
     <div class="panel panel-primary">
       <!-- Default panel contents -->
       <div class="panel-heading">资源下载地址2</div>
@@ -89,7 +88,8 @@
 
 
     </div>
-
+<% end %>
+<% if @wangpanurl_is_present %>
     <div class="panel panel-primary">
       <!-- Default panel contents -->
       <div class="panel-heading">网盘下载</div>
@@ -110,7 +110,6 @@
 
 
     </div>
-
 <% end %>
 
 
