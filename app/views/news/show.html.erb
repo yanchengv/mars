@@ -1,7 +1,7 @@
 
 <div class="row" >
 
-  <div class="col-sm-12 blog-main" style="width: 80%">
+  <div class="col-sm-9 blog-main">
         <div class="blog-post">
           <h3 class="blog-post-title " style="text-align:center;"><%= @news.title%></h3>
           <p class="blog-post-meta" style="text-align:center;"><%= @news.created_at.strftime('%Y-%m-%d %H:%M')%> by <a href="#"><%= @news.author%></a></p>
@@ -17,6 +17,7 @@
 </div><!-- /.row -->
 
 
+<!--新闻页面显示的宽度-->
 
 <script>
     $(".blog-post img").addClass("img-responsive center-block");
