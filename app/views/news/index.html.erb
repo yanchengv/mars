@@ -1,35 +1,42 @@
-<div class="blog-header">
+<div style="width: 80%">
+  <div class="blog-header">
 
-  <div class="jumbotron">
-    <div class="container">
-      <h3 class="blog-title" style="text-align: center">扒拉新闻</h3>
-          <p class="lead blog-description" style="text-align: center">横眉冷对千夫指，俯首甘为孺子牛</p>
+    <div class="jumbotron">
+      <div class="container">
+        <h3 class="blog-title" style="text-align: center">扒拉新闻</h3>
+
+        <p class="lead blog-description" style="text-align: center">横眉冷对千夫指，俯首甘为孺子牛</p>
+      </div>
     </div>
+
+
   </div>
 
+  <div class="row">
 
-</div>
+    <div class="col-sm-12 blog-main">
+      <% @news.each do |news| %>
+          <div class="blog-post">
+            <h4 class="blog-post-title"><a href="/news/<%= news.id %>"><%= news.title %></a></h4>
 
-<div class="row">
+            <p class="blog-post-meta news-time"><%= news.created_at.strftime('%Y-%m-%d %H:%M') %> by
+              <a href="#"><%= news.author %></a></p>
 
-  <div class="col-sm-12 blog-main">
-    <% @news.each do |news| %>
-        <div class="blog-post">
-          <h2 class="blog-post-title"><a href="/news/<%= news.id%>"><%= news.title%></a></h2>
-          <p class="blog-post-meta news-time"><%= news.created_at.strftime('%Y-%m-%d %H:%M')%> by <a href="#"><%= news.author%></a></p>
-          <p ><%= news.abstract.present? ? news.abstract : '暂无内容，欢迎时刻关注扒新闻！'%></p>
-        </div>
-        <!-- /.blog-post -->
+            <p><%= news.abstract.present? ? news.abstract : '暂无内容，欢迎时刻关注扒新闻！' %></p>
+          </div>
+          <!-- /.blog-post -->
 
-    <% end %>
+      <% end %>
+    </div>
+    <!-- /.blog-main -->
+
+
   </div>
-  <!-- /.blog-main -->
+  <!-- /.row -->
 
+  <div class="flickr_pagination">
+    <%= will_paginate @news, :container => false, :previous_label => t("上一页"), :next_label => t("下一页") %>
+  </div>
 
-</div><!-- /.row -->
-
-<div class="flickr_pagination">
-  <%= will_paginate @news, :container => false,:previous_label => t("上一页"), :next_label => t("下一页") %>
 </div>
-
 
