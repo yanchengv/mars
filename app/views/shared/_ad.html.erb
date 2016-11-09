@@ -14,5 +14,9 @@
 
 <!--点击【关闭】按钮关闭广告！广告联盟的关闭按钮不起作用，仍然跳转-->
 <script>
-    $('#cpv6_right_lower_body a')[1].setAttribute('onclick',"$('#cpv6_right_lower_body').hide();return false")
+     function close_window(){
+         $('#cpv6_right_lower_body').hide();
+         return false;
+     }
+    $('#cpv6_right_lower_body a')[1].setAttribute('onclick',"close_window()")
 </script>
