@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
     @selected_movie_tag = params[:movie_tag].present? ? params[:movie_tag] : '全部'
     @selected_movie_type = params[:movie_type].present? ? params[:movie_type] : '全部'
     @movies = Movie.order(updated_at: :desc).paginate(:page => params[:page], :per_page => 15)
-    @layout_title = '扒拉我电影-'
+    @layout_title = '扒拉我网站-迅雷电影下载-IT培训视频-扒拉我电影-扒新闻-balawo'
   end
 
   def show
@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
         @wangpan_url_is_present = true
       end
     end
-    @layout_title = @movie.name + '-'
+    @layout_title = @movie.name
   end
 
   def get_movies
