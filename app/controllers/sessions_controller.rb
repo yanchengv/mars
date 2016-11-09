@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :show_title
   def new
     render 'sessions/new', layout: 'login_layout'
   end

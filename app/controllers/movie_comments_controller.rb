@@ -1,5 +1,5 @@
 class MovieCommentsController < ApplicationController
-
+  before_action :show_title
   def create
     MovieComment.create(movie_comment_params)
     redirect_to :back

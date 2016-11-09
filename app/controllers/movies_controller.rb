@@ -1,12 +1,12 @@
 class MoviesController < ApplicationController
   layout "movie_layout"
-
+  before_action :show_title,except: :show
   def index
     @selected_region = params[:region].present? ? params[:region] : '全部'
     @selected_movie_tag = params[:movie_tag].present? ? params[:movie_tag] : '全部'
     @selected_movie_type = params[:movie_type].present? ? params[:movie_type] : '全部'
     @movies = Movie.order(updated_at: :desc).paginate(:page => params[:page], :per_page => 15)
-    @layout_title = '扒拉我网站-迅雷电影下载-IT培训视频-扒拉我电影-扒新闻-balawo'
+
   end
 
   def show
@@ -73,5 +73,6 @@ class MoviesController < ApplicationController
                   .paginate(:page => params[:page], :per_page => 15)
     render 'movies/index'
   end
+
 
 end
