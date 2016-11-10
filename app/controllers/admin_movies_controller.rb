@@ -18,7 +18,7 @@ class AdminMoviesController < ApplicationController
 
   def index
     current_page = params[:page].present? ? params[:page] : 1
-    per_page = 15
+    per_page = 20
     @movie_tags,@movie_types,@movie_regions=Tag.get_tags
 
     conditions = []
@@ -39,7 +39,8 @@ class AdminMoviesController < ApplicationController
     end
 
     @movies = Movie.includes(:movie_details).where(conditions.join(' and '),*values)
-                  .paginate(:page => params[:current_page], :per_page => per_page)
+                  .paginate(:page => current_page, :per_page => per_page)
+
 
   end
 
@@ -79,6 +80,11 @@ class AdminMoviesController < ApplicationController
     render json: @movies
   end
 
+  def search
+    @movies = Movie.includes(:movie_details).where('name like ?', "%#{params[:name]}%")
+                  .paginate(:page => params[:page], :per_page => 20)
+    render 'admin_movies/index'
+  end
   private
 
   def movie_params

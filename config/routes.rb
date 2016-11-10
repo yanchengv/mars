@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       get 'list'
       get 'get_movie_by_id'
       get 'update_form'
+      post 'search'
     end
   end
 
