@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
 
   # 登陆
   def login
+
     user = User.find_by(name: params[:name])
     if user && user.authenticate(params[:password])
       log_in user
@@ -30,6 +31,11 @@ class SessionsController < ApplicationController
 
   # 注册
   def create
+    user = User.where(name: params[:name])
+    if user.present?
+      flash[:notice] = '用户名已存在，请更换！'
+      render 'sessions/sign_up', layout: 'login_layout' and return
+    end
     user = User.create(user_params)
     log_in user
     remember user

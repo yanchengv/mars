@@ -1,0 +1,9 @@
+<% if flash[:notice] %>
+    <div class="alert alert-danger" role="alert"><%= flash[:notice] %></div>
+<% end %>
+<script>
+      function hide_alert_danger(){
+          $('.alert-danger').hide()
+      }
+      setTimeout('hide_alert_danger()',1000)
+</script>
