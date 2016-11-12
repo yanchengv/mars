@@ -1,6 +1,6 @@
 # Production Stage
 set :stage, :production
-set :branch, 'dev'
+set :branch, 'master'
 set :rails_env, :production
 
 server '45.32.248.196',
