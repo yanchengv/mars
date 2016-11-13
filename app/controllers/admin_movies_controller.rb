@@ -75,10 +75,7 @@ class AdminMoviesController < ApplicationController
   end
 
 
-  def list
-    @movies = Movie.paginate(:page => params[:page], :per_page => params[:rows])
-    render json: @movies
-  end
+
 
   def search
     @movies = Movie.includes(:movie_details).where('name like ?', "%#{params[:name]}%")

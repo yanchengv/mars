@@ -23,7 +23,15 @@ Rails.application.routes.draw do
 
   resources 'news'
   resources 'blogs'
-  resources 'images'
+
+  resources 'images' do
+    collection do
+      post 'remote_upload'
+      get 'show_delete'
+      post 'delete_img'
+    end
+
+  end
 
   resources 'admin_movies' do
     collection do

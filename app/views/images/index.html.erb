@@ -1,0 +1,41 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <a href="/images/new">添加图片</a>
+  </div>
+</div>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>#ID</th>
+      <th>名称</th>
+      <th>图片</th>
+      <th>备注</th>
+      <th>上传时间</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% if @images.present? %>
+        <% @images.each do |image| %>
+            <tr>
+              <td><%= image.id %></td>
+              <td><%= image.name %></td>
+              <td><img height="50px" src="<%= image.url %>"></td>
+              <td><%= image.content %></td>
+              <td><%= image.created_at.present? ? image.created_at.strftime('%Y-%m-%d') : '暂无' %></td>
+              <td><a href="#">详情</a>
+                <a href="/images/show_delete?id=<%= image.id%>" >删除</a>
+              </td>
+            </tr>
+        <% end %>
+
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="flickr_pagination">
+  <%= will_paginate @images, :container => false,:previous_label => t("上一页"), :next_label => t("下一页") %>
+</div>
+
