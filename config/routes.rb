@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   resources 'news'
   resources 'blogs'
-
+  resources 'images'
 
   resources 'admin_movies' do
     collection do
