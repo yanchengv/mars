@@ -75,6 +75,11 @@ class AdminMoviesController < ApplicationController
   end
 
 
+  def is_not_all
+    @movies = Movie.includes(:movie_details).where('is_all = ? ', false)
+                  .paginate(:page => params[:page], :per_page => 20)
+    render 'admin_movies/index'
+  end
 
 
   def search

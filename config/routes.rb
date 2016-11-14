@@ -41,6 +41,7 @@ Rails.application.routes.draw do
       get 'get_movie_by_id'
       get 'update_form'
       post 'search'
+      get 'is_not_all'
     end
   end
 
