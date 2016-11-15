@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       post 'remote_upload'
       get 'show_delete'
       post 'delete_img'
+      get 'ueditor_upload'
     end
 
   end

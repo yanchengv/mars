@@ -1,8 +1,8 @@
 require 'open-uri'
 class ImagesController < ApplicationController
   layout "admin_layout"
-  before_action :is_log?
-  before_action :is_admin?
+  before_action :is_log?,except: :ueditor_upload
+  before_action :is_admin?,except: :ueditor_upload
   def new
     @image = Image.new
   end
@@ -38,6 +38,17 @@ class ImagesController < ApplicationController
     remote_img_url = open(params[:image][:url])
     uploader.download! (remote_img_url)
     uploader.store!
+  end
+
+  def ueditor_upload
+    test = {
+        imageUrl: "http://localhost/ueditor/php/controller.php?action=uploadimage",
+        imagePath: "/ueditor/php/",
+        imageFieldName: "upfile",
+        imageMaxSize: 2048,
+        imageAllowFiles: [".png", ".jpg", ".jpeg", ".gif", ".bmp"]
+    }
+    render json: test
   end
 
   private

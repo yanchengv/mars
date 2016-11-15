@@ -38,7 +38,7 @@ class AdminMoviesController < ApplicationController
       values << params[:movie_type]
     end
 
-    @movies = Movie.includes(:movie_details).where(conditions.join(' and '),*values)
+    @movies = Movie.includes(:movie_details).where(conditions.join(' and '),*values).order('created_at desc')
                   .paginate(:page => current_page, :per_page => per_page)
 
 
