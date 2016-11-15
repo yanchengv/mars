@@ -1,0 +1,26 @@
+<div class="container">
+
+  <%= form_for @image do |f| %>
+      <label>图片名称:</label>
+      <%= f.text_field :name %><br>
+      <label>图片备注:</label>
+      <%= f.text_area :content %>
+      <%= f.file_field :file %>
+      <%= f.submit '确定上传' %>
+  <% end %>
+
+  <!--<h3>远程url上传</h3>-->
+
+  <%#= form_for @image, url:'/images/remote_upload',method: 'post' do |f| %>
+      <!--<p>-->
+        <!--<label>图片名称:</label>-->
+        <%#= f.text_field :name %><br>
+        <!--<label>图片备注:</label>-->
+        <%#= f.text_area :content %><br>
+        <!--<label>图片url:</label>-->
+        <!--<%#= f.text_field :url %>-->
+        <!--<%#= f.submit '上传' %>-->
+      <!--</p>-->
+  <%# end %>
+
+</div>

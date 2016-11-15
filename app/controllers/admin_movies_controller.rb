@@ -38,7 +38,7 @@ class AdminMoviesController < ApplicationController
       values << params[:movie_type]
     end
 
-    @movies = Movie.includes(:movie_details).where(conditions.join(' and '),*values)
+    @movies = Movie.includes(:movie_details).where(conditions.join(' and '),*values).order('created_at desc')
                   .paginate(:page => current_page, :per_page => per_page)
 
 
@@ -75,10 +75,12 @@ class AdminMoviesController < ApplicationController
   end
 
 
-  def list
-    @movies = Movie.paginate(:page => params[:page], :per_page => params[:rows])
-    render json: @movies
+  def is_not_all
+    @movies = Movie.includes(:movie_details).where('is_all = ? ', false)
+                  .paginate(:page => params[:page], :per_page => 20)
+    render 'admin_movies/index'
   end
+
 
   def search
     @movies = Movie.includes(:movie_details).where('name like ?', "%#{params[:name]}%")
@@ -88,6 +90,6 @@ class AdminMoviesController < ApplicationController
   private
 
   def movie_params
-    params.permit(:name, :sort, :region, :grade, :actors, :abstract, :image_url, :show_time, :movie_tag, :movie_type, :number)
+    params.permit(:name, :sort, :region, :grade, :actors, :abstract, :image_url, :show_time, :movie_tag,:is_all, :movie_type, :number)
   end
 end

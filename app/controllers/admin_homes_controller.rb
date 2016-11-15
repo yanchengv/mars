@@ -5,6 +5,6 @@ class AdminHomesController < ApplicationController
   def index
     current_page = params[:page].present? ? params[:page] : 1
     per_page = params[:rows].present? ? params[:rows] : 20
-    @movies = Movie.paginate(:page => current_page, :per_page => per_page)
+    @movies = Movie.order('created_at desc').paginate(:page => current_page, :per_page => per_page)
   end
 end

@@ -24,6 +24,15 @@ Rails.application.routes.draw do
   resources 'news'
   resources 'blogs'
 
+  resources 'images' do
+    collection do
+      post 'remote_upload'
+      get 'show_delete'
+      post 'delete_img'
+      get 'ueditor_upload'
+    end
+
+  end
 
   resources 'admin_movies' do
     collection do
@@ -33,6 +42,7 @@ Rails.application.routes.draw do
       get 'get_movie_by_id'
       get 'update_form'
       post 'search'
+      get 'is_not_all'
     end
   end
 

@@ -53,7 +53,7 @@
           <% @movie_tags.each do |tag| %>
               <% if tag.name != '全部' %>
                   <label class="checkbox-inline">
-                    <% if  @movie.movie_tag.split(',').include?(tag.name) %>
+                    <% if @movie.movie_tag.split(',').include?(tag.name) %>
                         <input type="checkbox" id="movie_tag<%= tag.id %>" name="movie_tags[]" checked value="<%= tag.name %>"> <%= tag.name %>
                     <% else %>
                         <input type="checkbox" id="movie_tag<%= tag.id %>" name="movie_tags[]" value="<%= tag.name %>"> <%= tag.name %>
@@ -63,6 +63,26 @@
 
           <% end %>
 
+
+        </div>
+
+        <div class="form-group row">
+          <label for="example-text-input" class="col-xs-2 col-form-label">是否全集</label>
+          <% if @movie.is_all == true %>
+              <label class="radio-inline">
+                <input type="radio" name="is_all" id="is_all_true" checked value="true">是全集
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="is_all" id="is_all_false" value="false">不是全集
+              </label>
+          <% else %>
+              <label class="radio-inline">
+                <input type="radio" name="is_all" id="is_all_true"  value="true">是全集
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="is_all" id="is_all_false"  checked value="false">不是全集
+              </label>
+          <% end %>
 
         </div>
 
@@ -91,7 +111,7 @@
         <div class="form-group row">
           <label for="example-text-input" class="col-xs-2 col-form-label">上映时间</label>
 
-          <div class="col-xs-10">
+          <div class="col-xs-2">
             <input class="form-control" type="date" name="show_time" id="update_movie_show_time" placeholder="上映时间" value="<%= @movie.show_time %>">
           </div>
         </div>

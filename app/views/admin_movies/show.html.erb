@@ -13,7 +13,12 @@
       <strong>集数： </strong><%= @movie.number %>&nbsp;&nbsp;&nbsp;&nbsp;
       <strong>地区：</strong> <%= @movie.region %>&nbsp;&nbsp;&nbsp;&nbsp;
       <strong>排行：</strong><%= @movie.sort %>&nbsp;&nbsp;&nbsp;&nbsp;
-      <strong>评分：</strong><%= @movie.grade %>
+      <strong>评分：</strong><%= @movie.grade %>&nbsp;&nbsp;&nbsp;&nbsp;
+
+    </p>
+
+    <p>
+      <strong>是否全集：</strong><span style="color: red"><%= @movie.is_all == true ? '全集' : '不是全集' %></span>
     </p>
 
     <p><strong>演员： </strong><%= @movie.actors %></p>

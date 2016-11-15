@@ -9,6 +9,7 @@
       t.string :actors  #演员
       t.string :abstract  #简介
       t.string :image_url
+      t.boolen :is_all #是否全集
       t.date :show_time #上映时间
 =end
 class Movie < ApplicationRecord

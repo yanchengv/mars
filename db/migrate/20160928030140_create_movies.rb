@@ -11,6 +11,7 @@ class CreateMovies < ActiveRecord::Migration[5.0]
       t.text :actors  #演员
       t.text :abstract  #简介
       t.text :image_url
+      t.boolean :is_all,default: true #是否全集
       t.date :show_time #上映时间
       t.timestamps null: false
     end

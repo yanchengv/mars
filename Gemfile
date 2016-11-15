@@ -39,7 +39,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'uuidtools'
 gem 'settingslogic', '>= 2.0.9'
 gem 'bcrypt',         '3.1.11'
-
+gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 # gem 'rails_kindeditor'
 
 

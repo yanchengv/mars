@@ -1,0 +1,8 @@
+<%= form_for @image,url:'/images/delete_img',method: 'post', html: { multipart: true } do |f| %>
+    <p>
+      <%= image_tag(@image.url) if @image.url? %>
+      <%= f.text_field :id, value: @image.id%>
+    </p>
+
+      <%= f.submit '删除'%>
+<% end %>
