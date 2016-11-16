@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   resources 'news'
   resources 'blogs'
-
+  resources 'books'
   resources 'images' do
     collection do
       post 'remote_upload'
