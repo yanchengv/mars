@@ -64,8 +64,15 @@ class BookMenu < ApplicationRecord
       sub_atrr = {
           id: parent_menu.id,
           name: parent_menu.name,
+          url: parent_menu.url,
+          code: parent_menu.code,
+          book_type: parent_menu.book_type,
           is_disabled: parent_menu.is_disabled,
-          url: parent_menu.url
+          description: parent_menu.description,
+          sort: parent_menu.sort
+
+
+
       }
       return sub_atrr
     else
@@ -80,7 +87,12 @@ class BookMenu < ApplicationRecord
     parent_atrr = {
         id: parent_menu.id,
         name: parent_menu.name,
+        url: parent_menu.url,
+        code: parent_menu.code,
+        book_type: parent_menu.book_type,
         is_disabled: parent_menu.is_disabled,
+        description: parent_menu.description,
+        sort: parent_menu.sort,
         children: children
 
     }

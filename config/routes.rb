@@ -35,7 +35,12 @@ Rails.application.routes.draw do
 
   end
 
-  resources 'admin_books'
+  resources 'admin_books' do
+    collection do
+      post 'update'
+      post 'delete'
+    end
+  end
 
   resources 'admin_movies' do
     collection do

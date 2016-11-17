@@ -16,9 +16,22 @@ class AdminBooksController < ApplicationController
     redirect_to :back
   end
 
+  def update
+    @book_menu = BookMenu.find(params[:id])
+    @book_menu.update_attributes(book_menu_params)
+    redirect_to :back
+  end
+
+
+  def delete
+    @book_menu = BookMenu.find(params[:id])
+    @book_menu.destroy
+    redirect_to :back
+  end
+
   private
 
   def book_menu_params
-    params.permit(:name,:url,:parent_id,:code,:book_type,:is_disabled,:description)
+    params.permit(:name, :url, :parent_id, :code, :book_type, :is_disabled, :description)
   end
 end

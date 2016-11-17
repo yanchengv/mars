@@ -1,6 +1,9 @@
 <div class="col-sm-3 col-md-2 sidebar">
   <ul class="nav nav-sidebar">
     <ul class="book-nav-menus">
+      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" onclick="addBookMenu(0,'b0001')">
+        添加一级标题
+      </button>
       <% @book_menus.each do |menu| %>
           <li style="padding-top: 5px">
             <% if menu[:is_disabled] %>
@@ -9,8 +12,9 @@
                 <a href="<%= menu[:url] %>" style="color: black"><%= menu[:name] %> </a>
 
             <% end %>
-            ----<a href="javascript:void(0)" onclick="addBookMenu(<%= menu[:id]%>)">添加</a> / <a href="#">修改</a> /
-            <a href="#">删除</a>
+            ----<a href="javascript:void(0)" onclick="addBookMenu(<%= menu[:id]%>,'<%= menu[:book_type]%>')">添加</a>
+            / <a href="javascript:void(0)" onclick="updateBookMenu(<%= menu.to_json %>)">修改</a>
+            / <a href="javascript:void(0)" onclick="deleteBookMenu(<%= menu[:id]%>,'<%= menu[:name]%>')">删除</a>
             <% if menu[:children].present? %>
                 <ul>
                   <% menu[:children].each do |sub_menu| %>
@@ -21,7 +25,8 @@
                             <a href="<%= sub_menu[:url] %>"><%= sub_menu[:name] %></a>
                         <% end %>
                         ----<a href="javascript:void(0)" onclick="addBookMenu(<%= sub_menu[:id]%>)">添加</a> /
-                        <a href="#">修改</a> / <a href="#">删除</a>
+                        <a href="javascript:void(0)" onclick="updateBookMenu(<%= sub_menu.to_json %>)">修改</a>
+                        / <a href="javascript:void(0)" onclick="deleteBookMenu(<%= sub_menu[:id]%>,'<%= sub_menu[:name]%>') ">删除</a>
                         <% if sub_menu[:children].present? %>
 
                             <ul>
@@ -30,10 +35,11 @@
                                     <% if sub2_menu[:is_disabled] == true %>
                                         <a href="<%= sub2_menu[:url] %>" style="color: red"><%= sub2_menu[:name] %></a>
                                     <% else %>
-                                        <a href="<%= sub2_menu[:url] %>" ><%= sub2_menu[:name] %></a>
+                                        <a href="<%= sub2_menu[:url] %>"><%= sub2_menu[:name] %></a>
                                     <% end %>
-                                    ----<a href="javascript:void(0)" onclick="addBookMenu(<%= sub2_menu[:id]%>)">修改</a> /
-                                    <a href="#">删除</a>
+                                    ----<a href="javascript:void(0)" onclick="updateBookMenu(<%= sub2_menu.to_json %>)">修改</a>
+                                    /
+                                    <a href="javascript:void(0)" onclick="deleteBookMenu(<%= sub2_menu[:id]%>,'<%= sub2_menu[:name]%>') ">删除</a>
                                   </li>
                               <% end %>
                             </ul>
@@ -52,10 +58,3 @@
 
 </div>
 <%= render partial: 'admin_books/book_menu_modal' %>
-<script>
-    function addBookMenu(parent_id) {
-        console.log(444)
-        $('#add_book_menu_modal').modal('show');
-        $('#add_book_menu_id').val(parent_id)
-    }
-</script>
