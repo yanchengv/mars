@@ -3,6 +3,7 @@ class CreateBookMenus < ActiveRecord::Migration[5.0]
     create_table :book_menus do |t|
       t.string :name #菜单名称
       t.string :parent_id #父菜单id
+      t.integer :book_id #book表的外键
       t.string :url #地址
       t.string :code #识别码
       t.integer :sort #排序

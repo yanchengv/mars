@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116070218) do
+ActiveRecord::Schema.define(version: 20161117080736) do
 
   create_table "blogs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20161116070218) do
     t.text     "content",    limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "book_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.integer  "book_menu_id"
+    t.text     "content",      limit: 65535
+    t.boolean  "is_disabled"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "book_menus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -32,6 +41,16 @@ ActiveRecord::Schema.define(version: 20161116070218) do
     t.string   "description"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.integer  "sort"
+  end
+
+  create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "book_type"
+    t.text     "content",    limit: 65535
+    t.string   "logo"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

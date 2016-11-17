@@ -1,6 +1,8 @@
 class BookMenu < ApplicationRecord
   has_many :sub_book_menus, -> { where(is_disabled: 0)},foreign_key: 'parent_id',class_name: 'BookMenu',dependent: :destroy
   has_many :sub_admin_book_menus, foreign_key: 'parent_id',class_name: 'BookMenu',dependent: :destroy
+  has_one :book_detail,dependent: :destroy
+  belongs_to :book
 
   # 前端显示book的菜单
   def self.book_menus
