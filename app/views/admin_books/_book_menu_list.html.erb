@@ -5,7 +5,7 @@
         添加一级标题
       </button>
       <% @book_menus.each do |menu| %>
-          <li style="padding-top: 5px">
+          <li class="admin_book_menu_li">
             <% if menu[:is_disabled] %>
                 <a href="<%= menu[:url] %>" style="color: red"><%= menu[:name] %> </a>
             <% else %>
@@ -18,7 +18,7 @@
             <% if menu[:children].present? %>
                 <ul>
                   <% menu[:children].each do |sub_menu| %>
-                      <li style="padding-top: 5px">
+                      <li class="admin_book_menu_li">
                         <% if sub_menu[:is_disabled] %>
                             <a href="<%= sub_menu[:url] %>" style="color: red"><%= sub_menu[:name] %></a>
                         <% else %>
@@ -31,7 +31,7 @@
 
                             <ul>
                               <% sub_menu[:children].each do |sub2_menu| %>
-                                  <li style="padding-top: 5px">
+                                  <li class="admin_book_menu_li">
                                     <% if sub2_menu[:is_disabled] == true %>
                                         <a href="<%= sub2_menu[:url] %>" style="color: red"><%= sub2_menu[:name] %></a>
                                     <% else %>
