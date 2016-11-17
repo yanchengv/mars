@@ -1,0 +1,34 @@
+<div class="col-sm-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+    <ul class="book-nav-menus">
+      <% @book_menus.each do |menu| %>
+          <li style="padding-top: 5px">
+            <a href="<%= menu[:url] %>" style="color: black"><%= menu[:name] %> </a> ---- <a href="#">添加</a> / <a href="#">修改</a> / <a href="#">删除</a>
+            <% if menu[:children].present? %>
+                <ul>
+                  <% menu[:children].each do |sub_menu| %>
+                      <li style="padding-top: 5px">
+                        <a href="<%= sub_menu[:url] %>"><%= sub_menu[:name] %></a>---- <a href="#">添加</a> / <a href="#">修改</a> / <a href="#">删除</a>
+                        <% if sub_menu[:children].present? %>
+
+                            <ul>
+                              <% sub_menu[:children].each do |sub2_menu| %>
+                                  <li style="padding-top: 5px">
+                                        <a href="<%= sub2_menu[:url] %>"><%= sub2_menu[:name] %></a>---- <a href="#">修改</a> / <a href="#">删除</a>
+                                  </li>
+                              <% end %>
+                            </ul>
+                        <% end %>
+                      </li>
+                  <% end %>
+                </ul>
+
+            <% end %>
+          </li>
+      <% end %>
+
+    </ul>
+
+  </ul>
+
+</div>
