@@ -7,9 +7,9 @@
       <% @book_menus.each do |menu| %>
           <li class="admin_book_menu_li">
             <% if menu[:is_disabled] %>
-                <a href="<%= menu[:url] %>" style="color: red"><%= menu[:name] %> </a>
+                <a href="/admin_books/show_book_content?menu_id=<%= menu[:id]%>&name=<%= menu[:name]%>" style="color: red"><%= menu[:name] %> </a>
             <% else %>
-                <a href="<%= menu[:url] %>" style="color: black"><%= menu[:name] %> </a>
+                <a href="/admin_books/show_book_content?menu_id=<%= menu[:id]%>&name=<%= menu[:name]%>" style="color: black"><%= menu[:name] %> </a>
 
             <% end %>
             （<a href="javascript:void(0)" class="book_menu_crud" onclick="addBookMenu(<%= menu[:id]%>,'<%= menu[:book_type]%>')">添加</a>
@@ -20,9 +20,9 @@
                   <% menu[:children].each do |sub_menu| %>
                       <li class="admin_book_menu_li">
                         <% if sub_menu[:is_disabled] %>
-                            <a href="<%= sub_menu[:url] %>" style="color: red"><%= sub_menu[:name] %></a>
+                            <a href="/admin_books/show_book_content?menu_id=<%= sub_menu[:id]%>&name=<%= sub_menu[:name]%>" style="color: red"><%= sub_menu[:name] %></a>
                         <% else %>
-                            <a href="<%= sub_menu[:url] %>"><%= sub_menu[:name] %></a>
+                            <a href="/admin_books/show_book_content?menu_id=<%= sub_menu[:id]%>&name=<%= sub_menu[:name]%>"><%= sub_menu[:name] %></a>
                         <% end %>
                         （<a href="javascript:void(0)" class="book_menu_crud" onclick="addBookMenu(<%= sub_menu[:id]%>)">添加</a> /
                         <a href="javascript:void(0)"  class="book_menu_crud" onclick="updateBookMenu(<%= sub_menu.to_json %>)">修改</a>
@@ -33,9 +33,9 @@
                               <% sub_menu[:children].each do |sub2_menu| %>
                                   <li class="admin_book_menu_li">
                                     <% if sub2_menu[:is_disabled] == true %>
-                                        <a href="<%= sub2_menu[:url] %>" style="color: red"><%= sub2_menu[:name] %></a>
+                                        <a href="/admin_books/show_book_content?menu_id=<%= sub2_menu[:id]%>&name=<%= sub2_menu[:name]%>" style="color: red"><%= sub2_menu[:name] %></a>
                                     <% else %>
-                                        <a href="<%= sub2_menu[:url] %>"><%= sub2_menu[:name] %></a>
+                                        <a href="/admin_books/show_book_content?menu_id=<%= sub2_menu[:id]%>&name=<%= sub2_menu[:name]%>" ><%= sub2_menu[:name] %></a>
                                     <% end %>
                                     （<a href="javascript:void(0)" class="book_menu_crud" onclick="updateBookMenu(<%= sub2_menu.to_json %>)">修改</a>
                                     /

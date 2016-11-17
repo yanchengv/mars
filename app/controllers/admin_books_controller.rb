@@ -29,6 +29,11 @@ class AdminBooksController < ApplicationController
     redirect_to :back
   end
 
+  def show_book_content
+    @book_menus = BookMenu.admin_book_menus
+    @book_content = params[:name]
+    render 'admin_books/show'
+  end
   private
 
   def book_menu_params
