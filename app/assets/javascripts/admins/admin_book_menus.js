@@ -1,8 +1,9 @@
 // 添加book_menu
-function addBookMenu(parent_id, book_type) {
+function addBookMenu(parent_id,book_id, book_type) {
     $('#add_book_menu_modal').modal('show');
-    $('#add_book_menu_parent_id').val(parent_id)
-    $('#add_book_menu_book_type').val(book_type)
+    $('#add_book_menu_parent_id').val(parent_id);
+    $('#add_book_menu_book_id').val(book_id);
+    $('#add_book_menu_book_type').val(book_type);
 }
 
 //    修改book_menu

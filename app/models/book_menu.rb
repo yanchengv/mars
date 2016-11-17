@@ -5,8 +5,8 @@ class BookMenu < ApplicationRecord
   belongs_to :book
 
   # 前端显示book的菜单
-  def self.book_menus
-    @parent_menus = BookMenu.includes(:sub_book_menus).where(is_disabled: 0, parent_id: 0)
+  def self.book_menus book_id
+    @parent_menus = BookMenu.includes(:sub_book_menus).where(is_disabled: 0, parent_id: 0,book_id: book_id)
     parent_menus_arr = []
     @parent_menus.each do |parent_menu|
       parent_menu_atrr = BookMenu.sun_book_menus parent_menu
@@ -16,8 +16,8 @@ class BookMenu < ApplicationRecord
   end
 
   # 后台显示book的菜单
-  def self.admin_book_menus
-    @parent_menus = BookMenu.includes(:sub_admin_book_menus).where(parent_id: 0)
+  def self.admin_book_menus book_id
+    @parent_menus = BookMenu.includes(:sub_admin_book_menus).where(parent_id: 0,book_id: book_id)
     parent_menus_arr = []
     @parent_menus.each do |parent_menu|
       parent_menu_atrr = BookMenu.sun_admin_book_menus parent_menu
@@ -68,6 +68,7 @@ class BookMenu < ApplicationRecord
           name: parent_menu.name,
           url: parent_menu.url,
           code: parent_menu.code,
+          book_id: parent_menu.book_id,
           book_type: parent_menu.book_type,
           is_disabled: parent_menu.is_disabled,
           description: parent_menu.description,
@@ -91,6 +92,7 @@ class BookMenu < ApplicationRecord
         name: parent_menu.name,
         url: parent_menu.url,
         code: parent_menu.code,
+        book_id: parent_menu.book_id,
         book_type: parent_menu.book_type,
         is_disabled: parent_menu.is_disabled,
         description: parent_menu.description,

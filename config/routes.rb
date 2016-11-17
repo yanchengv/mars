@@ -39,7 +39,6 @@ Rails.application.routes.draw do
     collection do
       post 'update'
       post 'delete'
-      get 'show_book_content'
       post 'create_book_detail'
     end
   end

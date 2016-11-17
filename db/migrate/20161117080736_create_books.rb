@@ -4,6 +4,7 @@ class CreateBooks < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :book_type
       t.text :content
+      t.boolean :is_disabled
       t.string :logo
       t.timestamps
     end
