@@ -4,7 +4,7 @@ class AdminBooksController < ApplicationController
   before_action :is_admin?
 
   def index
-      @books = Book.where(is_disabled: false)
+      @books = Book.all
   end
 
   def show
@@ -45,7 +45,6 @@ class AdminBooksController < ApplicationController
     @book_detail = BookDetail.where(book_menu_id: params[:book_menu_id]).first
     if @book_detail.nil?
       @book_detail = BookDetail.create(book_detail_params)
-
     else
       @book_detail.update_attributes(book_detail_params)
     end

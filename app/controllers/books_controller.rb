@@ -1,12 +1,13 @@
 class BooksController < ApplicationController
   layout 'book_layout'
   def index
-
+    @books = Book.where(is_disabled: false)
   end
 
   def show
+    book_id = params[:id]
     #@parent_menus = BookMenu.includes(:sub_book_menus).where(is_disabled: 0, parent_id: 0).order('sort asc')
-    @menus = BookMenu.book_menus
+    @menus = BookMenu.book_menus book_id
 
   end
 

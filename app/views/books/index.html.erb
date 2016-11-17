@@ -1,0 +1,18 @@
+<div class="container marketing">
+  <div class="row">
+    <% @books.each do |book| %>
+        <div class="col-lg-4">
+          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <h2><%= book.name%></h2>
+          <p><%= book.content%></p>
+          <%if book.book_type == 'b0001'%>
+              <p><a class="btn btn-secondary" href="/movies/get_movies?type=IT技术" target="_blank" role="button">查看详情 &raquo;</a></p>
+          <%else%>
+              <p><a class="btn btn-secondary" href="/books/<%= book.id%>" target="_blank" role="button">查看详情 &raquo;</a></p>
+          <%end%>
+
+        </div>
+    <% end %>
+  </div>
+</div><!-- /.row -->
+</div><!-- /.container -->
