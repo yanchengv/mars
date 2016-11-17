@@ -8,6 +8,17 @@ class AdminBooksController < ApplicationController
   end
 
   def show
-    @book_menus = BookMenu.book_menus
+    @book_menus = BookMenu.admin_book_menus
+  end
+
+  def create
+    BookMenu.create(book_menu_params)
+    redirect_to :back
+  end
+
+  private
+
+  def book_menu_params
+    params.permit(:name,:url,:parent_id,:code,:book_type,:is_disabled,:description)
   end
 end
