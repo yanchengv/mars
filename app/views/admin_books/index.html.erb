@@ -1,18 +1,24 @@
 <div class="container marketing">
-  <!-- Three columns of text below the carousel -->
-  <div class="row">
-    <% @books.each do |book| %>
-        <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2><%= book.name%></h2>
-          <p><%= book.content%></p>
-          <p><a class="btn btn-secondary" href="/admin_books/<%= book.id%>" target="_blank" role="button">查看详情 &raquo;</a></p>
-        </div>
-    <% end %>
+  <div class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 main">
+    <div class="row placeholders">
+      <div class="it_books">
+        <% @books.each do |book| %>
+            <div class="box">
+              <div class="he_border1">
+                <img class="he_border1_img" src="<%= book.logo%>" alt="<%= book.name%>">
+                <div class="he_border1_caption">
+                  <h3 class="he_border1_caption_h"><%= book.name%></h3>
+                  <p class="he_border1_caption_p"><%= book.content%></p>
+                  <a class="he_border1_caption_a" href="/admin_books/<%= book.id%>"></a>
+                </div>
+              </div>
+            </div>
+        <% end %>
+        <div class="clear"></div>
 
-    <!-- /.col-lg-4 -->
+      </div>
+
+    </div>
 
   </div>
-  <!-- /.col-lg-4 -->
-</div><!-- /.row -->
 </div><!-- /.container -->
