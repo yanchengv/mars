@@ -16,7 +16,8 @@ class BooksController < ApplicationController
       @book_detail_content = @book_detail.content
     else
       @book_detail_content = '### 欢迎来到扒拉图书社!
-### 每天一本编程书，每天进步一点点!'
+### 每天一本编程书，每天进步一点点!
+'
     end
 
   end

@@ -43,7 +43,8 @@ gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 # gem 'rails_kindeditor'
 
 # render markdown
-gem  'redcarpet'
+gem  'redcarpet' #markdown转换html
+gem 'coderay' #使markdown代码高亮
 # gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
 
 
