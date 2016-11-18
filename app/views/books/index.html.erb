@@ -1,18 +1,92 @@
 <div class="container marketing">
-  <div class="row">
-    <% @books.each do |book| %>
-        <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2><%= book.name%></h2>
-          <p><%= book.content%></p>
-          <%if book.book_type == 'b0001'%>
-              <p><a class="btn btn-secondary" href="/movies/get_movies?type=IT技术" target="_blank" role="button">查看详情 &raquo;</a></p>
-          <%else%>
-              <p><a class="btn btn-secondary" href="/books/<%= book.id%>" target="_blank" role="button">查看详情 &raquo;</a></p>
-          <%end%>
+  <div class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 main">
+    <div class="row placeholders">
+      <div class="it_books">
 
+        <div class="box">
+          <div class="he_border1">
+            <img class="he_border1_img" src="http://www.balawo.com/uploads/images/12/pro_1.jpg" alt="Image 01">
+            <div class="he_border1_caption">
+              <h3 class="he_border1_caption_h">IT免费视频资源教程</h3>
+              <p class="he_border1_caption_p">后端开发应用教程(java+pbp+nodejs)+WEB前端应用教程(js+jquery+html5+css3)+Android开发</p>
+              <a class="he_border1_caption_a" href="/movies/get_movies?type=IT技术"></a>
+            </div>
+          </div>
         </div>
-    <% end %>
+
+        <div class="box">
+          <div class="he_3DFlipX">
+            <div class="he_3DFlipX_inner">
+              <div class="he_3DFlipX_img">
+                <img src="http://www.balawo.com/uploads/images/14/pro_3.jpg" alt="img01">
+              </div>
+              <div class="he_3DFlipX_caption">
+                <h3>Ruby on Rails 教程</h3>
+
+                <p>通过Rails5学习Web开发</p>
+              </div>
+              <a href="#"></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="he_ZoomInImg">
+            <img class="he_ZoomInImg_img" src="http://www.balawo.com/uploads/images/13/pro_2.jpg" alt="Image01">
+
+            <div class="he_ZoomInImg_caption">
+              <h3 class="he_ZoomInImg_caption_h">Docker教程</h3>
+
+              <p class="he_ZoomInImg_caption_p">本文主要涉及Docker的基础知识,以及如何安装使用Docker</p>
+              <a class="he_ZoomInImg_caption_a" href="#"></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="he_slideCaptionDown">
+            <img class="he_slideCaptionDown_img" src="http://www.balawo.com/uploads/images/12/pro_1.jpg" alt="Image01">
+
+            <div class="he_slideCaptionDown_caption">
+              <h3 class="he_slideCaptionDown_caption_h">Redis教程</h3>
+
+              <p class="he_slideCaptionDown_caption_p">本文主要涉及Redis的基础知识,以及如何安装使用Redis</p>
+              <a class="he_slideCaptionDown_caption_a" href="#"></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="clear"></div>
+
+      </div>
+
+
+    </div>
+
   </div>
-</div><!-- /.row -->
 </div><!-- /.container -->
+
+
+<style>
+    .it_books {
+        width: 360px;
+        margin: 60px auto 10px auto
+    }
+
+    @media only screen and (min-width: 420px) {
+        .it_books {
+            width: 800px;
+            margin: 60px auto 10px auto
+        }
+    }
+
+    .box {
+        float: left;
+        width: 380px;
+        height: 260px
+    }
+
+    .clear {
+        clear: both
+    }
+</style>
