@@ -10,7 +10,7 @@ class ImagesController < ApplicationController
   def index
     current_page = params[:page].present? ? params[:page] : 1
     per_page = 30
-    @images = Image.paginate(:page => current_page, :per_page => per_page)
+    @images = Image.order('Created_at desc').paginate(:page => current_page, :per_page => per_page)
   end
   def create
     # 上传本地图片

@@ -43,11 +43,6 @@ class AdminMenusController < ApplicationController
     render json: parent_menus_arr
   end
 
-  def grid_list
-    @menus = Menu.all()
-    render json: @menus
-  end
-
 
   private
 

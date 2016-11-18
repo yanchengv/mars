@@ -76,7 +76,6 @@ Rails.application.routes.draw do
       post 'list'
       post 'update'
       post 'delete_menu'
-      get 'grid_list'
     end
   end
   resources 'admin_news' do

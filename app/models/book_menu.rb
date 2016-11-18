@@ -36,6 +36,7 @@ class BookMenu < ApplicationRecord
       sub_atrr = {
           id: parent_menu.id,
           name: parent_menu.name,
+          book_id: parent_menu.book_id,
           url: parent_menu.url
       }
       return sub_atrr
@@ -51,6 +52,7 @@ class BookMenu < ApplicationRecord
     parent_atrr = {
         id: parent_menu.id,
         name: parent_menu.name,
+        book_id: parent_menu.book_id,
         children: children
 
     }
