@@ -3,6 +3,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.where(is_disabled: false)
+    @layout_title = 'IT技术视频-技术文档-技术书籍'
   end
 
   def show
@@ -19,6 +20,7 @@ class BooksController < ApplicationController
 ### 每天一本编程书，每天进步一点点!
 '
     end
+    @layout_title = @book.name
 
   end
 

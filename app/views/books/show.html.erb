@@ -1,11 +1,17 @@
 <%= render partial: 'book_menus/list' %>
-<%= markdown(@book_detail_content) %>
+  <div class="col-sm-12 col-sm-offset-4 col-md-12 col-md-offset-4">
+    <%= markdown(@book_detail_content) %>
+  </div>
+
 
 <style>
     p {
         color: #999999;
-        font-size: 16px;
+        font-size: 14px;
         bold: 100
     }
+    footer{
+        padding-left: 25%;
+        }
 </style>
 
