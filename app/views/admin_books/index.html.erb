@@ -1,9 +1,19 @@
+<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" onclick="addBook()" >
+  添加书籍
+</button>
 <div class="container marketing">
   <div class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 main">
     <div class="row placeholders">
       <div class="it_books">
         <% @books.each do |book| %>
-            <div class="box">
+            <div class="box" style="margin-bottom: 20px">
+              <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" onclick="updateBook(<%= book.to_json%>)">
+                修改
+              </button>
+              <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" onclick="deleteBook(<%= book.to_json%>)">
+                删除
+              </button>
+
               <div class="he_border1">
                 <img class="he_border1_img" src="<%= book.logo%>" alt="<%= book.name%>">
                 <div class="he_border1_caption">
@@ -22,3 +32,5 @@
 
   </div>
 </div><!-- /.container -->
+
+<%= render partial: 'admin_books/book_modal'%>

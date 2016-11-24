@@ -6,7 +6,7 @@
         <h4 class="modal-title" id="myModalLabel">添加菜单</h4>
       </div>
 
-      <form action="/admin_books" method="post">
+      <form action="/admin_books/create_menu" method="post">
         <div class="modal-body">
           <input class="form-control" type="hidden" name="parent_id" id="add_book_menu_parent_id">
           <input class="form-control" type="hidden" name="book_id" id="add_book_menu_book_id">
@@ -41,7 +41,7 @@
         <h4 class="modal-title" id="myModalLabel">修改菜单</h4>
       </div>
 
-      <form action="/admin_books/update" method="post">
+      <form action="/admin_books/update_menu" method="post">
         <div class="modal-body">
           <!--<input class="form-control" type="hidden" name="parent_id" id="update_book_menu_id">-->
           <input class="form-control" type="hidden" name="id" id="update_book_menu_id">
@@ -77,7 +77,7 @@
         <h4 class="modal-title" id="myModalLabel">确定删除？</h4>
       </div>
 
-      <form action="/admin_books/delete" method="post">
+      <form action="/admin_books/delete_menu" method="post">
         <div class="modal-body">
           <input class="form-control" type="hidden" name="id" id="delete_book_menu_id">
           <h3>删除标题菜单：<span id="book_menu_name_span"></span></h3>

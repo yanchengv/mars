@@ -4,7 +4,7 @@ class AdminBooksController < ApplicationController
   before_action :is_admin?
 
   def index
-      @books = Book.all
+    @books = Book.all
   end
 
   def show
@@ -22,23 +22,39 @@ class AdminBooksController < ApplicationController
   end
 
   def create
-    BookMenu.create(book_menu_params)
+    Book.create(book_params)
     redirect_to :back
   end
 
   def update
+    @book = Book.find(params[:id])
+    @book.update_attributes(book_params)
+    redirect_to :back
+  end
+
+  def delete
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to :back
+  end
+
+  def create_menu
+    BookMenu.create(book_menu_params)
+    redirect_to :back
+  end
+
+  def update_menu
     @book_menu = BookMenu.find(params[:id])
     @book_menu.update_attributes(book_menu_params)
     redirect_to :back
   end
 
 
-  def delete
+  def delete_menu
     @book_menu = BookMenu.find(params[:id])
     @book_menu.destroy
     redirect_to :back
   end
-
 
 
   def create_book_detail
@@ -53,13 +69,18 @@ class AdminBooksController < ApplicationController
     redirect_to :back
   end
 
+
   private
 
+  def book_params
+    params.permit(:name, :book_type, :content, :logo, :is_disabled)
+  end
+
   def book_menu_params
-    params.permit(:name, :url,:book_id, :parent_id, :code, :book_type, :is_disabled, :description)
+    params.permit(:name, :url, :book_id, :parent_id, :code, :book_type, :is_disabled, :description)
   end
 
   def book_detail_params
-    params.permit(:name,:book_id,:book_type, :book_menu_id, :content, :is_disabled)
+    params.permit(:name, :book_id, :book_type, :book_menu_id, :content, :is_disabled)
   end
 end

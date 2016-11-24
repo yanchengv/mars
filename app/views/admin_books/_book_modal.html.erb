@@ -1,0 +1,107 @@
+<!--添加书籍modal-->
+<div class="modal fade" id="add_book_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">添加书籍</h4>
+      </div>
+
+      <form action="/admin_books" method="post">
+        <div class="modal-body">
+          <label>书籍名称</label>
+          <input class="form-control" type="text" name="name" id="add_book_name">
+          <label>类型</label>
+          <input class="form-control" type="text" name="book_type" id="add_book_type" placeholder="b0001">
+          <label>书籍logo</label>
+          <input class="form-control" type="text" name="logo" id="add_book_logo">
+
+          <label>是否禁用</label>
+          <div class="form-group row" style="padding-left: 20px">
+            <label class="radio-inline">
+              <input type="radio" name="is_disabled" id="add_book_is_disabled"   value= 0 >公布
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="is_disabled" id="add_book_is_disabled" checked value= 1 >禁止
+            </label>
+          </div>
+
+          <label>书籍描述</label>
+          <textarea class="form-control" rows=5 name="content" id="add_book_menu_description"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary">确定</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<!--修改书籍modal-->
+<div class="modal fade" id="update_book_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">修改书籍</h4>
+      </div>
+
+      <form action="/admin_books/update" method="post">
+        <div class="modal-body">
+          <input class="form-control" type="hidden" name="id" id="update_book_id">
+          <label>书籍名称</label>
+          <input class="form-control" type="text" name="name" id="update_book_name">
+          <label>类型</label>
+          <input class="form-control" type="text" name="book_type" id="update_book_type" placeholder="b0001">
+          <label>书籍logo</label>
+          <input class="form-control" type="text" name="logo" id="update_book_logo">
+
+          <label>是否禁用</label>
+          <div class="form-group row" style="padding-left: 20px">
+            <label class="radio-inline">
+              <input type="radio" name="is_disabled" id="update_book_is_disabled_false"   value= 0 >公布
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="is_disabled" id="update_book_is_disabled_true"  value= 1 >禁止
+            </label>
+          </div>
+
+
+
+          <label>书籍描述</label>
+          <textarea class="form-control" rows=5 name="content" id="update_book_content"></textarea>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary">确定</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+<!--删除书籍modal-->
+<div class="modal fade" id="delete_book_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">确定删除？</h4>
+      </div>
+
+      <form action="/admin_books/delete" method="post">
+        <div class="modal-body">
+          <input class="form-control" type="hidden" name="id" id="delete_book_id">
+          <h3>删除标题菜单：<span id="book_name_span"></span></h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary">确定</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

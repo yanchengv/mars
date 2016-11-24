@@ -39,6 +39,9 @@ Rails.application.routes.draw do
     collection do
       post 'update'
       post 'delete'
+      post 'update_menu'
+      post 'delete_menu'
+      post 'create_menu'
       post 'create_book_detail'
     end
   end
