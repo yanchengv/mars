@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="//cdn.jsdelivr.net/editor/0.1.0/editor.css">
+<script src="//cdn.jsdelivr.net/editor/0.1.0/editor.js"></script>
+<script src="//cdn.jsdelivr.net/editor/0.1.0/marked.js"></script>
 <%= render partial: 'admin_books/book_menu_list' %>
 
 <div class="panel panel-default">
@@ -25,7 +28,7 @@
         <div class="form-group row">
           <label for="example-text-input" class="col-xs-1 col-form-label">内容</label>
           <div class="col-xs-10">
-            <textarea class="form-control" rows="50" name="content" id="book_detail_content" placeholder="内容"><%= @book_detail_content%></textarea>
+            <textarea class="form-control" rows="100" name="content" id="book_detail_content" placeholder="内容"><%= @book_detail_content%></textarea>
           </div>
         </div>
 
@@ -34,4 +37,10 @@
     </form>
   </div>
 </div>
+
+
+<script>
+    var editor = new Editor();
+    editor.render();
+</script>
 
