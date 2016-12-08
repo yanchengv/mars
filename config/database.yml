@@ -15,15 +15,7 @@ development:
   host: localhost
   password: 123
   database: mars_development
-#development:
-#   host: www.balawo.com
-#   adapter: mysql2
-#   encoding: utf8
-#   database: mars
-#   pool: 5
-#   username: root
-#   password: yan123
-#   socket: /var/run/mysqld/mysqld.sock
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
