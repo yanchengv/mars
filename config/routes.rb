@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   resources 'news'
   resources 'blogs'
+  resources 'books'
 
   resources 'images' do
     collection do
@@ -32,6 +33,17 @@ Rails.application.routes.draw do
       get 'ueditor_upload'
     end
 
+  end
+
+  resources 'admin_books' do
+    collection do
+      post 'update'
+      post 'delete'
+      post 'update_menu'
+      post 'delete_menu'
+      post 'create_menu'
+      post 'create_book_detail'
+    end
   end
 
   resources 'admin_movies' do
@@ -67,7 +79,6 @@ Rails.application.routes.draw do
       post 'list'
       post 'update'
       post 'delete_menu'
-      get 'grid_list'
     end
   end
   resources 'admin_news' do

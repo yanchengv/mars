@@ -1,0 +1,21 @@
+.it_books {
+  width: 360px;
+  margin: 60px auto 10px auto
+}
+
+@media only screen and (min-width: 420px) {
+  .it_books {
+    width: 800px;
+    margin: 60px auto 10px auto
+  }
+}
+
+.box {
+  float: left;
+  width: 380px;
+  height: 260px
+}
+
+.clear {
+  clear: both
+}

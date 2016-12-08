@@ -1,0 +1,34 @@
+<div class="col-sm-3 col-md-3 sidebar">
+  <ul class="nav nav-sidebar">
+    <ul class="book-nav-menus">
+      <% @book_menus.each do |menu| %>
+          <li>
+            <a href="/books/<%= menu[:book_id] %>?menu_id=<%= menu[:id]%>"><%= menu[:name] %></a>
+            <% if menu[:children].present? %>
+                <ul>
+                  <% menu[:children].each do |sub_menu| %>
+                      <li>
+                        <a href="/books/<%= sub_menu[:book_id] %>?menu_id=<%= sub_menu[:id]%>"><%= sub_menu[:name] %></a>
+                        <% if sub_menu[:children].present? %>
+
+                            <ul>
+                              <% sub_menu[:children].each do |sub2_menu| %>
+                                  <li>
+                                    <a href="/books/<%= sub2_menu[:book_id] %>?menu_id=<%= sub2_menu[:id]%>"><%= sub2_menu[:name] %></a>
+                                  </li>
+                              <% end %>
+                            </ul>
+                        <% end %>
+                      </li>
+                  <% end %>
+                </ul>
+
+            <% end %>
+          </li>
+      <% end %>
+
+    </ul>
+
+  </ul>
+
+</div>
