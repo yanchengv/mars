@@ -1,3 +1,4 @@
+#encoding: utf-8
 class AdminMoviesController < ApplicationController
   layout "admin_layout"
   before_action :is_log?
@@ -8,11 +9,21 @@ class AdminMoviesController < ApplicationController
 
   end
   def create
-    @movie = Movie.create(movie_params)
-    movie_tag = params[:movie_tags].join(',')
-    @movie.update_attributes({movie_tag: movie_tag})
-    redirect_to '/admin_movies/'+@movie.id.to_s
+    require 'open-uri'
+    #根据远程图片的url,把图片上传到本地服务器
+    ActiveRecord::Base.transaction do
+      # remote_image_url = params[:image_url]
+      # tempfile = open(remote_image_url)
+      #
+      # image = Image.new ({name: params[:name]})
+      # image.url = tempfile
+      # image.save!
+      @movie = Movie.create(movie_params)
+      movie_tag = params[:movie_tags].join(',')
+      @movie.update_attributes({movie_tag: movie_tag})
+    end
 
+    redirect_to '/admin_movies/'+@movie.id.to_s
   end
 
 

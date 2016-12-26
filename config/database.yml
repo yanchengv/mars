@@ -14,7 +14,7 @@ development:
   <<: *default
   host: localhost
   password: 123
-  database: mars_development
+  database: mars
 
 
 # Warning: The database defined as "test" will be erased and
