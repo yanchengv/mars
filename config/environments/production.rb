@@ -51,7 +51,7 @@ Rails.application.configure do
   }
 =end
 
-  config.force_ssl = true
+ config.force_ssl = false
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
